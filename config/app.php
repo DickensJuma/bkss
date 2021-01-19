@@ -176,6 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         //My dependencies
+        //image
+        Intervention\Image\ImageServiceProvider::class,
+        //pdf
         Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
@@ -231,6 +234,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         //My alliases
+        //image
+        'Image' => Intervention\Image\Facades\Image::class,
+        //pdf
         'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
