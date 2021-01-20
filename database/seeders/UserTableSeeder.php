@@ -6,7 +6,9 @@ use App\Models\User;
 use App\Models\Role;
 use Carbon\Carbon;
 
-class UserSeeder extends Seeder
+use Illuminate\Database\Seeder;
+
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

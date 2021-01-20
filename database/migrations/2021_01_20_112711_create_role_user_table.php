@@ -15,11 +15,10 @@ class CreateRoleUserTable extends Migration
     {
         Schema::create('role_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('role_id')->unsigned();
-            $table->unsignedInteger('user_id')->unsigned();
+            $table->unsignedInteger('role_id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->timestamps();
         });
     }
 
