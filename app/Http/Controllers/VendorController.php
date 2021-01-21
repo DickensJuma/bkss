@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class VendorController extends Controller
 {
-    //
+    public function index(Request $request){
+        $request->user()->checkRoles('vendor');
+        return view('vendor/dashboard');
+    }
 }
