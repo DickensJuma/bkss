@@ -1,30 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in (v2)</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('front/plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{asset('front/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('front/dist/css/adminlte.min.css')}}">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Rentkit a design system for real estate, office space and realtor.">
+    <title>Homepage - Rentkit a design system for real estate, office space and realtor.</title>
+     <link rel="shortcut icon" href="{{asset('front/assets/images/favicon.ico')}}" type="image/x-icon"> 
+    <!-- Bootstrap CSS -->    
+     <!-- Theme CSS -->
+     <link rel="stylesheet" href="{{asset('front/assets/css/theme.min.css')}}">
 </head>
-<body class="hold-transition login-page">
+<body>
+<div class="main-wrapper">
 @include('layouts.front.header')
 <!--page content section-->
 @yield('content')
 <!--footer section-->
 @include('layouts.front.footer')
-<!-- jQuery -->
-<script src="{{asset('front/plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('front/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('front/dist/js/adminlte.min.js')}}"></script>
-</body>
-</html>
+</div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Libs JS -->
+        <script src="{{asset('front/assets/libs/jquery/dist/jquery.min.js')}}"></script>
+        <script src="{{asset('front/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('front/assets/libs/select2/dist/js/select2.full.min.js')}}"></script>
+        <script src="{{asset('front/assets/libs/select2/dist/js/select2.min.js')}}"></script>         
+        <script src="{{asset('front/assets/libs/moment/min/moment.min.js')}}"></script>    
+        <script src="{{asset('front/assets/libs/lightpick/lightpick.js')}}"></script> 
+        <!-- Theme JS -->
+        <script src="{{asset('front/assets/js/theme.min.js')}}"></script>

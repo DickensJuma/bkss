@@ -16,11 +16,11 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
-@include('layouts.front.header')
+@include('layouts.common.header')
 @include('layouts.admin.sidebar')
 <!--page content section-->
 @yield('content')
-@include('layouts.front.footer')
+@include('layouts.common.footer')
 </div>
 <!-- ./wrapper -->
 
