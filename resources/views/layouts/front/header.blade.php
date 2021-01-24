@@ -16,23 +16,7 @@
                                     <li class="nav-item ">
                                         <a class="nav-link" href="index.html">
                                             Homepage
-                                        </a>
-                                        
-                                    </li>
-                                   
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="menu-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Blog </a>
-                                        <ul class="dropdown-menu" aria-labelledby="menu-4">
-                                            <li class="dropdown-item">
-                                                <a class="dropdown-link" href="blog/blog-thumbnail.html">
-                                                    Blog Thumbnail</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a class="dropdown-link" href="blog/blog-single.html">
-                                                    Blog Single</a>
-                                            </li>
-                                        </ul>
+                                        </a>                                        
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="menu-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,8 +42,7 @@
                                             @endauth
                                             @endif
                                         </ul>
-                                    </li>
-                                 
+                                    </li>                                 
                                 </ul>
                                 <div class="header-btn">
                                     <a href="pages/add-listing.html" class="btn btn-primary">List Your Space</a>

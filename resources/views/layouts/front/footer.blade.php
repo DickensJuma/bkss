@@ -5,7 +5,7 @@
                     <div class="col-xl-2 col-lg-2 col-md-3 col-sm-12 col-12">
                         <!-- footer widget  -->
                         <div class="footer-widget">
-                            <h3 class="footer-widget-title">Explore Rentkit</h3>
+                            <h3 class="footer-widget-title">Explore Book sasa</h3>
                             <div class="footer-links">
                                 <ul class="list-group list-unstyled">
                                     <li class="list-group-item"><a href="#" class="list-group-link">List your property</a></li>
@@ -23,7 +23,6 @@
                             <div class="footer-links">
                                 <ul class="list-group list-unstyled">
                                     <li class="list-group-item"><a href="#" class="list-group-link">How it works</a></li>
-                                    <li class="list-group-item"><a href="#" class="list-group-link">Pricing</a></li>
                                     <li class="list-group-item"><a href="#" class="list-group-link">Join as Owner</a></li>
                                     <li class="list-group-item"><a href="#" class="list-group-link">Help centre</a> </li>
                                     <li class="list-group-item"><a href="#" class="list-group-link">Mobile App</a> </li>
@@ -41,8 +40,7 @@
                                     <li class="list-group-item"><a href="#" class="list-group-link">Clients</a></li>
                                     <li class="list-group-item"><a href="#" class="list-group-link">Team</a> </li>
                                     <li class="list-group-item"><a href="#" class="list-group-link">Help Center</a></li>
-                                    <li class="list-group-item"><a href="#" class="list-group-link">Press</a></li>
-                                </ul>
+                                    </ul>
                             </div>
                         </div>
                     </div>
@@ -65,7 +63,7 @@
                     <!-- footer widget  -->
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                         <div class="footer-widget">
-                            <h3 class="footer-widget-title">Rentkit deals in your inbox ?</h3>
+                            <h3 class="footer-widget-title">Book sasa deals in your inbox ?</h3>
                             <p>Get special offers, travel inspiration, and more from </p>
                             <form>
                                 <div class="input-group mb-3">
