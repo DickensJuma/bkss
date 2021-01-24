@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.front.auth.design')
 
 @section('content')
 <div class="container">
