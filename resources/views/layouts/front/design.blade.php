@@ -4,8 +4,8 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Rentkit a design system for real estate, office space and realtor.">
-        <title>Homepage - Rentkit a design system for real estate, office space and realtor.</title>
+        <meta name="description" content="Booking, space, office.">
+        <title>Book sasa | Home.</title>
         <link rel="shortcut icon" href="{{asset('front/assets/images/favicon.ico')}}" type="image/x-icon"> 
         <!-- Bootstrap CSS -->    
         <!-- Theme CSS -->

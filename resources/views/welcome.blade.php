@@ -7,7 +7,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="booking-form">
-						<form action="{{ route('search') }}" method="POST">
+                        <form action="{{ route('search') }}" method="POST">
+                            @csrf
 							<div class="row no-margin">
 								<div class="col-md-3">
 									<div class="form-header">
@@ -74,8 +75,8 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
                         <div class="mb-5">
-                            <h2 class="h3">Featured Rental Cities </h2>
-                            <p>Discover thousands of homes for rent in 50+ countries.</p>
+                            <h2 class="h3">Featured Destinations </h2>
+                            <p>Discover thousands of destinations.</p>
                         </div>
                     </div>
                 </div>
