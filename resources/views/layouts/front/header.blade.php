@@ -15,7 +15,22 @@
                                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-3">
                                     <li class="nav-item ">
                                         <a class="nav-link" href="index.html">
-                                            Homepage
+                                            Stays
+                                        </a>                                        
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="index.html">
+                                            Travel
+                                        </a>                                        
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="index.html">
+                                            Rentals
+                                        </a>                                        
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="index.html">
+                                            Stays
                                         </a>                                        
                                     </li>
                                     <li class="nav-item dropdown">
@@ -45,7 +60,7 @@
                                     </li>                                 
                                 </ul>
                                 <div class="header-btn">
-                                    <a href="pages/add-listing.html" class="btn btn-primary">List Your Space</a>
+                                    <a href="pages/add-listing.html" class="btn btn-primary">List Your Property</a>
                                 </div>
                             </div>
                         </nav>

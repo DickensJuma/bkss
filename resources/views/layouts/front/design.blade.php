@@ -10,6 +10,7 @@
         <!-- Bootstrap CSS -->    
         <!-- Theme CSS -->
         <link rel="stylesheet" href="{{asset('front/assets/css/theme.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/assets/css/style.css')}}">
     </head>
     <body>
         <div class="main-wrapper">

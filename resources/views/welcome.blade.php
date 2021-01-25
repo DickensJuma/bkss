@@ -1,89 +1,73 @@
 @extends('layouts.front.design')
 
 @section('content')
-<div class="bg-img-hero" style="background: url(front/assets/images/hero-slide-img-1.jpg) no-repeat;">
-            <div class="container">
-                <!-- hero section start  -->
-                <!-- hero serach area start  -->
-                <div class="row">
-                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
-                        <div class="pt-lg-11 pb-lg-11 pt-7 pb-7 pt-md-4 pb-md-4">
-                            <div class="card card-body">
-                                <h1 class="h2 mb-4">Find the great rentals to stay and things to do.</h1>
-                                <select class="select2 form-control custom-select">
-                                    <option>Where</option>
-                                    <option value="AK">Alaska</option>
-                                    <option value="HI">Hawaii</option>
-                                    <option value="CA">California</option>
-                                    <option value="NV">Nevada</option>
-                                    <option value="OR">Oregon</option>
-                                    <option value="WA">Washington</option>
-                                    <option value="AZ">Arizona</option>
-                                    <option value="CO">Colorado</option>
-                                    <option value="ID">Idaho</option>
-                                    <option value="MT">Montana</option>
-                                    <option value="NE">Nebraska</option>
-                                    <option value="NM">New Mexico</option>
-                                    <option value="ND">North Dakota</option>
-                                    <option value="UT">Utah</option>
-                                    <option value="WY">Wyoming</option>
-                                    <option value="AL">Alabama</option>
-                                    <option value="AR">Arkansas</option>
-                                    <option value="IL">Illinois</option>
-                                    <option value="IN">India</option>
-                                    <option value="IA">Iowa</option>
-                                    <option value="KS">Kansas</option>
-                                    <option value="KY">Kentucky</option>
-                                    <option value="LA">Louisiana</option>
-                                    <option value="MN">Minnesota</option>
-                                    <option value="MS">Mississippi</option>
-                                    <option value="MO">Missouri</option>
-                                    <option value="OK">Oklahoma</option>
-                                    <option value="SD">South Dakota</option>
-                                    <option value="TX">Texas</option>
-                                    <option value="TN">Tennessee</option>
-                                    <option value="WI">Wisconsin</option>
-                                    <option value="CT">Connecticut</option>
-                                    <option value="DE">Delaware</option>
-                                    <option value="FL">Florida</option>
-                                    <option value="GA">Georgia</option>
-                                    <option value="IN">Indiana</option>
-                                    <option value="ME">Maine</option>
-                                    <option value="MD">Maryland</option>
-                                    <option value="MA">Massachusetts</option>
-                                    <option value="MI">Michigan</option>
-                                    <option value="NH">New Hampshire</option>
-                                    <option value="NJ">New Jersey</option>
-                                    <option value="NY">New York</option>
-                                    <option value="NC">North Carolina</option>
-                                    <option value="OH">Ohio</option>
-                                    <option value="PA">Pennsylvania</option>
-                                    <option value="RI">Rhode Island</option>
-                                    <option value="SC">South Carolina</option>
-                                    <option value="VT">Vermont</option>
-                                    <option value="VA">Virginia</option>
-                                    <option value="WV">West Virginia</option>
-                                </select>
-                                <div class="form-group mt-3">
-                                    <input type="text" id="demo-4" class="form-control " placeholder="Check in / Check out">
-                                </div>
-                                <select class="select2 form-control custom-select">
-                                    <option>Guest</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                                <div class="text-right mt-3">
-                                    <a href="pages/listing-category.html" class="btn btn-primary">Search</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- hero serach area close  -->
-            </div>
+<div class="bg-img-hero" style="background: url(front/assets/images/hero-slide-img-1.jpg) no-repeat;background-size: cover;">
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="booking-form">
+						<form action="{{ route('search') }}" method="POST">
+							<div class="row no-margin">
+								<div class="col-md-3">
+									<div class="form-header">
+										<div class="form-group">
+                                            <span class="form-label">Destination</span>
+                                            <input class="form-control" type="text" placeholder="Where To ?">
+                                        </div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="row no-margin">
+										<div class="col-md-4">
+											<div class="form-group">
+												<span class="form-label">Check In</span>
+												<input class="form-control" type="date">
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group">
+												<span class="form-label">Check out</span>
+												<input class="form-control" type="date">
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="form-group">
+												<span class="form-label">Guests</span>
+												<select class="form-control">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+												</select>
+												<span class="select-arrow"></span>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="form-group">
+												<span class="form-label">Kids</span>
+												<select class="form-control">
+													<option>0</option>
+													<option>1</option>
+													<option>2</option>
+												</select>
+												<span class="select-arrow"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-btn">
+										<button class="submit-btn">Search</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
         </div>
         <div class="pt-lg-11 pb-lg-11 pt-7 pb-7 bg-light">
             <div class="container">
