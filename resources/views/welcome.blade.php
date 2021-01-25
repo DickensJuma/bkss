@@ -14,7 +14,7 @@
 									<div class="form-header">
 										<div class="form-group">
                                             <span class="form-label">Destination</span>
-                                            <input class="form-control" type="text" placeholder="Where To ?">
+                                            <input class="form-control" type="text" name="destination" placeholder="Where To ?">
                                         </div>
 									</div>
 								</div>
@@ -23,19 +23,19 @@
 										<div class="col-md-4">
 											<div class="form-group">
 												<span class="form-label">Check In</span>
-												<input class="form-control" type="date">
+												<input class="form-control" name="in" type="date">
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group">
 												<span class="form-label">Check out</span>
-												<input class="form-control" type="date">
+												<input class="form-control" name="out" type="date">
 											</div>
 										</div>
 										<div class="col-md-2">
 											<div class="form-group">
 												<span class="form-label">Guests</span>
-												<select class="form-control">
+												<select class="form-control" name="adult">
 													<option>1</option>
 													<option>2</option>
 													<option>3</option>
@@ -46,7 +46,7 @@
 										<div class="col-md-2">
 											<div class="form-group">
 												<span class="form-label">Kids</span>
-												<select class="form-control">
+												<select class="form-control" name="kids">
 													<option>0</option>
 													<option>1</option>
 													<option>2</option>
