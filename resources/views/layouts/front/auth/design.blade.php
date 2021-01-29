@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="{{asset('back/dist/css/adminlte.min.css')}}">
 </head>
 <body class="hold-transition login-page">
-@include('layouts.front.header')
 <!--page content section-->
 @yield('content')
 <!-- jQuery -->
