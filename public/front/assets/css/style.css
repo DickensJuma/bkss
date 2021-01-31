@@ -127,3 +127,12 @@
 	background-image: linear-gradient(#FF5E57, #FFBD4A);
 	color: #000E32;
 }
+.contrainer .owl-item img {
+    display: block;
+    width: 100%;
+}
+.contrainer .item{
+	position: relative;
+    min-height: 1px;
+    float: left;
+}

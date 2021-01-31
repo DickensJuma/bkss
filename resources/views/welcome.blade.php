@@ -68,7 +68,6 @@
 			</div>
 		</div>
 	</div>
-
         </div>
         <div class="pt-lg-11 pb-lg-11 pt-7 pb-7 bg-light">
             <div class="container">

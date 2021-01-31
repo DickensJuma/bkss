@@ -16,7 +16,9 @@ class CreatePropertiesTable extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('about');
             $table->string('address');
+            $table->string('location');
             $table->tinyInteger('owner');
             $table->tinyInteger('type');
             $table->string('logo')->default('default.png');
