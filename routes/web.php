@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::match(['get', 'post'], '/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
+Route::get('/hotels/hotel/{id}', [App\Http\Controllers\PropertyController::class, 'show'])->name('property');
 
 //super admin route group
 Route::group(['prefix' => 'super'], function () {

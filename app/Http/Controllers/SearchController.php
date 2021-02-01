@@ -13,6 +13,7 @@ class SearchController extends Controller
     $data = $request->all();
     //get all hotels for the selcted destination
     $hotels = Property::where(['location' => $request->destination])->get();
+    $result_counter = Property::where(['location' => $request->destination])->count();
     $hotel_data ="";
     //check if there are hotels in the selected destination
     if($hotels->isNotEmpty()){
@@ -44,7 +45,7 @@ class SearchController extends Controller
                                 <span class='text-dark h5'>$room->normal_charge</span><span class='text-sm font-weight-semi-bold ml-1'>/night</span>
                             </div>
                             <div class=''>
-                                <span class='text-dark h5'>$room->normal_charge</span><span class='text-sm font-weight-semi-bold ml-1'>/night</span>
+                                <span class='text-dark h5'><a href='/hotels/hotel/".$hotel->id."' class= 'btn btn-primary'>See Availability</a></span>
                             </div>
                             <div class=''>
                                 <span class='mdi mdi-star mr-1 text-warning text-sm'></span>
@@ -66,6 +67,6 @@ class SearchController extends Controller
     }else{
         $hotel_data = "<p class='text-danger'>No hotels are currently available in your selected location</p>";
     }
-    return view('search')->with(compact('hotel_data','rooms'));
+    return view('search')->with(compact('hotel_data','rooms'))->with('flash_message_success', 'Hotels found');
    }
 }

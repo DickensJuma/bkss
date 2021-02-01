@@ -30,7 +30,7 @@
                                     </li>
                                     <li class="nav-item ">
                                         <a class="nav-link" href="index.html">
-                                            Stays
+                                            Office Space
                                         </a>                                        
                                     </li>
                                     <li class="nav-item dropdown">
