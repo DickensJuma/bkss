@@ -6,16 +6,15 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                @if(Session::has('flash_message_error'))
+                @if($result_counter > 0)
                 <div class="alert alert-danger alert-block" id="autoClose" >
                     <button type="button" class="close" data-dismiss="alert">×</button>	
-                    <em class="text-warning">{!!session('flash_message_error')!!}</em>
+                    <em class="text-warning">{{ $result_counter }} Hotels found</em>
                 </div>
-                @endif
-                @if(Session::has('flash_message_success'))
+                @else
                 <div class="alert alert-success alert-block" id="autoClose" >
                     <button type="button" class="close" data-dismiss="alert">×</button>	
-                    <em class="text-primary">{!!session('flash_message_success')!!}</em>
+                    <em class="text-primary">No results found</em>
                 </div>
                 @endif
             </div>

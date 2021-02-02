@@ -22,6 +22,14 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::match(['get', 'post'], '/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
 Route::get('/hotels/hotel/{id}', [App\Http\Controllers\PropertyController::class, 'show'])->name('property');
+//property routre group
+Route::group(['prefix' => 'property'], function () {
+Route::get('/add', [App\Http\Controllers\PropertyController::class, 'create'])->name('property.add');
+Route::get('/view', [App\Http\Controllers\PropertyController::class, 'view'])->name('property.view');
+Route::get('/edit', [App\Http\Controllers\PropertyController::class, 'edit'])->name('property.edit');
+Route::get('/delete', [App\Http\Controllers\PropertyController::class, 'delete'])->name('property.delete');
+
+});
 
 //super admin route group
 Route::group(['prefix' => 'super'], function () {

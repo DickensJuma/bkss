@@ -60,7 +60,7 @@
                                     </li>                                 
                                 </ul>
                                 <div class="header-btn">
-                                    <a href="pages/add-listing.html" class="btn btn-primary">List Your Property</a>
+                                    <a href="{{ route('property.add') }}" class="btn btn-primary">List Your Property</a>
                                 </div>
                             </div>
                         </nav>
