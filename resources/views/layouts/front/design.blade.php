@@ -7,6 +7,8 @@
         <meta name="description" content="Booking, space, office.">
         <title>Book sasa | Home.</title>
         <link rel="shortcut icon" href="{{asset('front/assets/images/favicon.ico')}}" type="image/x-icon"> 
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="{{asset('back/plugins/fontawesome-free/css/all.min.css')}}">
         <!-- Bootstrap CSS -->    
         <!-- Theme CSS -->
         <link rel="stylesheet" href="{{asset('front/assets/css/theme.min.css')}}">

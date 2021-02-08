@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
@@ -40,6 +40,8 @@ Route::group(['prefix' => 'super'], function () {
 //Admin route group
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [App\Http\Controllers\AdminController::class,'index'])->name('adminhome');
+    Route::get('/join', [App\Http\Controllers\AdminController::class,'join'])->name('admin.join');
+    Route::post('/join', [App\Http\Controllers\Auth\JoinController::class,'register'])->name('admin.store');
 
 });
 

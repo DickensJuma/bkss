@@ -11,4 +11,7 @@ class AdminController extends Controller
 
         return view('admin/dashboard');
     }
+    public function join(){
+        return view('admin.join');
+    }
 }

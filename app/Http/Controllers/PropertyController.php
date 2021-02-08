@@ -30,7 +30,7 @@ class PropertyController extends Controller
         if(Auth::user()){
             return view('property.new');
         }else{
-            return redirect('login');
+            return redirect('admin/join');
         }
     }
 

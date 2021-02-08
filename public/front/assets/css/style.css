@@ -136,3 +136,8 @@
     min-height: 1px;
     float: left;
 }
+.icon-rounded{
+	width: 6rem;
+	height: 4rem;
+	padding: 0;
+}
