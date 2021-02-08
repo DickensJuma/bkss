@@ -2,66 +2,42 @@
 
 @section('content')
     <div class="container">
-        <h3 class="text-center">List your property on Book sasa and start welcoming guests in no time!!</h3>
-        <p>To get started select the type of property you want to list</p>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        <image class="icon-rounded float-center" src="{{ asset('front/assets/images/apartment-icon.png') }}"></image>
-                        <h4 class="text-warning text-center">Apartment</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>Furnished and self-catering accomodation</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="/property/apartment" class="btn btn-secondary">List your property</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        <image class="icon-rounded" src="{{ asset('front/assets/images/home-icon.png') }}"></image>
-                        <h4 class="text-warning text-center">Homes</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>Properties like vacation homes, villas, etc.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="/property/home" class="btn btn-secondary">List your property</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        <image class="icon-rounded" src="{{ asset('front/assets/images/hotel-icon.png') }}"></image>
-                        <h4 class="text-warning text-center">Hotel, B&Bs & More</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>Properties like hotels, B&Bs, guest houses, hostels, etc.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="/property/hotel" class="btn btn-secondary">List your property</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        <image class="icon-rounded" src="{{ asset('front/assets/images/tent-icon.png') }}"></image>
-                        <h4 class="text-warning text-center">Alternative places</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>Properties like boats, campgrounds, luxury tents, etc.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="/property/other" class="btn btn-secondary">List your property</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <h5>How many hotels are you listing?</h5>
+    <label class="input-container"><image class="icon-rounded" src="{{ asset('front/assets/images/hotel-icon.png') }}"></image>
+        One hotel with one or multiple rooms that guests can book
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+      </label>
+      <label class="input-container" id="multiple-container"><image class="icon-rounded" src="{{ asset('front/assets/images/multiple-hotels-icon.png') }}"></image>
+          Multiple hotels with one or multiple rooms that guests can book
+        <input type="radio" id="multiple" name="radio">
+        <span class="checkmark"></span>
+      </label>
+      <div class="fom-group" id="number" hidden>
+        <label for="no">Number Of properties</label>
+        <input type="number" class="form-controller" name="no" id="no">
+      </div>
 
+      <a href="" class="btn btn-sm btn-border"><</a>
+      <a href="" class="btn btn-lg btn-secondary">Continue</a>
+    </div>
+    <script>
+        $(document).ready(function(){
+    $("#multiple").on("change",function() {
+        if($("#multiple").is(":checked")) {
+            console.log("Object checked");
+            //show the number text box        
+            $("#number").show();
+            $("#number").prop("hidden",false);
+    
+        }
+        else {
+            console.log("Object unchecked");
+            // Hide the number text-box       
+            $("#number").hide();
+            $("#number").prop("hidden",true);
+        }
+    });
+    });
+        </script>
 @endsection
