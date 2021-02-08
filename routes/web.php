@@ -25,6 +25,10 @@ Route::get('/hotels/hotel/{id}', [App\Http\Controllers\PropertyController::class
 //property routre group
 Route::group(['prefix' => 'property'], function () {
 Route::get('/add', [App\Http\Controllers\PropertyController::class, 'create'])->name('property.add');
+Route::get('/apartment', [App\Http\Controllers\PropertyController::class, 'createApartment'])->name('apartment.add');
+Route::get('/home', [App\Http\Controllers\PropertyController::class, 'createHome'])->name('home.add');
+Route::get('/hotel', [App\Http\Controllers\PropertyController::class, 'createHotel'])->name('hotel.add');
+Route::get('/other', [App\Http\Controllers\PropertyController::class, 'createOther'])->name('other.add');
 Route::get('/view', [App\Http\Controllers\PropertyController::class, 'view'])->name('property.view');
 Route::get('/edit', [App\Http\Controllers\PropertyController::class, 'edit'])->name('property.edit');
 Route::get('/delete', [App\Http\Controllers\PropertyController::class, 'delete'])->name('property.delete');

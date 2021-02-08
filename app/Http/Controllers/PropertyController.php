@@ -33,6 +33,36 @@ class PropertyController extends Controller
             return redirect('admin/join');
         }
     }
+    public function createApartment(){
+        if(Auth::user()){
+            return view('property.apartment.new');
+        }else{
+            return redirect('admin/join');
+        }
+
+    }
+    public function createHome(){
+        if(Auth::user()){
+            return view('property.home.new');
+        }else{
+            return redirect('admin/join');
+        }
+    }
+    public function createHotel(){
+        if(Auth::user()){
+            return view('property.hotel.new');
+        }else{
+            return redirect('admin/join');
+        }
+        
+    }
+    public function createOther(){
+        if(Auth::user()){
+            return view('property.other.new');
+        }else{
+            return redirect('admin/join');
+        }
+    }
 
     /**
      * Store a newly created resource in storage.
