@@ -26,7 +26,7 @@
             </div>
         </div>
       <a href="" class="btn btn-sm btn-border" id="back"><</a>
-      <a href="" class="btn btn-lg btn-secondary" id="next">Continue</a>
+      <a href="{{ route('hotel.add') }}" class="btn btn-lg btn-secondary" id="next">Continue</a>
     </div>
     <script>
         //Wait for document to load

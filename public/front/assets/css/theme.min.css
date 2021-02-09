@@ -1861,11 +1861,11 @@ fieldset:disabled a.btn {
       box-shadow: 0 0 0 0.2rem rgba(59, 192, 214, 0.5); }
 
 .btn-warning {
-  color: #32303a;
+  color: #ffffff;
   background-color: #ffb244;
   border-color: #ffb244; }
   .btn-warning:hover {
-    color: #32303a;
+    color: #ffffff;
     background-color: #ffa21e;
     border-color: #ff9d11; }
   .btn-warning:focus, .btn-warning.focus {

@@ -12,7 +12,7 @@ class SearchController extends Controller
    public function search(Request $request){
     $data = $request->all();
     //get all hotels for the selcted destination
-    $hotels = Property::where(['location' => $request->destination])->get();
+    $hotels = Property::where(['city' => $request->destination])->get();
     $result_counter = 0;
     $hotel_data ="";
     //check if there are hotels in the selected destination
@@ -39,7 +39,7 @@ class SearchController extends Controller
                         <div class='card-body'>
                         <div class=''>
                             <h3 class='h4'> <a href='pages/list-single.html' class='text-dark'>$hotel->name</a></h3>
-                            <p class='text-sm font-weight-semi-bold'><i class='mdi mdi-map-marker mr-1'></i>$hotel->location . $room_type->name</p>
+                            <p class='text-sm font-weight-semi-bold'><i class='mdi mdi-map-marker mr-1'></i>$hotel->city .$hotel->country . $room_type->name</p>
                         </div>
                         <div class='d-flex justify-content-between'>
                             <div class=''>
@@ -69,6 +69,6 @@ class SearchController extends Controller
         $hotel_data = "<p class='text-danger'>No hotels are currently available in your selected location</p>";
     }
 
-    return view('search')->with(compact('hotel_data','rooms','result_counter'));
+    return view('search')->with(compact('hotel_data','result_counter'));
    }
 }

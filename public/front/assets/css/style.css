@@ -219,3 +219,11 @@
   .btn-border{
 	  border: 1px solid blue;
   }
+  .no-margin{
+	  margin-left: -125px;
+	  float: left;
+  }
+  .curency-label{
+	  width: 50px;
+
+  }

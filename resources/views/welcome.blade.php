@@ -34,24 +34,14 @@
 										</div>
 										<div class="col-md-2">
 											<div class="form-group">
-												<span class="form-label">Guests</span>
-												<select class="form-control" name="adult">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-												</select>
-												<span class="select-arrow"></span>
+												<span class="form-label">Adults</span>
+												<input type="number" class="form-control" name="adult" value="1">
 											</div>
 										</div>
 										<div class="col-md-2">
 											<div class="form-group">
 												<span class="form-label">Kids</span>
-												<select class="form-control" name="kids">
-													<option>0</option>
-													<option>1</option>
-													<option>2</option>
-												</select>
-												<span class="select-arrow"></span>
+												<input type="number" class="form-control" name="kids" value="0">
 											</div>
 										</div>
 									</div>

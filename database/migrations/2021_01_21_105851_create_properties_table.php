@@ -16,13 +16,20 @@ class CreatePropertiesTable extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('about');
+            $table->string('about')->nullable();
+            $table->tinyInteger('rating');
+            $table->string('contact_name');
+            $table->string('phone');
+            $table->string('email');
             $table->string('address');
-            $table->string('location');
+            $table->string('address2')->nullable();
+            $table->string('country');
+            $table->string('city');
+            $table->string('zip');
             $table->tinyInteger('owner');
-            $table->tinyInteger('type');
+            $table->tinyInteger('type')->default(1);
             $table->string('logo')->default('default.png');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

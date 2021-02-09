@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,20 +23,24 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::match(['get', 'post'], '/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
-Route::get('/hotels/hotel/{id}', [App\Http\Controllers\PropertyController::class, 'show'])->name('property');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::match(['get', 'post'], '/search', [SearchController::class, 'search'])->name('search');
+Route::get('/hotels/hotel/{id}', [PropertyController::class, 'show'])->name('property');
 //property routre group
 Route::group(['prefix' => 'property'], function () {
-Route::get('/add', [App\Http\Controllers\PropertyController::class, 'create'])->name('property.add');
-Route::get('/apartment', [App\Http\Controllers\PropertyController::class, 'createApartment'])->name('apartment.add');
-Route::get('/home', [App\Http\Controllers\PropertyController::class, 'createHome'])->name('home.add');
-Route::get('/hotel', [App\Http\Controllers\PropertyController::class, 'createHotel'])->name('hotel.add');
-Route::get('/other', [App\Http\Controllers\PropertyController::class, 'createOther'])->name('other.add');
-Route::get('/view', [App\Http\Controllers\PropertyController::class, 'view'])->name('property.view');
-Route::get('/edit', [App\Http\Controllers\PropertyController::class, 'edit'])->name('property.edit');
-Route::get('/delete', [App\Http\Controllers\PropertyController::class, 'delete'])->name('property.delete');
-
+    Route::get('/add', [PropertyController::class, 'create'])->name('property.add');
+    Route::get('/apartment', [PropertyController::class, 'createApartment'])->name('apartment.add');
+    Route::get('/home', [PropertyController::class, 'createHome'])->name('home.add');
+    Route::get('/hotel', [PropertyController::class, 'createHotel'])->name('hotel.start');
+    Route::get('/hotel/add', [PropertyController::class, 'addHotel'])->name('hotel.add');
+    Route::post('/hotel/add', [PropertyController::class, 'storeHotel'])->name('hotel.store');
+    Route::get('/other', [PropertyController::class, 'createOther'])->name('other.add');
+    Route::get('/view', [PropertyController::class, 'view'])->name('property.view');
+    Route::get('/edit', [PropertyController::class, 'edit'])->name('property.edit');
+    Route::get('/delete', [PropertyController::class, 'delete'])->name('property.delete');
+    Route::group(['prefix' => 'room'], function () {
+        Route::post('/add', [RoomController::class,'store'])->name('room.add');
+    });
 });
 
 //super admin route group

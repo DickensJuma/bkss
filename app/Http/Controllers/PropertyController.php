@@ -63,6 +63,36 @@ class PropertyController extends Controller
             return redirect('admin/join');
         }
     }
+    public function addHotel(){
+        if(Auth::user()){
+            return view('property.hotel.add');
+        }else{
+            return redirect('admin/join');
+        } 
+    }
+    public function storeHotel(Request $request){
+        $data = $request->all();
+        $ownerid = Auth::user()->id;
+        $property = new Property;
+        $property->name = $data['pname'];
+        $property->rating = $data['rating'];
+        $property->contact_name = $data['contact_name'];
+        $property->phone = $data['phone'];
+        $property->email = $data['email'];
+        $property->address = $data['address1'];
+        $property->address2 = $data['address2'];
+        $property->country = $data['country'];
+        $property->city = $data['city'];
+        $property->zip = $data['zip'];
+        $property->owner =  $ownerid;
+        $property->save();
+        $property_id = $property->id;
+        return view('property.hotel.desc',compact('property_id'));
+
+
+
+
+    }
 
     /**
      * Store a newly created resource in storage.
