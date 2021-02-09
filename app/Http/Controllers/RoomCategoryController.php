@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Room;
+use App\Models\RoomCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class RoomController extends Controller
+class RoomCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,32 +35,16 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        if(Auth::user()){
-        $data = $request->all();
-        $room = new Room;
-        $room->property = $data['p_id'];
-        $room->type = $data['roomtype'];
-        $room->name = $data['room_name'];
-        $room->s_policy = $data['spolicy'];
-        $room->quantity = $data['no'];
-        $room->bed = $data['bed'];
-        $room->capacity = $data['guest_no'];
-        $room->normal_charge = $data['price'];
-        $room->save();
-        echo "saved";
-
-    }else{
-        return redirect('admin/join');
-    }
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Room  $room
+     * @param  \App\Models\RoomCategory  $roomCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(Room $room)
+    public function show(RoomCategory $roomCategory)
     {
         //
     }
@@ -69,10 +52,10 @@ class RoomController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Room  $room
+     * @param  \App\Models\RoomCategory  $roomCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $room)
+    public function edit(RoomCategory $roomCategory)
     {
         //
     }
@@ -81,10 +64,10 @@ class RoomController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Room  $room
+     * @param  \App\Models\RoomCategory  $roomCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $room)
+    public function update(Request $request, RoomCategory $roomCategory)
     {
         //
     }
@@ -92,10 +75,10 @@ class RoomController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Room  $room
+     * @param  \App\Models\RoomCategory  $roomCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $room)
+    public function destroy(RoomCategory $roomCategory)
     {
         //
     }

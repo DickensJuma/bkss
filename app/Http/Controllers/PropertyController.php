@@ -71,6 +71,7 @@ class PropertyController extends Controller
         } 
     }
     public function storeHotel(Request $request){
+        if(Auth::user()){
         $data = $request->all();
         $ownerid = Auth::user()->id;
         $property = new Property;
@@ -88,10 +89,9 @@ class PropertyController extends Controller
         $property->save();
         $property_id = $property->id;
         return view('property.hotel.desc',compact('property_id'));
-
-
-
-
+    }else{
+        return redirect('admin/join');
+    }
     }
 
     /**

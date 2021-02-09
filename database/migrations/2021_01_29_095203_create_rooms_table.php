@@ -17,6 +17,10 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->tinyInteger('property');
             $table->tinyInteger('type');
+            $table->string('name');
+            $table->tinyInteger('s_policy');
+            $table->tinyInteger('quantity')->default(1);
+            $table->tinyInteger('bed');
             $table->Integer('capacity');
             $table->tinyInteger('child')->default(0);
             $table->Integer('normal_charge');
