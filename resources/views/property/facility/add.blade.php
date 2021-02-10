@@ -9,6 +9,9 @@
             <div class="card-body">
                 <form action="{{ route('room.add') }}" method="POST" id="roomForm" hidden>
                     @csrf
+                    <div class="divider">
+                        <h3>Layout & Pricing </h3>
+                    </div>
                     <input type="text" value="{{ $property_id }}" name="p_id" hidden>
                     <div class="form-group">
                         <label for="roomtype">Room type</label>
@@ -124,7 +127,17 @@
                     </div> 
                     <input type="submit" class="form-control btn btn-warning" value="Continue">   
                 </form>
+                <form action="" method="POST" id="facilityForm" hidden>
+                    <div class="divider">
+                        <h3>Facilities & Services </h3>
+                        <p>Now let us know some general details about your property like facilities available, internet, parking, and the languages you speak.</p>
+                    </div>
+                    <div class="divider">
+                        <h5>Parking</h5>
+                        <p>This information is especially important for those traveling to your property by car. </p>
+                    </div>
 
+                </form>
             </div>
 
         </div>
@@ -132,12 +145,21 @@
     <script>
         //Wait for document to load
         $(document).ready(function(){
-            //Check for the change value
+            //add new room button clicked
             $("#addRoom").on('click',function() {
                 //make the form visible
                 $("#roomForm").prop("hidden",false);
                 $("#addRoom").prop("hidden",true);
                 $("#addFacility").prop("hidden",true);
+                $("#facilityForm").prop("hidden",true);
+            });
+            //add facility button clicked
+            $("#addFacility").on('click',function() {
+                //make the form visible
+                $("#roomForm").prop("hidden",true);
+                $("#addRoom").prop("hidden",true);
+                $("#addFacility").prop("hidden",true);
+                $("#facilityForm").prop("hidden",false);
             });
              $("#guest_no").change(function(){
                  var value = $('#guest_no').val();

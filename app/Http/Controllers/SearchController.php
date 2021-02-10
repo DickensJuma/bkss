@@ -70,16 +70,12 @@ class SearchController extends Controller
                         </div>";
                     }
             }
-            }else{
-                $hotel_data = "<p class='text-danger'>No hotel found that can accomodate the chosen pax</p>";
             }
-
         }        
 
     }else{
         $hotel_data = "<p class='text-danger'>No hotels are currently available in your selected location</p>";
     }
-
     return view('search')->with(compact('hotel_data','result_counter'));
    }
 }

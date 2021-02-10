@@ -8,6 +8,10 @@
         <div class="card-body">
             <form action="{{ route('room.add') }}" method="POST" id="roomForm" hidden>
                 @csrf
+                <div class="divider">
+                    <h3>Layout & Pricing </h3>
+                    <p>Tell us about your first room. After entering all the necessary info, you can fill in the details of your other rooms.</p>
+                </div>
                 <input type="text" value="{{ $property_id }}" name="p_id" hidden>
                 <div class="form-group">
                     <label for="roomtype">Room type</label>
@@ -123,7 +127,6 @@
                 </div> 
                 <input type="submit" class="form-control btn btn-warning" value="Continue">   
             </form>
-            
         </div>
     </div>
 </div>
