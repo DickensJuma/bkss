@@ -48,8 +48,8 @@ class RoomController extends Controller
         $room->capacity = $data['guest_no'];
         $room->normal_charge = $data['price'];
         $room->save();
-        echo "saved";
-
+        $property_id = $data['p_id'];
+        return view('property.facility.add',compact('property_id'));
     }else{
         return redirect('admin/join');
     }

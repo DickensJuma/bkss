@@ -7,14 +7,14 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 @if($result_counter > 0)
-                <div class="alert alert-danger alert-block" id="autoClose" >
-                    <button type="button" class="close" data-dismiss="alert">×</button>	
-                    <em class="text-warning">{{ $result_counter }} Hotels found</em>
-                </div>
-                @else
                 <div class="alert alert-success alert-block" id="autoClose" >
                     <button type="button" class="close" data-dismiss="alert">×</button>	
-                    <em class="text-primary">No results found</em>
+                    <em class="text-default">{{ $result_counter }} Hotels found</em>
+                </div>
+                @else
+                <div class="alert alert-danger alert-block" id="autoClose" >
+                    <button type="button" class="close" data-dismiss="alert">×</button>	
+                    <em class="text-warning">No results found</em>
                 </div>
                 @endif
             </div>

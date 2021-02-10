@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\RoomController;
@@ -40,6 +41,9 @@ Route::group(['prefix' => 'property'], function () {
     Route::get('/delete', [PropertyController::class, 'delete'])->name('property.delete');
     Route::group(['prefix' => 'room'], function () {
         Route::post('/add', [RoomController::class,'store'])->name('room.add');
+    });
+    Route::group(['prefix' => 'facility'], function () {
+        Route::post('/add', [FacilityController::class,'store'])->name('facility.add');
     });
 });
 
