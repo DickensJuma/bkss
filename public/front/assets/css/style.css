@@ -223,7 +223,12 @@
 	  margin-left: -125px;
 	  float: left;
   }
+  .no-margin-md{
+	  float: left;
+	  margin-left: -50px;
+  }
   .curency-label{
 	  width: 50px;
+	  color: #000000;
 
   }
