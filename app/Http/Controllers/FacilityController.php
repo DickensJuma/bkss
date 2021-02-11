@@ -36,7 +36,21 @@ class FacilityController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+        $facility = new Facility;
+        $facility->p_id = $data['p_id'];
+        $facility->parking = $data['parking'];
+        $facility->parking_type = $data['parking_type'];
+        $facility->parking_loc = $data['parking_location'];
+        $facility->parking_reservation = $data['reservation'];
+        $facility->parking_fee = $data['p_cost'];
+        $facility->breakfast_availability = $data['breakfast_availability'];
+        $facility->breakfast_cost = $data['b_cost'];
+        $facility->breakfast_type = $data['breakfast_type'];
+        $facility->language = $data['language'];
+        $facility->facility = $data['free_wifi'];
+        $facility->save();
+        echo"saved successfully";
+
     }
 
     /**

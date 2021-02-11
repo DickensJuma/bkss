@@ -205,11 +205,11 @@
                         </select>
                     </div>
                     <div class="form-group" id="breakfast_cost" hidden>
-                        <label for="bcost">Price for breakfast (per person, per day, including all fees and taxes)</label>
+                        <label for="b_cost">Price for breakfast (per person, per day, including all fees and taxes)</label>
                         <div class="row">
                             <div class="col-md-2 curency-label">us$</div>
                             <div class="col-md-10 no-margin">
-                                <input type="curency" class="form-control" name="bcost">
+                                <input type="curency" class="form-control" name="b_cost">
                             </div>
                         </div>
                     </div>
