@@ -128,6 +128,8 @@
                     <input type="submit" class="form-control btn btn-warning" value="Continue">   
                 </form>
                 <form action="{{ route('facility.add') }}" method="POST" id="facilityForm" hidden>
+                    @csrf
+                    <input type="text" value="{{ $property_id }}" name="p_id" hidden>
                     <div class="divider">
                         <h3>Facilities & Services </h3>
                         <p>Now let us know some general details about your property like facilities available, internet, parking, and the languages you speak.</p>
@@ -504,10 +506,11 @@
             //add breakfast type button click event listener
             $("#add_breakfast_type").on('click',function(e) {
                 e.preventDefault();
+                var id = Math.random();
                 //add another column
                 $("#breakfast_list").append("<div class='row'>"+
                                             "<div class='col-md-11'>"+
-                                            "<select name='breakfast_type' class='form-control'>"+
+                                            "<select name='breakfast_type"+ id +"' class='form-control'>"+
                                             "<option value=''>Please select</option>"+
                                             "<option value='1'>Continental</option>"+
                                             "<option value='10'>American</option>"+
@@ -533,9 +536,10 @@
             });
             $("#add_lang").on('click',function(e){
                 e.preventDefault();
+                var langid = Math.random();
                 $("#lang_tab").append("<div class='row'>"+
                                       "<div class='col-md-11'>"+
-                                    "<select name='language' id='language' class='form-control' required>"+
+                                    "<select name='language"+langid+"' id='language' class='form-control' required>"+
                                    "<option value=''>Please select</option>"+
                                    "<option value='dv'></option>"+
                                    "<option value='ne'></option>"+
