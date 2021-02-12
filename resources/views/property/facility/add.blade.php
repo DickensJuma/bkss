@@ -218,20 +218,20 @@
                         <div id="breakfast_list">
                             <div class="row">
                                 <div class="col-md-11">
-                                    <select name="breakfast_type" id="breakfast_type" class="form-control">
+                                    <select name="breakfast_type[]" id="breakfast_type" class="form-control">
                                     <option value="">Please select</option>
-                                    <option value="1">Continental</option>
-                                    <option value="10">American</option>
-                                    <option value="11">Buffet</option>
-                                    <option value="12">À la carte</option>
-                                    <option value="2">Italian</option>
-                                    <option value="3">Full English/Irish</option>
-                                    <option value="4">Vegetarian</option>
-                                    <option value="5">Vegan</option>
-                                    <option value="6">Halal</option>
-                                    <option value="7">Gluten-free</option>
-                                    <option value="8">Kosher</option>
-                                    <option value="9">Asian</option>
+                                    <option value="Continental">Continental</option>
+                                    <option value="American">American</option>
+                                    <option value="Buffet">Buffet</option>
+                                    <option value="À la carte">À la carte</option>
+                                    <option value="Italian">Italian</option>
+                                    <option value="Full English/Irish">Full English/Irish</option>
+                                    <option value="Vegetarian">Vegetarian</option>
+                                    <option value="Vegan">Vegan</option>
+                                    <option value="Halal">Halal</option>
+                                    <option value="Gluten-free">Gluten-free</option>
+                                    <option value="Kosher">Kosher</option>
+                                    <option value="Asian">Asian</option>
                                 </select>
                                 </div>
                                 <div class="col-md-1" id="remove" hidden>
@@ -249,7 +249,7 @@
                        <div id="lang_tab">
                         <div class="row">
                             <div class="col-md-11">
-                                <select name="language" id="language" class="form-control" required>
+                                <select name="language[]" id="language" class="form-control" required>
                                     <option value="">Please select</option>
                                     <option value="dv"></option>
                                     <option value="ne"></option>
@@ -347,23 +347,23 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Free Wifi" id="free_wifi" name="free_wifi">
+                                    <input class="form-check-input" type="checkbox" value="Free Wifi" id="free_wifi" name="facility[]">
                                     <label class="form-check-label" for="free_wifi">Free Wifi</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Restaurant" id="restaurant" name="restaurant">
+                                    <input class="form-check-input" type="checkbox" value="Restaurant" id="restaurant" name="facility[]">
                                     <label class="form-check-label" for="restaurant">Restaurant</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Room Service" id="room_service" name="room_service">
+                                    <input class="form-check-input" type="checkbox" value="Room Service" id="room_service" name="facility[]">
                                     <label class="form-check-label" for="room_service">Room Service</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Bar" id="bar" name="bar">
+                                    <input class="form-check-input" type="checkbox" value="Bar" id="bar" name="facility[]">
                                     <label class="form-check-label" for="bar">Bar</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="24-hour front desk " id="24_hr_front_desc" name="24_hr_front_desc">
+                                    <input class="form-check-input" type="checkbox" value="24-hour front desk " id="24_hr_front_desc" name="facility[]">
                                     <label class="form-check-label" for="24_hr_front_desc">24-hour front desk</label>
                                 </div>
                                 <div class="form-check">
@@ -371,49 +371,49 @@
                                     <label class="form-check-label" for="sauna">Sauna</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Fitness Center" id="fitness_center" name="fitness_center">
+                                    <input class="form-check-input" type="checkbox" value="Fitness Center" id="fitness_center" name="facility[]">
                                     <label class="form-check-label" for="fitness_center">Fitness Center</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Garden" id="garden" name="garden">
+                                    <input class="form-check-input" type="checkbox" value="Garden" id="garden" name="facility[]">
                                     <label class="form-check-label" for="garden">Garden</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Terrace" id="terrace" name="terrace">
+                                    <input class="form-check-input" type="checkbox" value="Terrace" id="terrace" name="facility[]">
                                     <label class="form-check-label" for="terrace">Terrace</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Non Smoking Rooms" id="non_smoking_room" name="non_smoking_room">
+                                    <input class="form-check-input" type="checkbox" value="Non Smoking Rooms" id="non_smoking_room" name="facility[]">
                                     <label class="form-check-label" for="non_smoking_room">Non Smoking Rooms</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Airport shuttle" id="airport_shuttle" name="airport_shuttle">
+                                    <input class="form-check-input" type="checkbox" value="Airport shuttle" id="airport_shuttle" name="facility[]">
                                     <label class="form-check-label" for="airport_shuttle">Airport shuttle</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Family rooms" id="family_room" name="family_room">
+                                    <input class="form-check-input" type="checkbox" value="Family rooms" id="family_room" name="facility[]">
                                     <label class="form-check-label" for="family_room">Family rooms</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="SPA" id="spa" name="spa">
+                                    <input class="form-check-input" type="checkbox" value="SPA" id="spa" name="facility[]">
                                     <label class="form-check-label" for="spa">SPA</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Hot tub/Jacuzzi" id="hot_tub" name="hot_tub">
+                                    <input class="form-check-input" type="checkbox" value="Hot tub/Jacuzzi" id="hot_tub" name="facility[]">
                                     <label class="form-check-label" for="hot_tub">Hot tub/Jacuzzi</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Air conditioning" id="air_conditioning" name="air_conditioning">
+                                    <input class="form-check-input" type="checkbox" value="Air conditioning" id="air_conditioning" name="facility[]">
                                     <label class="form-check-label" for="air_conditioning">Air conditioning</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Water park" id="water_park" name="water_park">
+                                    <input class="form-check-input" type="checkbox" value="Water park" id="water_park" name="facility[]">
                                     <label class="form-check-label" for="water_park">Water park</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Swimming pool" id="swimming_pool" name="swimming_pool">
+                                    <input class="form-check-input" type="checkbox" value="Swimming pool" id="swimming_pool" name="facility[]">
                                     <label class="form-check-label" for="swimming_pool">Swimming pool</label>
                                 </div>
                             </div>
@@ -506,24 +506,23 @@
             //add breakfast type button click event listener
             $("#add_breakfast_type").on('click',function(e) {
                 e.preventDefault();
-                var id = Math.random();
                 //add another column
                 $("#breakfast_list").append("<div class='row'>"+
                                             "<div class='col-md-11'>"+
-                                            "<select name='breakfast_type"+ id +"' class='form-control'>"+
+                                            "<select name='breakfast_type[]' class='form-control'>"+
                                             "<option value=''>Please select</option>"+
-                                            "<option value='1'>Continental</option>"+
-                                            "<option value='10'>American</option>"+
-                                            "<option value='11'>Buffet</option>"+
-                                            "<option value='12'>À la carte</option>"+
-                                            "<option value='2'>Italian</option>"+
-                                            "<option value='3'>Full English/Irish</option>"+
-                                            "<option value='4'>Vegetarian</option>"+
-                                            "<option value='5'>Vegan</option>"+
-                                            "<option value='6'>Halal</option>"+
-                                            "<option value='7'>Gluten-free</option>"+
-                                            "<option value='8'>Kosher</option>"+
-                                            "<option value='9'>Asian</option>"+
+                                            "<option value='Continental'>Continental</option>"+
+                                            "<option value='American'>American</option>"+
+                                            "<option value='Buffet'>Buffet</option>"+
+                                            "<option value='À la carte'>À la carte</option>"+
+                                            "<option value='Italian'>Italian</option>"+
+                                            "<option value='Full English/Irish'>Full English/Irish</option>"+
+                                            "<option value='Vegetarian'>Vegetarian</option>"+
+                                            "<option value='Vegan'>Vegan</option>"+
+                                            "<option value='Halal'>Halal</option>"+
+                                            "<option value='Gluten-free'>Gluten-free</option>"+
+                                            "<option value='Kosher'>Kosher</option>"+
+                                            "<option value='Asian'>Asian</option>"+
                                             "</select>"+
                                             "</div>"+
                                             "<div class='col-md-1' id='remove'>"+
@@ -536,10 +535,9 @@
             });
             $("#add_lang").on('click',function(e){
                 e.preventDefault();
-                var langid = Math.random();
                 $("#lang_tab").append("<div class='row'>"+
                                       "<div class='col-md-11'>"+
-                                    "<select name='language"+langid+"' id='language' class='form-control' required>"+
+                                    "<select name='language[]' id='language' class='form-control' required>"+
                                    "<option value=''>Please select</option>"+
                                    "<option value='dv'></option>"+
                                    "<option value='ne'></option>"+
@@ -561,7 +559,7 @@
                                    "<option value='cs'>Czech</option>"+
                                    "<option value='da'>Danish</option>"+
                                    "<option value='nl'>Dutch</option>"+
-                                   "<option value='en' selected='selected'>English</option>"+
+                                   "<option value='en'>English</option>"+
                                    "<option value='et'>Estonian</option>"+
                                    "<option value='fo'>Faroese</option>"+
                                    "<option value='fa'>Farsi</option>"+

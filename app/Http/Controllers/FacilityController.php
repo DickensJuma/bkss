@@ -36,6 +36,21 @@ class FacilityController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $breakfast_types = "";
+        foreach($data['breakfast_type'] as $breakfast){
+            $breakfast_types .= $breakfast;
+            $breakfast_types .=" , ";
+        }
+        $languages = "";
+        foreach($data['language'] as $language){
+            $languages .= $language;
+            $languages .=" , ";
+        }
+        $facilities = "";
+        foreach($data['facility'] as $facility){
+            $facilities .= $facility;
+            $facilities .=" , ";
+        }
         $facility = new Facility;
         $facility->p_id = $data['p_id'];
         $facility->parking = $data['parking'];
@@ -45,9 +60,9 @@ class FacilityController extends Controller
         $facility->parking_fee = $data['p_cost'];
         $facility->breakfast_availability = $data['breakfast_availability'];
         $facility->breakfast_cost = $data['b_cost'];
-        $facility->breakfast_type = $data['breakfast_type'];
-        $facility->language = $data['language'];
-        $facility->facility = $data['free_wifi'];
+        $facility->breakfast_type = $breakfast_types;
+        $facility->language = $languages;
+        $facility->facility = $facilities;
         $facility->save();
         echo"saved successfully";
 
