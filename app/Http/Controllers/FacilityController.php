@@ -64,7 +64,7 @@ class FacilityController extends Controller
         $facility->language = $languages;
         $facility->facility = $facilities;
         $facility->save();
-        echo"saved successfully";
+       return view('property.armenity.add');
 
     }
 
