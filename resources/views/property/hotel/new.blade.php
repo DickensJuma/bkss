@@ -34,7 +34,7 @@
             //Check for the change value
             $(".hotel-radio").on('change',function() {
                 //store the selected value in var
-                var checkValue = $('input[name=hotel_number]:checked').val()
+                var checkValue = $('input[name=hotel_number]:checked').val();
                 //check what the var value is
                 if(checkValue=="multiple"){
                     //if it is multiple, show more
@@ -48,7 +48,6 @@
             }); 
             //check if the button has been clicked
             $("#next").on("click", function(){
-                console.log("sending data");
 
             });
 
