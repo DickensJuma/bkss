@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PropertyController;
@@ -44,6 +45,9 @@ Route::group(['prefix' => 'property'], function () {
     });
     Route::group(['prefix' => 'facility'], function () {
         Route::post('/add', [FacilityController::class,'store'])->name('facility.add');
+    });
+    Route::group(['prefix' => 'amenity'], function () {
+        Route::post('/add', [AmenityController::class,'store'])->name('amenity.add');
     });
 });
 

@@ -64,7 +64,8 @@ class FacilityController extends Controller
         $facility->language = $languages;
         $facility->facility = $facilities;
         $facility->save();
-       return view('property.armenity.add');
+        $property_id = $data['p_id'];
+       return view('property.amenity.add',compact('property_id'));
 
     }
 

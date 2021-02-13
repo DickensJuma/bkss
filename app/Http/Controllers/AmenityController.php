@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Armenity;
+use App\Models\Amenity;
 use Illuminate\Http\Request;
 
-class ArmenityController extends Controller
+class AmenityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,16 +35,17 @@ class ArmenityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        dd($data);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Armenity  $armenity
+     * @param  \App\Models\Amenity  $amenity
      * @return \Illuminate\Http\Response
      */
-    public function show(Armenity $armenity)
+    public function show(Amenity $amenity)
     {
         //
     }
@@ -52,10 +53,10 @@ class ArmenityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Armenity  $armenity
+     * @param  \App\Models\Amenity  $amenity
      * @return \Illuminate\Http\Response
      */
-    public function edit(Armenity $armenity)
+    public function edit(Amenity $amenity)
     {
         //
     }
@@ -64,10 +65,10 @@ class ArmenityController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Armenity  $armenity
+     * @param  \App\Models\Amenity  $amenity
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Armenity $armenity)
+    public function update(Request $request, Amenity $amenity)
     {
         //
     }
@@ -75,10 +76,10 @@ class ArmenityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Armenity  $armenity
+     * @param  \App\Models\Amenity  $amenity
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Armenity $armenity)
+    public function destroy(Amenity $amenity)
     {
         //
     }
