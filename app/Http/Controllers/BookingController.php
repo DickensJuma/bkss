@@ -35,7 +35,21 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //get room cost
+        
+        //check if chosen room capacity matches the pax number
+
+        //if matches 
+
+        //cost is calculated using the pax/room capacity multiplied by room price
+
+        // id not matches
+        // check if child is involved
+        //if involved check child age policy
+        //if child age equals age policy then cost = room cost multiplied by pax-number of children
+        //if not equls then cost = roomcost xpax/room capacity
+
+
     }
 
     /**
