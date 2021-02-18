@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="col-md-2 curency-label">US$</div>
                                 <div class="col-md-7">
-                                    <input type="curency" class="form-control no-margin" name="child-cost" id="child-cost" placeholder="0.00">
+                                    <input type="curency" class="form-control no-margin" name="child_cost" id="child-cost" placeholder="0.00">
                                 </div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                         <div class="formgroup" id="children-extra-tab" hidden>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <select name="extra_accomodation_children_maximum_age" id="" class="custom-select mr-sm-2">
+                                    <select name="extra_child_max_age" id="" class="custom-select mr-sm-2">
                                         <option value="6">Up to 6 years old</option>
                                         <option value="12">Up to 12 years old</option>
                                         <option value="16">Up to 16 years old</option>
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="col-md-1 curency-label">US$</div>
                                 <div class="col-md-4">
-                                    <input type="curency" class="form-control no-margin" name="extra-child-cost" id="child-cost" placeholder="0.00">
+                                    <input type="curency" class="form-control no-margin" name="extra_child_cost" id="child-cost" placeholder="0.00">
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="col-md-2 curency-label">US$</div>
                                 <div class="col-md-7">
-                                    <input type="curency" class="form-control no-margin" name="extra-adult-cost" id="adult-cost" placeholder="0.00">
+                                    <input type="curency" class="form-control no-margin" name="extra_adult_cost" id="adult-cost" placeholder="0.00">
                                 </div>
                             </div>
                         </div>
