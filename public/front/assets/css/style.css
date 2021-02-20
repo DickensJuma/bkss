@@ -231,3 +231,20 @@
 	  width: 50px;
 
   }
+  ul {
+	list-style: none;
+  }
+  
+  ul .tick:before {
+	content: '✓';
+	color: #28a745;
+  }
+  ul .cross:before {
+	content: 'x';
+	color: #dc3545;
+  }
+  ul .pointer-right:before {
+	content: '>';
+	font-weight: bold;
+	font-style: oblique;
+  }
