@@ -116,7 +116,7 @@
             <!-- /.modal -->
         </div>
         <div class="card-footer">
-            <a href="{{ route('policy.add') }}" class="btn btn-warning"></button>
+            <a href="{{ route('policy.add') }}" class="btn btn-warning">Continue</a>
         </div>
     </div>
 </div>
@@ -152,12 +152,12 @@
            data: formData,
            contentType: false,
            processData: false,
-           success: (response) => {
+           success: function(response) {
              if (response) {
-               this.reset();
+               $('#exampleInputFile').reset();
+               $('#images').append("<img class='img-responsive' src='uploads/property/small/"+
+               response.filename +"'/>");
                alert('Image has been uploaded successfully');
-               $('#images').append("<img class='img-responsive src='uploads/property/small/"+
-               response.filename+"'/>");
 
              }
            },

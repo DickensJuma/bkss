@@ -4,6 +4,7 @@ use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SearchController;
@@ -56,7 +57,7 @@ Route::group(['prefix' => 'property'], function () {
     });
     //property images group
     Route::group(['prefix' => 'policy'], function () {
-        Route::post('/add', [::class,'store'])->name('image.add');
+        Route::post('/add', [PolicyController::class,'store'])->name('policy.add');
     });
 });
 
