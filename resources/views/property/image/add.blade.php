@@ -8,25 +8,30 @@
                 all your property has to offer. We will display these photos on your property's page on the Booking.com website. </p>
         </div>
         <div class="card-body">
-            <form action="">
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST" id="upload-image-form">
                 @csrf
+                <input type="text" value="{{ $property_id }}" name="p_id" hidden class="text-control">
                 <div class="form-group">
                     <h5>Photo gallery</h5>
                     <label for="" class="form-label">Great, thanks! You can now continue signing up. To increase your chances of getting 
                         more bookings, make sure to add additional photos later on — once you're up and running. </label>
                         <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="exampleInputFile">
+                              <input type="file" class="custom-file-input" id="exampleInputFile" name="property_image">
                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                             <div class="input-group-append">
-                              <span class="input-group-text" id="">Upload</span>
+                              <button type="submit" class="input-group-text" id="">Upload</button>
                             </div>
+                            <span class="text-danger" id="image-input-error"></span>
                           </div>
-
                 </div>
-                <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6" id="images">
 
+                        </div>
+                    </div>
                 </div>
                 <div class="divider">
                     <h5>No professional photos? No problem. </h5>
@@ -110,6 +115,9 @@
             </div>
             <!-- /.modal -->
         </div>
+        <div class="card-footer">
+            <a href="{{ route('policy.add') }}" class="btn btn-warning"></button>
+        </div>
     </div>
 </div>
     <script type="text/javascript">
@@ -123,10 +131,42 @@
                     // invalid file type code goes here.
                     alert('Please select a valid image in the following formats .gif, .jpeg, .png');
                 }else{
-                    
+                    //get the image and place it in a variable
                     
                 }
-            })
+            });
+            $.ajaxSetup({
+        headers: {
+            '_token' : $('input[name=_token]').val()
+        }
+    });
+
+   $('#upload-image-form').submit(function(e) {
+       e.preventDefault();
+       let formData = new FormData(this);
+       $('#image-input-error').text('');
+
+       $.ajax({
+          type:'POST',
+          url: `/property/images/add`,
+           data: formData,
+           contentType: false,
+           processData: false,
+           success: (response) => {
+             if (response) {
+               this.reset();
+               alert('Image has been uploaded successfully');
+               $('#images').append("<img class='img-responsive src='uploads/property/small/"+
+               response.filename+"'/>");
+
+             }
+           },
+           error: function(response){
+              console.log(response);
+                $('#image-input-error').text(response.responseJSON.errors);
+           }
+       });
+  });
         });
     </script>
 

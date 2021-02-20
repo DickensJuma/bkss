@@ -68,9 +68,9 @@ class AmenityController extends Controller
         $amenity->extra_adult_cost = $request->extra_adult_cost;
         $amenity->common_amenities = $common_amenities;
         $amenity->room_amenities = $room_amenities;
-        $p_id = $request->p_id;
+        $property_id = $request->p_id;
         $amenity->save();
-        return view('property.image.add',compact('p_id'));
+        return view('property.image.add',compact('property_id'));
     }
 
     /**
