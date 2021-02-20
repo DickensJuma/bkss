@@ -3,6 +3,7 @@
 use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SearchController;
@@ -48,6 +49,14 @@ Route::group(['prefix' => 'property'], function () {
     });
     Route::group(['prefix' => 'amenity'], function () {
         Route::post('/add', [AmenityController::class,'store'])->name('amenity.add');
+    });
+    //property images group
+    Route::group(['prefix' => 'images'], function () {
+        Route::post('/add', [PhotoController::class,'store'])->name('image.add');
+    });
+    //property images group
+    Route::group(['prefix' => 'policy'], function () {
+        Route::post('/add', [::class,'store'])->name('image.add');
     });
 });
 
