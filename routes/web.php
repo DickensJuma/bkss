@@ -3,6 +3,7 @@
 use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageScoreController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\PropertyController;
@@ -39,15 +40,21 @@ Route::group(['prefix' => 'property'], function () {
     Route::get('/hotel/add', [PropertyController::class, 'addHotel'])->name('hotel.add');
     Route::post('/hotel/add', [PropertyController::class, 'storeHotel'])->name('hotel.store');
     Route::get('/other', [PropertyController::class, 'createOther'])->name('other.add');
-    Route::get('/view', [PropertyController::class, 'view'])->name('property.view');
+    Route::get('/', [PropertyController::class, 'view'])->name('property.index');
+    Route::get('/view/{property}', [PropertyController::class, 'view'])->name('property.show');
     Route::get('/edit', [PropertyController::class, 'edit'])->name('property.edit');
     Route::get('/delete', [PropertyController::class, 'delete'])->name('property.delete');
+    Route::get('/page/score',[PageScoreController::class, 'index'])->name('property.pageScore');
+
+    //room routes
     Route::group(['prefix' => 'room'], function () {
         Route::post('/add', [RoomController::class,'store'])->name('room.add');
     });
+    //facility routes
     Route::group(['prefix' => 'facility'], function () {
         Route::post('/add', [FacilityController::class,'store'])->name('facility.add');
     });
+    //amenity routes
     Route::group(['prefix' => 'amenity'], function () {
         Route::post('/add', [AmenityController::class,'store'])->name('amenity.add');
     });

@@ -29,7 +29,7 @@
           <div class="col-12 col-sm-6 col-md-3">
             <a href="">
               <div class="info-box">
-                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-tags"></i></span>
   
                 <div class="info-box-content">
                   <span class="info-box-text">Promotions</span>
@@ -47,7 +47,7 @@
           <div class="col-12 col-sm-6 col-md-3">
            <a href="">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-list-ul"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Reservations</span>
@@ -64,16 +64,18 @@
           <div class="clearfix hidden-md-up"></div>
 
           <div class="col-12 col-sm-6 col-md-3">
+           <a href="{{ route('property.index') }}">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-sign"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Sales</span>
+                <span class="info-box-text">Properties</span>
                 <span class="info-box-number">760</span>
               </div>
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
+           </a>
           </div>
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">

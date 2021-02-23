@@ -30,15 +30,20 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+           <!-- Home-->
           <li class="nav-item">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Home</p>
             </a>
           </li>
+          <div class="divider">
+            <hr>
+          </div>
+           <!-- Rates-->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-calendar-week"></i>
               <p>
                 Rates & Availability
                 <i class="fas fa-angle-left right"></i>
@@ -105,9 +110,10 @@
           <div class="divider">
             <hr>
           </div>
+           <!-- Property-->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-sign"></i>
               <p>
                 Property
                 <i class="right fas fa-angle-left"></i>
@@ -115,7 +121,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{ route('property.add') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add property</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('property.pageScore') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Propert Page Score</p>
                 </a>
@@ -197,9 +209,10 @@
           <div class="divider">
             <hr>
           </div>
+           <!-- Opportunity-->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fas fa-rocket"></i>
               <p>
                 Opportunities
                 <i class="fas fa-angle-left right"></i>
@@ -241,9 +254,10 @@
           <div class="divider">
             <hr>
           </div>
+           <!-- Guest review-->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-heart"></i>
               <p>
                 Guest Reviews
                 <i class="fas fa-angle-left right"></i>
@@ -273,9 +287,10 @@
           <div class="divider">
             <hr>
           </div>
+          <!-- finance-->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
+              <i class="nav-icon fas fa-wallet"></i>
               <p>
                Finance
                 <i class="fas fa-angle-left right"></i>
@@ -323,9 +338,10 @@
           <div class="divider">
             <hr>
           </div>
+           <!-- Analytics-->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+              <i class="nav-icon fas fa-chart-bar"></i>
               <p>
                Analytics
                 <i class="fas fa-angle-left right"></i>
