@@ -4,6 +4,7 @@ use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GeneralInformationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LevyController;
 use App\Http\Controllers\PageScoreController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PolicyController;
@@ -48,6 +49,8 @@ Route::group(['prefix' => 'property'], function () {
     Route::get('/page/score',[PageScoreController::class, 'index'])->name('property.pageScore');
     Route::get('/general/info',[GeneralInformationController::class, 'index'])->name('general.info');
     Route::post('/general/info',[GeneralInformationController::class, 'store']);
+    Route::get('/vat/taxinfo',[LevyController::class, 'index'])->name('vat.info');
+    //Route::post('/general/info',[GeneralInformationController::class, 'store']);
 
     //room routes
     Route::group(['prefix' => 'room'], function () {
@@ -65,7 +68,7 @@ Route::group(['prefix' => 'property'], function () {
     Route::group(['prefix' => 'images'], function () {
         Route::post('/add', [PhotoController::class,'store'])->name('image.add');
     });
-    //property images group
+    //property Policies group
     Route::group(['prefix' => 'policy'], function () {
         Route::post('/add', [PolicyController::class,'store'])->name('policy.add');
     });

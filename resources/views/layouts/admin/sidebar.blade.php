@@ -139,7 +139,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('tax') }}" class="nav-link">
+                <a href="{{ route('vat.info') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>VAT/Tax/Charges</p>
                 </a>
