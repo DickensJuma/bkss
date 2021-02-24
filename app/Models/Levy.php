@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Levy extends Model
 {
     use HasFactory;
+    public function properties(){
+        return $this->belongsToMany(Property::class);
+    }
 }

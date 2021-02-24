@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     use HasFactory;
+    public function taxes(){
+        return $this->belongsToMany(Levy::class);
+    }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Levy;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class LevyController extends Controller
@@ -14,7 +16,9 @@ class LevyController extends Controller
      */
     public function index()
     {
-        //
+        //get property id using the user id
+        $property = Property::where(['owner' => Auth::user()->id])->first();
+        dd($property->taxes()->get());
     }
 
     /**
