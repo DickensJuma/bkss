@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\GeneralInformationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageScoreController;
 use App\Http\Controllers\PhotoController;
@@ -45,6 +46,8 @@ Route::group(['prefix' => 'property'], function () {
     Route::get('/edit', [PropertyController::class, 'edit'])->name('property.edit');
     Route::get('/delete', [PropertyController::class, 'delete'])->name('property.delete');
     Route::get('/page/score',[PageScoreController::class, 'index'])->name('property.pageScore');
+    Route::get('/general/info',[GeneralInformationController::class, 'index'])->name('general.info');
+    Route::post('/general/info',[GeneralInformationController::class, 'store']);
 
     //room routes
     Route::group(['prefix' => 'room'], function () {

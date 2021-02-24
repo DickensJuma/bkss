@@ -133,13 +133,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="{{ route('general.info') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>General Information</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+                <a href="{{ route('tax') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>VAT/Tax/Charges</p>
                 </a>

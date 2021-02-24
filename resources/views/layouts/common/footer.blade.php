@@ -2,8 +2,8 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+      <Strong>Designed and developed By: <a href="https://otemainc.com">Otema Technologies</a></Strong>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ now()->year }} <a href="https://booksasa.com">Book sasa</a>.</strong> All rights reserved.
   </footer>
