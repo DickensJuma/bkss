@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -23,6 +23,7 @@
       <link rel="manifest" href="{{asset('front/assets/images/icon/manifest.json')}}">
       <meta name="msapplication-TileColor" content="#ffffff">
       <meta name="msapplication-TileImage" content="{{asset('front/assets/images/icon/ms-icon-144x144.png')}}">
+      <link href="{{ asset('front/assets/css/prettyPhoto.css')}}" rel="stylesheet" type="text/css" />
       <meta name="theme-color" content="#ffffff"><!-- Font Awesome Icons -->
         <link rel="stylesheet" href="{{asset('back/plugins/fontawesome-free/css/all.min.css')}}">
         <!-- Bootstrap CSS -->    
@@ -53,5 +54,10 @@
         <script src="{{asset('front/assets/libs/lightpick/lightpick.js')}}"></script> 
         <!-- Theme JS -->
         <script src="{{asset('front/assets/js/theme.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('front/assets/js/jquery-1.7.2.js') }}"></script>
+        <script src="{{ asset('front/assets/js/jquery.quicksand.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('front/assets/js/script.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('front/assets/js/jquery.prettyPhoto.js')}}" type="text/javascript"></script>
+        <!-- //jQuery-Photo-filter-lightbox-Gallery-plugin -->
     </body>
 </html>
