@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Models\Room;
@@ -116,6 +117,11 @@ class PropertyController extends Controller
         //get the property
         $hotel = Property::where(['id'=>$property_id])->first();
         $hotel_data = "";
+        //taxes
+        $levies = $hotel->taxes()->get();
+        //images
+        $images = Photo::where(['p_id'=>$property_id])->get();
+        //images count
         //get rooms
         $rooms = Room::where(['property'=>$hotel->id])->get();
         if($rooms->isNotEmpty()){
@@ -157,7 +163,7 @@ class PropertyController extends Controller
         }else{
             $hotel_data = "<p class='text-danger'>No hotel found that can accomodate the chosen pax</p>";
         }
-        return view('room.view')->with(compact('hotel_data'));
+        return view('room.view')->with(compact('hotel_data','hotel','levies','images'));
 
     }
 

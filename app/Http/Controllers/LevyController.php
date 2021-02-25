@@ -18,7 +18,9 @@ class LevyController extends Controller
     {
         //get property id using the user id
         $property = Property::where(['owner' => Auth::user()->id])->first();
-        dd($property->taxes()->get());
+        $property_city = $property->city;
+        $levies = $property->taxes()->get();
+        return view('property.levy',compact('levies','property_city'));
     }
 
     /**
