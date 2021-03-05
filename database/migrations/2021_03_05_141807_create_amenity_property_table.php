@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserBookingTable extends Migration
+class CreateAmenityPropertyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUserBookingTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_booking', function (Blueprint $table) {
+        Schema::create('amenity_property', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateUserBookingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_booking');
+        Schema::dropIfExists('amenity_property');
     }
 }
