@@ -15,6 +15,8 @@ class CreateAmenityPropertyTable extends Migration
     {
         Schema::create('amenity_property', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('amenity_id');
+            $table->unsignedInteger('property_id');
             $table->timestamps();
         });
     }

@@ -15,6 +15,8 @@ class CreateFacilityRoomTable extends Migration
     {
         Schema::create('facility_room', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('facility_id');
+            $table->unsignedInteger('room_id');
             $table->timestamps();
         });
     }

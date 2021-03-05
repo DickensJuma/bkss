@@ -15,6 +15,8 @@ class CreateAmenityRoomTable extends Migration
     {
         Schema::create('amenity_room', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('amenity_id');
+            $table->unsignedInteger('room_id');
             $table->timestamps();
         });
     }
