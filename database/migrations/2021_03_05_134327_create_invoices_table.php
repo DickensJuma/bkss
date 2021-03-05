@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserPropertyTable extends Migration
+class CreateInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateUserPropertyTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_property', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('property_id');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ class CreateUserPropertyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_property');
+        Schema::dropIfExists('invoices');
     }
 }
