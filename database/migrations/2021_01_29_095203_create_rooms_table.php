@@ -24,7 +24,7 @@ class CreateRoomsTable extends Migration
             $table->Integer('capacity');
             $table->tinyInteger('child')->default(0);
             $table->Integer('normal_charge');
-            $table->Integer('offer_charge')->nullable();
+            $table->Integer('offer_charge')->default(0);
             $table->timestamps();
         });
     }

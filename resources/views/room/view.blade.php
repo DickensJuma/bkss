@@ -17,20 +17,47 @@
         </div>
         <div class="card-body">
             <div class="portfolio-area">
-                
-                @foreach ($images as $image)
-                <div>
-                    <span class="image-block block2">
-                    <a class="image-zoom" href="{{ asset('uploads/property/large/'.$image->path) }}" rel="prettyPhoto[gallery]">							
-                            <img src="{{ asset('uploads/property/small/'.$image->path) }}" class="img-responsive" alt="CEC Gallery"></a>
-                </span>
+                @foreach ($images->chunk(4) as $key=>$image)
+                <div class="row">
+                    @foreach ($image as $item)
+                    @if ($key===0)
+                    <div class="col-md-4">
+                        <div>
+                            <span class="image-block block2">
+                            <a class="image-zoom" href="{{ asset('uploads/property/large/'.$item->path) }}" rel="prettyPhoto[gallery]">							
+                                    <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive" alt="CEC Gallery"></a>
+                        </span>
+                        </div>
+                    </div>                        
+                    @else
+                    <div class="col-md-3">
+                        <div>
+                            <span class="image-block block2">
+                            <a class="image-zoom" href="{{ asset('uploads/property/large/'.$item->path) }}" rel="prettyPhoto[gallery]">							
+                                    <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive" alt="CEC Gallery"></a>
+                        </span>
+                        </div>
+                    </div>
+                        
+                    @endif
+                    @endforeach
                 </div>
                 @endforeach
             </div>
+            <table class="table table-striped">
+                <thead class="bg-success">
+                    <th>Room Type</th>
+                    <th>Sleeps</th>
+                    <th>Price For{{ $totalstay }} {{ Str::plural('day',$totalstay) }}</th>
+                    <th>Your Choices</th>
+                    <th>Select Rooms</th>
+                    <th>Reserve?</th>
+                </thead>
+                <?php echo $hotel_data; ?>
+            </table>
         </div>
+        
     </div>
-
-<?php echo $hotel_data; ?>
     </div>
 
 @endsection

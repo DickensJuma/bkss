@@ -32,7 +32,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::match(['get', 'post'], '/search', [SearchController::class, 'search'])->name('search');
-Route::get('/hotels/hotel/{id}', [PropertyController::class, 'show'])->name('property');
+Route::get('/hotels/hotel/{id}/{stay}', [PropertyController::class, 'show'])->name('property');
 //property routre group
 Route::group(['prefix' => 'property'], function () {
     Route::get('/add', [PropertyController::class, 'create'])->name('property.add');

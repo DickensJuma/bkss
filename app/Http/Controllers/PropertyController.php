@@ -112,11 +112,12 @@ class PropertyController extends Controller
      * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function show($property_id = null)
+    public function show($property_id = null, $stay=null)
     {
         //get the property
         $hotel = Property::where(['id'=>$property_id])->first();
         $hotel_data = "";
+        $totalstay = (int)$stay;
         //taxes
         $levies = $hotel->taxes()->get();
         //images
@@ -124,46 +125,33 @@ class PropertyController extends Controller
         //images count
         //get rooms
         $rooms = Room::where(['property'=>$hotel->id])->get();
+        //dd($rooms, $totalstay);
         if($rooms->isNotEmpty()){
             foreach($rooms as $room){
                 //get the room type
                 $room_type = Type::where(['id'=>$room->type])->first();
-                if($room->property == $hotel->id){
-                    $hotel_data .= "<div class='item'>
-                    <!-- listing block start  -->
-                    <div class='card'>
-                    <div class='card-img'>
-                    <a href='pages/list-single.html'> 
-                    <img src='../../front/assets/images/listing-img-1.jpg' alt='' class='img-fluid rounded-top'></a>
-                    <div class='btn-wishlist'></div>
-                    </div>
-                    <div class='card-body'>
-                    <div class=''>
-                        <h3 class='h4'> <a href='pages/list-single.html' class='text-dark'>$hotel->name</a></h3>
-                        <p class='text-sm font-weight-semi-bold'><i class='mdi mdi-map-marker mr-1'></i>$hotel->location . $room_type->name</p>
-                    </div>
-                    <div class='d-flex justify-content-between'>
-                        <div class=''>
-                            <span class='text-dark h5'>$room->normal_charge</span><span class='text-sm font-weight-semi-bold ml-1'>/night</span>
-                        </div>
-                        <div class=''>
-                            <span class='text-dark h5'><a href='/hotels/hotel/".$hotel->id."' class= 'btn btn-primary'>Reserve</a></span>
-                        </div>
-                        <div class=''>
-                            <span class='mdi mdi-star mr-1 text-warning text-sm'></span>
-                            <span class='font-weight-semi-bold text-dark text-sm'>5.0(8)</span>
-                        </div>
-                    </div>
-                    </div>
-                    </div>
-                    <!-- listing block close  -->
-                    </div>";
+                $capacity = "";
+                for($i=0;$i<$room->capacity;$i++){
+                   $capacity.= "<i class='fa fa-user' aria-hidden='true'></i>";
                 }
+                $room_charge ="";
+                if(($room->offer_charge*$totalstay)<=($room->normal_charge*$totalstay) &&($room->offer_charge*$totalstay)>0){
+                    $room_charge.="<p> Now: ".$room->offer_charge*$totalstay."<br>
+                    Was: <strike class='text-danger'>".$room->normal_charge*$totalstay."</strike>
+                    </p>";
+                }else{
+                    $room_charge.="<p>".$room->normal_charge*$totalstay."</p>";
+                }
+
+                $hotel_data.="<tr>
+                <td>$room_type->name</td>
+                <td> $capacity</td> 
+                <td>$room_charge</td>
+                </tr>";
+            
+            }
         }
-        }else{
-            $hotel_data = "<p class='text-danger'>No hotel found that can accomodate the chosen pax</p>";
-        }
-        return view('room.view')->with(compact('hotel_data','hotel','levies','images'));
+        return view('room.view')->with(compact('hotel_data','hotel','levies','images','totalstay'));
 
     }
 

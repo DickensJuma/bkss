@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Property;
+use Carbon\Carbon;
 use App\Models\Room;
 use App\Models\Type;
+use App\Models\Property;
+use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
@@ -13,6 +14,9 @@ class SearchController extends Controller
     $data = $request->all();
     //get all hotels for the selcted destination
     $hotels = Property::where(['city' => $request->destination])->get();
+    $in = Carbon::parse($request->in);
+    $out = Carbon::parse($request->out);
+    $stay = $in->diffInDays($out);
     $result_counter = 0;
     $hotel_data ="";
     //check if there are hotels in the selected destination
@@ -55,7 +59,7 @@ class SearchController extends Controller
                                             <span class='text-dark h5'>$room->normal_charge</span><span class='text-sm font-weight-semi-bold ml-1'>/night</span>
                                         </div>
                                         <div class=''>
-                                            <span class='text-dark h5'><a href='/hotels/hotel/".$hotel->id."' class= 'btn btn-primary'>See Availability</a></span>
+                                            <span class='text-dark h5'><a href='/hotels/hotel/".$hotel->id."/".$stay."' class= 'btn btn-primary'>See Availability</a></span>
                                         </div>
                                         <div class=''>
                                             <span class='mdi mdi-star mr-1 text-warning text-sm'></span>
