@@ -140,7 +140,6 @@
             '_token' : $('input[name=_token]').val()
         }
     });
-
    $('#upload-image-form').submit(function(e) {
        e.preventDefault();
        let formData = new FormData(this);

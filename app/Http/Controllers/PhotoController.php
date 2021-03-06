@@ -15,7 +15,8 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //
+        //get all photos
+        
     }
 
     /**

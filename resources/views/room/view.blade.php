@@ -18,7 +18,7 @@
         <div class="card-body">
             <div class="portfolio-area">
                 
-                @foreach ($images->first(3) as $image)
+                @foreach ($images as $image)
                 <div>
                     <span class="image-block block2">
                     <a class="image-zoom" href="{{ asset('uploads/property/large/'.$image->path) }}" rel="prettyPhoto[gallery]">							
