@@ -131,6 +131,10 @@ class PropertyController extends Controller
                 //get the room type
                 $room_type = Type::where(['id'=>$room->type])->first();
                 $capacity = "";
+                $quantity = "<option value=''>0</option>";
+                for($i=1;$i<=$room->quantity;$i++){
+                    $quantity.="<option value='".$i."'>".$i."</option>";
+                }
                 for($i=0;$i<$room->capacity;$i++){
                    $capacity.= "<i class='fa fa-user' aria-hidden='true'></i>";
                 }
@@ -147,6 +151,9 @@ class PropertyController extends Controller
                 <td>$room_type->name</td>
                 <td> $capacity</td> 
                 <td>$room_charge</td>
+                <td></td>
+                <td><Select name='quantity' required>$quantity</select></td>
+                <td></td>
                 </tr>";
             
             }
