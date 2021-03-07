@@ -153,7 +153,7 @@ class PropertyController extends Controller
                 <td>$room_charge</td>
                 <td></td>
                 <td><Select name='quantity' required>$quantity</select></td>
-                <td></td>
+                <td><a href=''>Reserve</a></td>
                 </tr>";
             
             }
