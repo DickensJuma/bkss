@@ -21,22 +21,20 @@
                 <div class="row">
                     @foreach ($image as $item)
                     @if ($key===0)
-                    <div class="col-md-4">
-                        <div>
-                            <span class="image-block block2">
-                            <a class="image-zoom" href="{{ asset('uploads/property/large/'.$item->path) }}" rel="prettyPhoto[gallery]">							
-                                    <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive" alt="CEC Gallery"></a>
-                        </span>
-                        </div>
-                    </div>                        
-                    @else
                     <div class="col-md-3">
                         <div>
                             <span class="image-block block2">
                             <a class="image-zoom" href="{{ asset('uploads/property/large/'.$item->path) }}" rel="prettyPhoto[gallery]">							
-                                    <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive" alt="CEC Gallery"></a>
+                                    <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive" alt="Gallery"></a>
                         </span>
                         </div>
+                    </div>                        
+                    @else
+                    <div style="display: block">
+                            <span class="image-block block2">
+                            <a class="image-zoom" href="{{ asset('uploads/property/large/'.$item->path) }}" rel="prettyPhoto[gallery]">							
+                                    <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive" alt="Gallery"></a>
+                        </span>
                     </div>
                         
                     @endif
