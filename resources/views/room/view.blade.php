@@ -44,11 +44,11 @@
                 </div>
                 @endforeach
             </div>
-            <table class="table table-striped">
+            <table class="table table-striped text-center">
                 <thead class="bg-success">
                     <th>Room Type</th>
                     <th>Sleeps</th>
-                    <th>Price For{{ $totalstay }} {{ Str::plural('day',$totalstay) }}</th>
+                    <th>Price For <span class="text-light">{{ $totalstay }} {{ Str::plural('day',$totalstay) }}</span></th>
                     <th>Your Choices</th>
                     <th>Select Rooms</th>
                     <th>Reserve?</th>

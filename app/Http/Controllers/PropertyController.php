@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Facility;
 use App\Models\Photo;
 use App\Models\Property;
 use Illuminate\Http\Request;
@@ -118,6 +119,8 @@ class PropertyController extends Controller
         $hotel = Property::where(['id'=>$property_id])->first();
         $hotel_data = "";
         $totalstay = (int)$stay;
+        //facilities
+        $facilities = Facility::where(['p_id'=>$property_id])->first();
         //taxes
         $levies = $hotel->taxes()->get();
         //images
@@ -151,7 +154,7 @@ class PropertyController extends Controller
                 <td>$room_type->name</td>
                 <td> $capacity</td> 
                 <td>$room_charge</td>
-                <td></td>
+                <td>$facilities->facility</td>
                 <td><Select name='quantity' required>$quantity</select></td>
                 <td><a href=''>Reserve</a></td>
                 </tr>";
