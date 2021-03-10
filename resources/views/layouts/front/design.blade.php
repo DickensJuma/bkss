@@ -30,6 +30,7 @@
         <!-- Theme CSS -->
         <link rel="stylesheet" href="{{asset('front/assets/css/theme.min.css')}}">
         <link rel="stylesheet" href="{{asset('front/assets/css/style.css')}}">
+        <!-- Jquery-->
         <script src="{{asset('back/plugins/jquery/jquery.min.js')}}"></script>
         <!-- bs-custom-file-input -->
         <script src="{{asset('back/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>

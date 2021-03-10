@@ -40,13 +40,13 @@ class PhotoController extends Controller
         $request->validate([
             'property_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           ]);
-        $data = $request->all();
-        //dd($data);
-        $photo = new Photo;
-        $photo->p_id = $data['p_id'];
         //check if an image has been selected
-        if (!empty($data['property_image'])) {
-            if ($request->hasFile('property_image')) {
+            if ($request->images) {
+                $photo = new Photo;
+                $photo->p_id = $request->p_id;
+
+                $total=$request->TotalImages;
+                $images = $request->images;
                 $image_temp = $request->file('property_image');
                 //echo $image_temp; die;
                 if ($image_temp->isValid()) {
@@ -60,10 +60,9 @@ class PhotoController extends Controller
                     $photo->path = $filename;
                 }
             }
-        }
         $photo->alt_text = "Book sasa property image";
         $photo->save();
-        return response()->json($filename);
+        return response()->json($photo);
     }
 
     /**

@@ -17,7 +17,7 @@
                         more bookings, make sure to add additional photos later on — once you're up and running. </label>
                         <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="exampleInputFile" name="property_image">
+                              <input type="file" class="custom-file-input" id="images" name="property_image[]" multiple>
                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                             <div class="input-group-append">
@@ -123,50 +123,38 @@
     <script type="text/javascript">
         $(document).ready(function () {
             bsCustomFileInput.init();
-            $('#exampleInputFile').on('change', function(){
-                var file = this.files[0];
-                var fileType = file["type"];
-                var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
-                if ($.inArray(fileType, validImageTypes) < 0) {
-                    // invalid file type code goes here.
-                    alert('Please select a valid image in the following formats .gif, .jpeg, .png');
-                }else{
-                    //get the image and place it in a variable
-                    
-                }
-            });
             $.ajaxSetup({
-        headers: {
-            '_token' : $('input[name=_token]').val()
-        }
-    });
-   $('#upload-image-form').submit(function(e) {
-       e.preventDefault();
-       let formData = new FormData(this);
-       $('#image-input-error').text('');
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+            });
 
-       $.ajax({
-          type:'POST',
-          url: `/property/images/add`,
-           data: formData,
-           contentType: false,
-           processData: false,
-           success: function(response) {
-             if (response) {
-               $('#exampleInputFile').reset();
-               $('#images').append("<img class='img-responsive' src='uploads/property/small/"+
-               response.filename +"'/>");
-               alert('Image has been uploaded successfully');
+            $('#images').change(function () {
+                event.preventDefault();
+                let image_upload = new FormData();
+                let TotalImages = $('#images')[0].files.length;  //Total Images
+                let images = $('#images')[0];  
+                let p_id = 
 
-             }
-           },
-           error: function(response){
-              console.log(response);
-                $('#image-input-error').text(response.responseJSON.errors);
-           }
-       });
-  });
+                for (let i = 0; i < TotalImages; i++) {
+                    image_upload.append('images', images.files[i]);
+                }
+                image_upload.append('TotalImages', TotalImages);
+                image_upload.append('p_id', p_id);
+
+                $.ajax({
+                    method: 'POST',
+                    url: '{{ route('image.add') }}',
+                    data: image_upload,
+                    contentType: false,
+                    processData: false,
+                    success: function (images) {
+                        console.log(`ok ${images}`);
+                    },
+                    error: function () {
+                    console.log(`Failed`);
+                    }
+                });
+
+            });
         });
     </script>
-
 @endsection
