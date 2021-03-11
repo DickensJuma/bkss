@@ -116,7 +116,7 @@
             <!-- /.modal -->
         </div>
         <div class="card-footer">
-            <button class="btn btn-warning" id="addPolicy"><i class="fa fa-plus"></i>Continue</button>
+            <button class="btn btn-warning" id="addPolicy">Continue <i class="fa fa-arrow-right"></i></button>
         </div>
     </div>
     <div class="card" id="policies_tab" hidden>
@@ -125,7 +125,33 @@
             <p>Specify some basic policies. Do you allow children or pets? How flexible are you with cancellations? </p>
         </div>
         <div class="card-body">
-            
+            <form action="" method="POST" class="form-horizontal" id="policy">
+                <div class="form-group">
+                    <div class="divider">
+                        <h5>Cancellations</h5>
+                    </div>
+                    <label for="advance_cancellation" class="form-label">How many days in advance can guests cancel free of charge?</label>
+                    <select name="advance_cancellation" id="advance_cancellation" class="form-control">
+                        <option value="0">Day of arrival (18:00)</option>
+                        <option value="1">1 day</option>
+                        <option value="2" selected="">2 days</option>
+                        <option value="3">3 days</option>
+                        <option value="7">7 days</option>
+                        <option value="14">14 days</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="full_pay" class="form-label">or guests will pay 100%</label>
+                        <select name="full_pay" id="full_pay" class="form-control">
+                            <option value="first_night" selected="">of the first night</option>
+                            <option value="full_stay">of the full stay</option>
+                        </select>
+                    </div>
+                    <div class="divider">
+                        <p><i class="fas fa-bell"></i><span class="cancellation_info">The guest must cancel 2 days in advance or pay 100% of the price for the first night.</span></p>
+                        <small>Please note: You'll be able to make changes to your policies later on. This is just to get you started.</small>
+                    </div>
+                </form>    
         </div>
     </div>
 </div>
@@ -178,10 +204,8 @@
             $('#addPolicy').on('click',function(){
                 $('#images_tab').prop('hidden',true);
                 $('#policies_tab').prop('hidden',false);
-
-
-
-            })
+            });
+            
         });
     </script>
 @endsection
