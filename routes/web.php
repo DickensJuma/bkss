@@ -70,7 +70,8 @@ Route::group(['prefix' => 'property'], function () {
     });
     //property Policies group
     Route::group(['prefix' => 'policy'], function () {
-        Route::post('/add', [PolicyController::class,'store'])->name('policy.add');
+        Route::get('/add', [PolicyController::class,'index'])->name('policy.add');
+        Route::post('/add', [PolicyController::class,'store']);
     });
 });
 

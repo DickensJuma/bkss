@@ -1,7 +1,7 @@
 @extends('layouts.front.design')
 @section('content')
 <div class="container">
-    <div class="card">
+    <div class="card" id ="images_tab">
         <div class="card-header">
             <h3>Property photos </h3>
             <p>Great photos invite guests to get the full experience of your property, so upload some high-resolution photos that represent 
@@ -116,7 +116,16 @@
             <!-- /.modal -->
         </div>
         <div class="card-footer">
-            <a href="{{ route('policy.add') }}" class="btn btn-warning">Continue</a>
+            <button class="btn btn-warning" id="addPolicy"><i class="fa fa-plus"></i>Continue</button>
+        </div>
+    </div>
+    <div class="card" id="policies_tab" hidden>
+        <div class="card-header">
+            <h3>Policies</h3>
+            <p>Specify some basic policies. Do you allow children or pets? How flexible are you with cancellations? </p>
+        </div>
+        <div class="card-body">
+            
         </div>
     </div>
 </div>
@@ -166,6 +175,13 @@
                 });
 
             });
+            $('#addPolicy').on('click',function(){
+                $('#images_tab').prop('hidden',true);
+                $('#policies_tab').prop('hidden',false);
+
+
+
+            })
         });
     </script>
 @endsection
