@@ -124,7 +124,7 @@
         $(document).ready(function () {
             bsCustomFileInput.init();
             $.ajaxSetup({
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+                headers: {'X-CSRF-TOKEN': $('input[name=_token]').val()}
             });
 
             $('#images').change(function () {
@@ -132,10 +132,10 @@
                 let image_upload = new FormData();
                 let TotalImages = $('#images')[0].files.length;  //Total Images
                 let images = $('#images')[0];  
-                let p_id = 
+                let p_id = $('input[name=p_id]').val();
 
                 for (let i = 0; i < TotalImages; i++) {
-                    image_upload.append('images', images.files[i]);
+                    image_upload.append('images[]', images.files[i]);
                 }
                 image_upload.append('TotalImages', TotalImages);
                 image_upload.append('p_id', p_id);
@@ -147,10 +147,21 @@
                     contentType: false,
                     processData: false,
                     success: function (images) {
-                        console.log(`ok ${images}`);
+                        Swal.fire(
+                        'Success!',
+                        'Images uploaded successfully',
+                        'success'
+                        );
+                        $('#images').reset();
+
                     },
                     error: function () {
-                    console.log(`Failed`);
+                        Swal.fire(
+                        'Failed!',
+                        'An error occured please try again',
+                        'error'
+                        );
+                        $('#images').reset();
                     }
                 });
 

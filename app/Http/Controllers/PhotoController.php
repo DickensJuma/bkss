@@ -37,32 +37,32 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'property_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-          ]);
         //check if an image has been selected
             if ($request->images) {
-                $photo = new Photo;
-                $photo->p_id = $request->p_id;
-
                 $total=$request->TotalImages;
                 $images = $request->images;
-                $image_temp = $request->file('property_image');
-                //echo $image_temp; die;
-                if ($image_temp->isValid()) {
-                    $extension = $image_temp->getClientOriginalExtension();
-                    $filename = 'bks'.mt_rand(000, 9999999999) . '.' . $extension;
-                    $filepath = 'uploads/property/large/' . $filename;
-                    $webimagefilepath = 'uploads/property/small/' . $filename;
-                    //upload the image
-                    Image::make($image_temp)->resize(600, 600)->save($filepath);
-                    Image::make($image_temp)->resize(200, 200)->save($webimagefilepath);
-                    $photo->path = $filename;
+                foreach($images as $image) {
+                    $photo = new Photo;
+                    $photo->p_id = $request->p_id;
+                    $image_temp = $image;
+                    //echo $image_temp; die;
+                    if ($image_temp->isValid()) {
+                        $extension = $image_temp->getClientOriginalExtension();
+                        $filename = 'bks'.mt_rand(000, 9999999999) . '.' . $extension;
+                        $filepath = 'uploads/property/large/' . $filename;
+                        $webimagefilepath = 'uploads/property/small/' . $filename;
+                        //upload the image
+                        Image::make($image_temp)->resize(600, 600)->save($filepath);
+                        Image::make($image_temp)->resize(200, 200)->save($webimagefilepath);
+                        $photo->path = $filename;
+                        $photo->alt_text = "Book sasa property image";
+                        $photo->save();
+                    }
+
                 }
+               
             }
-        $photo->alt_text = "Book sasa property image";
-        $photo->save();
-        return response()->json($photo);
+        return response()->json("Success");
     }
 
     /**

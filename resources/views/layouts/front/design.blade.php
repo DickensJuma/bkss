@@ -16,7 +16,7 @@
       <link rel="apple-touch-icon" sizes="144x144" href="{{asset('front/assets/images/icon/apple-icon-144x144.png')}}">
       <link rel="apple-touch-icon" sizes="152x152" href="{{asset('front/assets/images/icon/apple-icon-152x152.png')}}">
       <link rel="apple-touch-icon" sizes="180x180" href="{{asset('front/assets/images/icon/apple-icon-180x180.png')}}">
-      <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png')}}">
+      <link rel="icon" type="image/png" sizes="192x192"  href="{{asset('front/assets/images/icon/android-icon-192x192.png')}}">
       <link rel="icon" type="image/png" sizes="32x32" href="{{asset('front/assets/images/icon/favicon-32x32.png')}}">
       <link rel="icon" type="image/png" sizes="96x96" href="{{asset('front/assets/images/icon/favicon-96x96.png')}}">
       <link rel="icon" type="image/png" sizes="16x16" href="{{asset('front/assets/images/icon/favicon-16x16.png')}}">
@@ -32,6 +32,9 @@
         <link rel="stylesheet" href="{{asset('front/assets/css/style.css')}}">
         <!-- Jquery-->
         <script src="{{asset('back/plugins/jquery/jquery.min.js')}}"></script>
+         <!-- SweetAlert2 -->
+        <link rel="stylesheet" href="{{asset('back/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+  
         <!-- bs-custom-file-input -->
         <script src="{{asset('back/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 
@@ -60,5 +63,7 @@
         <script src="{{ asset('front/assets/js/script.js')}}" type="text/javascript"></script>
         <script src="{{ asset('front/assets/js/jquery.prettyPhoto.js')}}" type="text/javascript"></script>
         <!-- //jQuery-Photo-filter-lightbox-Gallery-plugin -->
+        <!-- SweetAlert2 -->
+<script src="{{asset('back/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
     </body>
 </html>
