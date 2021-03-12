@@ -402,5 +402,4 @@
             })
         });
     </script>
-@endif
 @endsection
