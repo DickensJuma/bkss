@@ -185,6 +185,62 @@
                                         <input class="form-check-input" type="checkbox" value="Infinity Pool" id="flexCheckChecked" name="common_armenity[]">
                                         <label class="form-check-label" for="flexCheckChecked">Infinity Pool</label>
                                     </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Plunge Pool" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Plunge Pool</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Pool cover" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Pool cover</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Pool towels" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Pool towels</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Pool with a view" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Pool with a view</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Rooftop pool" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Rooftop pool</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Saltwater pool" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Saltwater pool</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Shallow end" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Shallow end</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Dryer" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Dryer</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Wardrobe or closet" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Wardrobe or closet</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Carpeted" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Carpeted</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Walk-in closet" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Walk-in closet</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Extra long beds (> 6.5 ft)" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Extra long beds (> 6.5 ft)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Fan" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Fan</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Fireplace" id="flexCheckChecked" name="common_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Fireplace</label>
+                                    </div>
 
                                   </div>
                               </div>
@@ -193,27 +249,77 @@
                               <div class="card-header" id="headingTwo">
                                 <h2 class="mb-0">
                                   <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Collapsible Group Item #2
+                                    Bathroom
                                   </button>
                                 </h2>
                               </div>
                               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                 <div class="card-body">
-                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Private Bathroom" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Private Bathroom</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Shared bathroom" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Shared bathroom</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Toilet paper" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Toilet paper</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Bidet" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Bidet</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Bathtub or shower" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Bathtub or shower</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Bathrobe" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Bathrobe</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Free toiletries" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Free toiletries</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Guest bathroom" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Guest bathroom</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Hairdryer" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Hairdryer</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Shared toilet" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Shared toilet</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Sauna" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Sauna</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Shower" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Shower</label>
+                                    </div>
+                                  </div>
                               </div>
                             </div>
                             <div class="card">
                               <div class="card-header" id="headingThree">
                                 <h2 class="mb-0">
                                   <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Collapsible Group Item #3
+                                    Media & Technology
                                   </button>
                                 </h2>
                               </div>
                               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                 <div class="card-body">
-                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Game console - PS4" id="flexCheckChecked" name="bathroom_armenity[]">
+                                        <label class="form-check-label" for="flexCheckChecked">Game console - PS4</label>
+                                    </div>  
                                 </div>
                               </div>
                             </div>
