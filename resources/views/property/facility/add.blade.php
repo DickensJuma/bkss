@@ -251,8 +251,6 @@
                             <div class="col-md-11">
                                 <select name="language[]" id="language" class="form-control" required>
                                     <option value="">Please select</option>
-                                    <option value="dv"></option>
-                                    <option value="ne"></option>
                                     <option value="af">Afrikaans</option>
                                     <option value="sq">Albanian</option>
                                     <option value="ar">Arabic</option>
@@ -453,7 +451,6 @@
                 //parking value change event listener
             $("#parking").on('change',function() {
                 var checkValue = $(this).children('option:selected').val();
-                console.log(checkValue);
                 if(checkValue=="paid"){
                     $("#parking_type").show();
                     $("#parking_type").prop("hidden",false);
@@ -539,8 +536,6 @@
                                       "<div class='col-md-11'>"+
                                     "<select name='language[]' id='language' class='form-control' required>"+
                                    "<option value=''>Please select</option>"+
-                                   "<option value='dv'></option>"+
-                                   "<option value='ne'></option>"+
                                    "<option value='af'>Afrikaans</option>"+
                                    "<option value='sq'>Albanian</option>"+
                                    "<option value='ar'>Arabic</option>"+

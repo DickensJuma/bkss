@@ -205,7 +205,86 @@
                 $('#images_tab').prop('hidden',true);
                 $('#policies_tab').prop('hidden',false);
             });
-            
+            $('#advance_cancellation').on('change',function(){
+                var advanceCancellationValue = $(this).children('option:selected').val();
+                if(advanceCancellationValue=="0"){
+                    var fullPayValue = $('#full_pay').children('option:selected').val();
+                    if(fullPayValue =="first_night"){
+                        $('.cancellation_info').text('The guest must cancel by 18:00 on the day of arrival or pay 100% of the price for the first night.');                        
+                    }else{
+                        $('.cancellation_info').text('The guest must cancel by 18:00 on the day of arrival or pay 100% of the price of the full stay.');
+                    }
+                }else if(advanceCancellationValue=="1"){
+                    var fullPayValue = $('#full_pay').children('option:selected').val();
+                    if(fullPayValue =="first_night"){
+                        $('.cancellation_info').text('The guest must cancel 1 day in advance or pay 100% of the price for the first night.');
+                    }else{
+                        $('.cancellation_info').text('The guest must cancel 1 day in advance or pay 100% of the price of the full stay.');
+                    }
+                }else if(advanceCancellationValue=="2"){
+                    var fullPayValue = $('#full_pay').children('option:selected').val();
+                    if(fullPayValue =="first_night"){
+                        $('.cancellation_info').text('The guest must cancel 2 days in advance or pay 100% of the price for the first night.');
+                    }else{
+                        $('.cancellation_info').text('The guest must cancel 2 days in advance or pay 100% of the price of the full stay.');
+                    }
+                }else if(advanceCancellationValue=="3"){
+                    var fullPayValue = $('#full_pay').children('option:selected').val();
+                    if(fullPayValue =="first_night"){
+                        $('.cancellation_info').text('The guest must cancel 3 days in advance or pay 100% of the price for the first night.');
+                    }else{
+                        $('.cancellation_info').text('The guest must cancel 3 days in advance or pay 100% of the price of the full stay.');
+                    }
+                }else if(advanceCancellationValue=="7"){
+                    var fullPayValue = $('#full_pay').children('option:selected').val();
+                    if(fullPayValue =="first_night"){
+                        $('.cancellation_info').text('The guest must cancel 7 days in advance or pay 100% of the price for the first night.');
+                    }else{
+                        $('.cancellation_info').text('The guest must cancel 7 days in advance or pay 100% of the price of the full stay.');
+                    }
+                }else{
+                    var fullPayValue = $('#full_pay').children('option:selected').val();
+                    if(fullPayValue =="first_night"){
+                        $('.cancellation_info').text('The guest must cancel 14 days in advance or pay 100% of the price for the first night.');
+                    }else{
+                        $('.cancellation_info').text('The guest must cancel 14 days in advance or pay 100% of the price of the full stay.');
+                    }
+                }
+            });
+            $('#full_pay').on('change',function(){
+                var fullPayValue = $(this).children('option:selected').val();
+                if(fullPayValue=="first_night"){
+                    var advanceCancellationValue = $('#advance_cancellation').children('option:selected').val();
+                    if(advanceCancellationValue =="0"){
+                        $('.cancellation_info').text('The guest must cancel by 18:00 on the day of arrival or pay 100% of the price for the first night.');
+                    }else if(advanceCancellationValue=="1"){
+                        $('.cancellation_info').text('The guest must cancel 1 day in advance or pay 100% of the price for the first night.');
+                    }else if(advanceCancellationValue=="2"){
+                        $('.cancellation_info').text('The guest must cancel 2 days in advance or pay 100% of the price for the first night.');
+                    }else if(advanceCancellationValue=="3"){
+                        $('.cancellation_info').text('The guest must cancel 3 days in advance or pay 100% of the price for the first night.');
+                    }else if(advanceCancellationValue=="7"){
+                        $('.cancellation_info').text('The guest must cancel 7 days in advance or pay 100% of the price for the first night.');
+                    }else{
+                        $('.cancellation_info').text('The guest must cancel 14 days in advance or pay 100% of the price for the first night.');
+                    }
+                }else{
+                    var advanceCancellationValue = $('#advance_cancellation').children('option:selected').val();
+                    if(advanceCancellationValue =="0"){
+                        $('.cancellation_info').text('The guest must cancel by 18:00 on the day of arrival or pay 100% of the price of the full stay.');
+                    }else if(advanceCancellationValue=="1"){
+                        $('.cancellation_info').text('The guest must cancel 1 day in advance or pay 100% of the price of the full stay.');
+                    }else if(advanceCancellationValue=="2"){
+                        $('.cancellation_info').text('The guest must cancel 2 days in advance or pay 100% of the price of the full stay.');
+                    }else if(advanceCancellationValue=="3"){
+                        $('.cancellation_info').text('The guest must cancel 3 days in advance or pay 100% of the price of the full stay.');
+                    }else if(advanceCancellationValue=="7"){
+                        $('.cancellation_info').text('The guest must cancel 7 days in advance or pay 100% of the price of the full stay.');
+                    }else{
+                        $('.cancellation_info').text('The guest must cancel 14 days in advance or pay 100% of the price of the full stay.');
+                    }
+                }
+            });
         });
     </script>
 @endsection
