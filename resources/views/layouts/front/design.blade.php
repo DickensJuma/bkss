@@ -34,7 +34,6 @@
         <script src="{{asset('back/plugins/jquery/jquery.min.js')}}"></script>
          <!-- SweetAlert2 -->
         <link rel="stylesheet" href="{{asset('back/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
-  
         <!-- bs-custom-file-input -->
         <script src="{{asset('back/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 
@@ -64,6 +63,11 @@
         <script src="{{ asset('front/assets/js/jquery.prettyPhoto.js')}}" type="text/javascript"></script>
         <!-- //jQuery-Photo-filter-lightbox-Gallery-plugin -->
         <!-- SweetAlert2 -->
-<script src="{{asset('back/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+        <script src="{{asset('back/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+        <!--timepicker-->
+        <script src="{{ asset('back/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js') }}"></script>
+        <script type="text/javascript">
+            $('.timepick').timepicker();
+        </script>
     </body>
 </html>

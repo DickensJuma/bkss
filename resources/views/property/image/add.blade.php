@@ -151,6 +151,95 @@
                         <p><i class="fas fa-bell"></i><span class="cancellation_info">The guest must cancel 2 days in advance or pay 100% of the price for the first night.</span></p>
                         <small>Please note: You'll be able to make changes to your policies later on. This is just to get you started.</small>
                     </div>
+                    <div class="divider">
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-7 col-sm-6">
+                            <h5>Protect against accidental bookings </h5>
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <label class="switch">
+                                <input type="checkbox" id="protection_switch" name="protection_switch" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <span id="protection_switch_label" class="form-label">Yes</span>
+                        </div>
+                        <small>To save you time handling accidental bookings, we automatically waive cancellation fees for guests that cancel within the first 24 hours of a booking being
+                             made. You can change this period of time later in your property management platform.</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <h5>Check-in</h5>
+                            <label for="checkin_from" class="form-label">From:</label>
+                            <div class="input-group bootstrap-timepicker timepicker">
+                                <input id="timepicker" name="checkin_from" class="timepick" data-provide="timepicker" data-template="dropdown" data-minute-step="1" data-modal-backdrop="true" type="text"/>
+                                <span ><i class="fa fa-clock-o"></i></span>
+                            </div>
+                            <label for="checkin_to" class="form">To:</label>
+                            <div class="input-group bootstrap-timepicker timepicker">
+                                <input id="timepicker" name="checkin_to" class="timepick" data-provide="timepicker" data-template="dropdown" data-minute-step="1" data-modal-backdrop="true" type="text"/>
+                                <span ><i class="fa fa-clock-o"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <h5>Check-out</h5>
+                            <label for="checkout_from" class="form-label">From:</label>
+                            <div class="input-group bootstrap-timepicker timepicker">
+                                <input id="timepicker" name="checkout_from" class="timepick" data-provide="timepicker" data-template="dropdown" data-minute-step="1" data-modal-backdrop="true" type="text"/>
+                                <span ><i class="fa fa-clock-o"></i></span>
+                            </div>
+                            <label for="checkout_to" class="form">To:</label>
+                            <div class="input-group bootstrap-timepicker timepicker">
+                                <input id="timepicker" name="checkout_to" class="timepick" data-provide="timepicker" data-template="dropdown" data-minute-step="1" data-modal-backdrop="true" type="text"/>
+                                <span ><i class="fa fa-clock-o"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <h5>Children</h5>
+                        <div class="row">
+                            <div class="col-md-7 col-sm-7">
+                                <p>Can you accommodate children? (You can specify the ages and prices later) </p>
+                            </div>
+                        <div class="col-md-5 col-sm-5">
+                            <label class="switch">
+                                <input type="checkbox" id="children_switch" name="children_switch" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <span id="children_switch_label" class="form-label">Yes</span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h5>Pets</h5>
+                        <p>Some guests like to travel with their furry friends. Indicate if you allow pets and if any charges apply.</p>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <label for="pets_allowed">Do you allow pets?</label>
+                                <select name="pets_allowed" id="pets_allowed" class="form-control">
+                                    <option value="no">No</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="request" selected="">Upon request</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-sm-6" id="pets_fee_tab">
+                                <label for="pets_fee">Are there additional charges for pets?</label>
+                                <select name="pets_fee" id="pets_fee" class="form-control">
+                                    <option value="free">Pets can stay for free</option>
+                                    <option value="paid" selected="">Charges may apply</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-warning" value="Continue">
                 </form>    
         </div>
     </div>
@@ -285,6 +374,30 @@
                     }
                 }
             });
+            //toggler switch code
+            $('#protection_switch').on('change', function(){
+                if(this.checked){
+                    $('#protection_switch_label').text('Yes');
+                }else{
+                    $('#protection_switch_label').text('No');
+                }
+            });
+            //toggler switch code
+            $('#children_switch').on('change', function(){
+                if(this.checked){
+                    $('#children_switch_label').text('Yes');
+                }else{
+                    $('#children_switch_label').text('No');
+                }
+            });
+            $('#pets_allowed').on('change', function(){
+                var petsAllowedValue = $(this).children('option:selected').val();
+                if(petsAllowedValue=="no"){
+                    $('#pets_fee_tab').prop('hidden',true);
+                }else{
+                    $('#pets_fee_tab').prop('hidden',false);
+                }
+            })
         });
     </script>
 @endsection
