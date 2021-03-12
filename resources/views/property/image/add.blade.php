@@ -125,7 +125,9 @@
             <p>Specify some basic policies. Do you allow children or pets? How flexible are you with cancellations? </p>
         </div>
         <div class="card-body">
-            <form action="" method="POST" class="form-horizontal" id="policy">
+            <form action="{{ route('policy.add') }}" method="POST" class="form-horizontal" id="policy">
+                @csrf
+                <input type="text" value="{{ $property_id }}" name="p_id" hidden class="text-control">
                 <div class="form-group">
                     <div class="divider">
                         <h5>Cancellations</h5>
@@ -162,7 +164,7 @@
                         </div>
                         <div class="col-md-5 col-sm-6">
                             <label class="switch">
-                                <input type="checkbox" id="protection_switch" name="protection_switch" checked>
+                                <input type="checkbox" id="protection_switch" name="protection" checked>
                                 <span class="slider round"></span>
                             </label>
                             <span id="protection_switch_label" class="form-label">Yes</span>
@@ -211,7 +213,7 @@
                             </div>
                         <div class="col-md-5 col-sm-5">
                             <label class="switch">
-                                <input type="checkbox" id="children_switch" name="children_switch" checked>
+                                <input type="checkbox" id="children_switch" name="children" checked>
                                 <span class="slider round"></span>
                             </label>
                             <span id="children_switch_label" class="form-label">Yes</span>
@@ -400,4 +402,5 @@
             })
         });
     </script>
+@endif
 @endsection

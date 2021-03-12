@@ -35,7 +35,30 @@ class PolicyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        //dd($data);
+        $policy = new Policy;
+        $policy->property_id = $data['p_id'];
+        $policy->advance_cancellation = $data['advance_cancellation'];
+        $policy->full_pay= $data['full_pay'];
+        if ($data['protection']=="on"){
+            $policy->protection = "Yes";
+        }else{
+            $policy->protection = "No";
+        }
+        $policy->checkin_from = $data['checkin_from'];
+        $policy->checkin_to = $data['checkin_to'];
+        $policy->checkout_from = $data['checkout_from'];
+        $policy->checkout_to = $data['checkout_to'];
+        if ($data['children']=="on"){
+            $policy->children = "Yes";
+        }else{
+            $policy->children = "No";
+        }
+        $policy->pets_allowed = $data['pets_allowed'];
+        $policy->pets_fee = $data['pets_fee'];
+        $policy->save();
+        return redirect()->route('policy.add')->with('alert','Your property has been created successfully. One of our team members will contact you to verify the property before it is activated');
     }
 
     /**
