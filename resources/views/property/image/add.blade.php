@@ -281,7 +281,7 @@
                         $('#images').reset();
 
                     },
-                    error: function () {
+                    error: function (data) {
                         Swal.fire(
                         'Failed!',
                         'An error occured please try again',
