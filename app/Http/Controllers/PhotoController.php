@@ -58,9 +58,11 @@ class PhotoController extends Controller
                         $filename = 'bks'.mt_rand(000, 9999999999) . '.' . $extension;
                         $filepath = 'uploads/property/large/' . $filename;
                         $webimagefilepath = 'uploads/property/small/' . $filename;
+                        $thumbnailpath = 'uploads/property/thumbnail/' . $filename;
                         //upload the image
                         Image::make($image_temp)->resize(600, 600)->save($filepath);
                         Image::make($image_temp)->resize(200, 200)->save($webimagefilepath);
+                        Image::make($image_temp)->resize(100, 100)->save($thumbnailpath);
                         $photo->path = $filename;
                         $photo->alt_text = "Book sasa property image";
                         $photo->save();
