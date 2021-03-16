@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Photo;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
+use App\Models\Property;
 
 class PhotoController extends Controller
 {
@@ -15,7 +16,13 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //get all photos
+        //get all property
+        $property = Property::where(['owner'=>auth()->user()->id])->first();
+        //get photos
+        $photos = Photo::where(['p_id'=>$property->id])->get();
+        return view('property.image.index',compact('photos'));
+
+    
         
     }
 
