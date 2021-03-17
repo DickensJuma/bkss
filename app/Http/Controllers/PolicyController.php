@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Policy;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class PolicyController extends Controller
@@ -14,7 +15,11 @@ class PolicyController extends Controller
      */
     public function index()
     {
-        return view('property.policy.add');
+        //get all property
+        $property = Property::where(['owner'=>auth()->user()->id])->first();
+        $policies = Policy::where(['property_id'=>$property->id])->first();
+        return view('property.policy.index',compact('property', 'policies'));
+        
     }
 
     /**
@@ -24,7 +29,7 @@ class PolicyController extends Controller
      */
     public function create()
     {
-        //
+        return view('property.policy.add');
     }
 
     /**

@@ -71,7 +71,8 @@ Route::group(['prefix' => 'property'], function () {
     });
     //property Policies group
     Route::group(['prefix' => 'policy'], function () {
-        Route::get('/add', [PolicyController::class,'index'])->name('policy.add');
+        Route::get('/', [PolicyController::class,'index'])->name('policy');
+        Route::get('/add', [PolicyController::class,'create'])->name('policy.add');
         Route::post('/add', [PolicyController::class,'store']);
     });
 });
