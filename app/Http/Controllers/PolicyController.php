@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amenity;
+use App\Models\Facility;
 use App\Models\Policy;
 use App\Models\Property;
 use Illuminate\Http\Request;
@@ -18,7 +20,9 @@ class PolicyController extends Controller
         //get all property
         $property = Property::where(['owner'=>auth()->user()->id])->first();
         $policies = Policy::where(['property_id'=>$property->id])->first();
-        return view('property.policy.index',compact('property', 'policies'));
+        $amenities = Amenity::where(['p_id'=>$property->id])->first();
+        $facilities = Facility::where(['p_id'=>$property->id])->first();
+        return view('property.policy.index',compact('property', 'policies','amenities','facilities'));
         
     }
 

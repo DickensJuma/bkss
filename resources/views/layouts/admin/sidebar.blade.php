@@ -157,7 +157,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
+                <a href="{{ route('facility') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Facilities</p>
                 </a>

@@ -58,6 +58,7 @@ Route::group(['prefix' => 'property'], function () {
     });
     //facility routes
     Route::group(['prefix' => 'facility'], function () {
+        Route::get('/', [FacilityController::class,'index'])->name('facility');
         Route::post('/add', [FacilityController::class,'store'])->name('facility.add');
     });
     //amenity routes

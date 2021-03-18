@@ -20,10 +20,10 @@ class CreateAmenitiesTable extends Migration
             $table->boolean('extra_beds');
             $table->tinyInteger('extrabeds_no')->default(0);
             $table->text('extra_accomodation')->nullable();
-            $table->integer('child_cost')->unsigned()->nullable();
+            $table->decimal('child_in_crib_cost', 6,2)->default(0.00);
             $table->integer('extra_child_max_age')->nullable();
-            $table->integer('extra_child_cost')->unsigned()->nullable(); 
-            $table->integer('extra_adult_cost')->unsigned()->nullable();  
+            $table->decimal('extra_child_cost' , 6,2)->unsigned()->nullable(); 
+            $table->decimal('extra_adult_cost' , 6,2)->unsigned()->nullable();  
             $table->text('common_amenities')->nullable(); 
             $table->text('room_amenities')->nullable();        
             $table->timestamps();

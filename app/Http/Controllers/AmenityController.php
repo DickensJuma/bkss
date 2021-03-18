@@ -68,7 +68,8 @@ class AmenityController extends Controller
         $amenity->extra_beds = $extra_beds;
         $amenity->extrabeds_no = $request->extrabeds_no;
         $amenity->extra_accomodation = $extra_accomodations;
-        $amenity->child_cost = $request->child_cost;
+        $amenity->extra_accomodation = $extra_accomodations;
+        $amenity->child_in_crib_cost = $request->child_cost;
         $amenity->extra_child_max_age = $request->extra_child_max_age;
         $amenity->extra_child_cost = $request->extra_child_cost;
         $amenity->extra_adult_cost = $request->extra_adult_cost;
