@@ -145,8 +145,8 @@
                     <div class="form-group">
                         <label for="full_pay" class="form-label">or guests will pay 100%</label>
                         <select name="full_pay" id="full_pay" class="form-control">
-                            <option value="first_night" selected="">of the first night</option>
-                            <option value="full_stay">of the full stay</option>
+                            <option value="first night" selected="">of the first night</option>
+                            <option value="full stay">of the full stay</option>
                         </select>
                     </div>
                     <div class="divider">

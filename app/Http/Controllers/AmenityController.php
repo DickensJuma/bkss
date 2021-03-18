@@ -37,20 +37,26 @@ class AmenityController extends Controller
     {
         $data = $request->all();
         //dd($data);
-        $extra_accomodations  = "<span>&#10003;</span>";
-        foreach($request->extra_accomodation as $extra_accomodation){
-            $extra_accomodations .= $extra_accomodation;
-            $extra_accomodations .="<span>&#10003;</span>";
+        $extra_accomodations  = "";
+        if($request->extra_accomodation){
+            foreach($request->extra_accomodation as $extra_accomodation){
+                $extra_accomodations .= $extra_accomodation;
+                $extra_accomodations .="<span>&#10003;</span>";
+            }
         }
-        $common_amenities  = "<span>&#10003;</span>";
-        foreach($request->common_armenity as $common_amenity){
-            $common_amenities .= $common_amenity;
-            $common_amenities .="<span>&#10003;</span>";
+        $common_amenities  = "";
+        if($request->common_armenity){
+            foreach($request->common_armenity as $common_amenity){
+                $common_amenities .= $common_amenity;
+                $common_amenities .="<span>&#10003;</span>";
+            }
         }
-        $room_amenities  = "<span>&#10003;</span>";
-        foreach($request->room_armenity as $room_amenity){
-            $room_amenities .= $room_amenity;
-            $room_amenities .="<span>&#10003;</span>";
+        $room_amenities  = "";
+        if($request->room_armenity){
+            foreach($request->room_armenity as $room_amenity){
+                $room_amenities .= $room_amenity;
+                $room_amenities .="<span>&#10003;</span>";
+            }
         }
         if($request->extrabeds =="yes"){
             $extra_beds = 1;

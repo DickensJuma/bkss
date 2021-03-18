@@ -28,7 +28,10 @@ class CreatePropertiesTable extends Migration
             $table->string('zip');
             $table->tinyInteger('owner');
             $table->tinyInteger('type')->default(1);
+            $table->tinyInteger('host_type')->default(0);
             $table->string('logo')->default('default.png');
+            $table->tinyInteger('pms')->default(0);
+            $table->tinyInteger('channel_manager')->default(0);
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
