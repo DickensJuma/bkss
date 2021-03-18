@@ -35,9 +35,12 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('back/dist/css/adminlte.min.css')}}">
   <!-- My styles -->
-  link rel="stylesheet" href="{{asset('back/dist/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('back/dist/css/style.css')}}">
+  <!-- Year picker styles -->
+  <link rel="stylesheet" href="{{asset('back/plugins/yearpicker/dist/yearpicker.css')}}">
   <!-- jQuery -->
 <script src="{{asset('back/plugins/jquery/jquery.min.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -74,5 +77,7 @@
 <script src="{{asset('back/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('back/dist/js/pages/dashboard2.js')}}"></script>
+<script src="{{asset('back/plugins/yearpicker/dist/yearpicker.js')}}" async></script>
+
 </body>
 </html>

@@ -9,6 +9,7 @@ use App\Http\Controllers\PageScoreController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\PropertyProfileController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
@@ -80,9 +81,9 @@ Route::group(['prefix' => 'property'], function () {
     });
     //profile group
     Route::group(['prefix' => 'profile'], function () {
-        Route::get('/{id}', [PropertyProfileController::class,'index'])->name('profile');
-        Route::get('/add/{id}', [ropertyProfileController::class,'create'])->name('profile.add');
-        Route::post('/add/{id}', [ropertyProfileController::class,'store']);
+        Route::get('/', [PropertyProfileController::class,'index'])->name('profile');
+        Route::get('/add/{id}', [PropertyProfileController::class,'create'])->name('propertyprofile.add');
+        Route::post('/add/{id}', [PropertyProfileController::class,'store']);
     });
 });
 

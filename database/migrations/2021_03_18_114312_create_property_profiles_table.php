@@ -15,7 +15,17 @@ class CreatePropertyProfilesTable extends Migration
     {
         Schema::create('property_profiles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('p_id')->references('id')->on('properties')->onDelete('cascade')->onUpdate('cascade');            
+            $table->integer('profile_type')->unsigned();
+            $table->string('name');
+            $table->text('about')->nullable();
+            $table->text('about2')->nullable();
+            $table->text('neighborhood')->nullable();
+            $table->string('open_date', 100)->nullable();
+            $table->string('construction_year', 100)->nullable();
+            $table->string('renovation_year', 100)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

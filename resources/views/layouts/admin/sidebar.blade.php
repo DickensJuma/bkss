@@ -181,7 +181,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('property.profile') }}" class="nav-link">
+                <a href="{{ route('profile') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Property Profile</p>
                 </a>
