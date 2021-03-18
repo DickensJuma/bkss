@@ -163,7 +163,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
+                <a href="{{ route('room') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Room Details</p>
                 </a>
@@ -181,7 +181,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
+                <a href="{{ route('property.profile') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Property Profile</p>
                 </a>

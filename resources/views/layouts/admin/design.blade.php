@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="{{asset('back/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('back/dist/css/adminlte.min.css')}}">
+  <!-- My styles -->
+  link rel="stylesheet" href="{{asset('back/dist/css/style.css')}}">
   <!-- jQuery -->
 <script src="{{asset('back/plugins/jquery/jquery.min.js')}}"></script>
 </head>

@@ -50,10 +50,12 @@ Route::group(['prefix' => 'property'], function () {
     Route::get('/general/info',[GeneralInformationController::class, 'index'])->name('general.info');
     Route::post('/general/info',[GeneralInformationController::class, 'store']);
     Route::get('/vat/taxinfo',[LevyController::class, 'index'])->name('vat.info');
-    //Route::post('/general/info',[GeneralInformationController::class, 'store']);
+
 
     //room routes
     Route::group(['prefix' => 'room'], function () {
+        Route::get('/', [RoomController::class,'index'])->name('room');
+        Route::get('/add/{id}', [RoomController::class,'create'])->name('room.create');
         Route::post('/add', [RoomController::class,'store'])->name('room.add');
     });
     //facility routes
@@ -75,6 +77,12 @@ Route::group(['prefix' => 'property'], function () {
         Route::get('/', [PolicyController::class,'index'])->name('policy');
         Route::get('/add', [PolicyController::class,'create'])->name('policy.add');
         Route::post('/add', [PolicyController::class,'store']);
+    });
+    //profile group
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('/{id}', [PropertyProfileController::class,'index'])->name('profile');
+        Route::get('/add/{id}', [ropertyProfileController::class,'create'])->name('profile.add');
+        Route::post('/add/{id}', [ropertyProfileController::class,'store']);
     });
 });
 

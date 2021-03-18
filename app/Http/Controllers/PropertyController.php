@@ -161,7 +161,7 @@ class PropertyController extends Controller
             
             }
         }
-        return view('room.view')->with(compact('hotel_data','hotel','levies','images','totalstay'));
+        return view('property.room.view')->with(compact('hotel_data','hotel','levies','images','totalstay'));
 
     }
 

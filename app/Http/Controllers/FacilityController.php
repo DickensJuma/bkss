@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Facility;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class FacilityController extends Controller
@@ -14,7 +15,10 @@ class FacilityController extends Controller
      */
     public function index()
     {
-        return view('property.facility.index');
+        //get all properties 
+        $property = Property::where(['owner'=>auth()->user()->id])->first();
+        $facilities = Facility::where(['p_id'=>$property->id])->first();
+        return view('property.facility.index',compact('facilities'));
     }
 
     /**
