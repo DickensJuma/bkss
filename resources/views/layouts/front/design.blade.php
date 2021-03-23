@@ -68,6 +68,31 @@
         <script src="{{ asset('back/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js') }}"></script>
         <script type="text/javascript">
             $('.timepick').timepicker();
+            @if (session('erroralert'))
+            $(document).ready(function () {
+                Swal.fire(
+                    "Failed!",    
+                "{{ session('erroralert') }}",
+                "error"); 
+            });
+            @endif
+            @if (session('successalert'))
+            $(document).ready(function () {
+                Swal.fire(
+                    "Done!",    
+                "{{ session('successalert') }}",
+                "success");
+            });
+            @endif
+            @if (session('warningalert'))
+            $(document).ready(function () {
+                Swal.fire(
+                    "Access Denied!",    
+                "{{ session('warningalert') }}",
+                "warning");
+                
+            });
+            @endif
         </script>
     </body>
 </html>

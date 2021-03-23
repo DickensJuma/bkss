@@ -15,8 +15,8 @@ class CreateAmenityRoomTable extends Migration
     {
         Schema::create('amenity_room', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('amenity_id');
-            $table->unsignedInteger('room_id');
+            $table->foreignId('amenity_id')->references('id')->on('amenities')->onDelete('cascade')->onUpdate('cascade'); 
+            $table->foreignId('froom_id')->references('id')->on('rooms')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

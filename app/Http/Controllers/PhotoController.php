@@ -44,10 +44,10 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         //check if an image has been selected
-            if ($request->images) {
-                $total=$request->TotalImages;
-                $images = $request->images;
+            if ($request->property_image) {
+                $images = $request->property_image;
                 foreach($images as $image) {
                     $photo = new Photo;
                     $photo->p_id = $request->p_id;
@@ -69,9 +69,11 @@ class PhotoController extends Controller
                     }
 
                 }
-               
+                $property_id = $request->p_id;
+                return view('property.image.add',compact('property_id'))->with('successalert','Images Uploaded successfully');
             }
-        return response()->json("Success");
+            $property_id = $request->p_id;
+        return view('property.image.add',compact('property_id'))->with('erroralert','Please select a valid imagfe to upload');
     }
 
     /**

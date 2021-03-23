@@ -16,6 +16,7 @@ class CreateAmenitiesTable extends Migration
     {
         Schema::create('amenities', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('sub_cat_id')->references('id')->on('sub_categories')->onDelete('cascade')->onUpdate('cascade'); 
             $table->tinyInteger('p_id');
             $table->boolean('extra_beds');
             $table->tinyInteger('extrabeds_no')->default(0);

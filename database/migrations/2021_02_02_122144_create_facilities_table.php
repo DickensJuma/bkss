@@ -15,6 +15,7 @@ class CreateFacilitiesTable extends Migration
     {
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('sub_cat_id')->references('id')->on('sub_categories')->onDelete('cascade')->onUpdate('cascade'); 
             $table->tinyInteger('p_id');
             $table->string('parking', 100);
             $table->string('parking_type', 100)->nullable();

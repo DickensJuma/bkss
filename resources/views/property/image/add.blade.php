@@ -8,7 +8,7 @@
                 all your property has to offer. We will display these photos on your property's page on the Booking.com website. </p>
         </div>
         <div class="card-body">
-            <form class="form-horizontal" enctype="multipart/form-data" method="POST" id="upload-image-form">
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('image.add') }}" id="upload-image-form">
                 @csrf
                 <input type="text" value="{{ $property_id }}" name="p_id" hidden class="text-control">
                 <div class="form-group">
@@ -21,32 +21,32 @@
                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                             <div class="input-group-append">
-                              <button type="submit" class="input-group-text" id="">Upload</button>
+                              <input type="submit" class="input-group-text" id="" value="Upload">
                             </div>
                             <span class="text-danger" id="image-input-error"></span>
                           </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6" id="images">
+            </form>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6" id="images">
 
-                        </div>
                     </div>
                 </div>
-                <div class="divider">
-                    <h5>No professional photos? No problem. </h5>
-                    <ul>
-                        <li class="pointer-right">
-                            You can use: <i class="fa fa-mobile" aria-hidden="true"></i> A smartphone
-                            <i class="fa fa-camera" aria-hidden="true"></i> A digital camera
-                        </li>
-                        <li class="pointer-right">Top tip! Guests love photos!<button type="button" class=" btn btn-default " data-toggle="modal" data-target="#modal-default">Here are some tips on taking great photos of your property</button></li>
-                        <li class="pointer-right">If you don’t know who took a photo, it's best to avoid using it. Only use photos which 
-                            you took or own the copyright to, or if it was taken by someone else, make sure you have the photographer’s 
-                            consent to use the photo. </li>
-                    </ul>
-                </div>
-            </form>
+            </div>
+            <div class="divider">
+                <h5>No professional photos? No problem. </h5>
+                <ul>
+                    <li class="pointer-right">
+                        You can use: <i class="fa fa-mobile" aria-hidden="true"></i> A smartphone
+                        <i class="fa fa-camera" aria-hidden="true"></i> A digital camera
+                    </li>
+                    <li class="pointer-right">Top tip! Guests love photos!<button type="button" class=" btn btn-default " data-toggle="modal" data-target="#modal-default">Here are some tips on taking great photos of your property</button></li>
+                    <li class="pointer-right">If you don’t know who took a photo, it's best to avoid using it. Only use photos which 
+                        you took or own the copyright to, or if it was taken by someone else, make sure you have the photographer’s 
+                        consent to use the photo. </li>
+                </ul>
+            </div>
             <div class="modal fade" id="modal-default">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -249,7 +249,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             bsCustomFileInput.init();
-            $.ajaxSetup({
+            /*$.ajaxSetup({
                 headers: {'X-CSRF-TOKEN': $('input[name=_token]').val()}
             });
 
@@ -292,6 +292,7 @@
                 });
 
             });
+            */
             $('#addPolicy').on('click',function(){
                 $('#images_tab').prop('hidden',true);
                 $('#policies_tab').prop('hidden',false);
