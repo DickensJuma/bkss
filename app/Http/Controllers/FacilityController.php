@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Facility;
 use App\Models\Property;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class FacilityController extends Controller
@@ -17,7 +18,15 @@ class FacilityController extends Controller
     {
         //get all properties 
         $property = Property::where(['owner'=>auth()->user()->id])->first();
-        $facilities = Facility::where(['p_id'=>$property->id])->first();
+        //get all facilities
+        $facilities = Facility::where(['p_id'=>$property->id])->get();
+        dd($facilities);
+        foreach($facilities as $facility){
+            $sub_category = SubCategory::where(['id'=>$facility->sub_cat_id])->first();
+            dd($sub_category);
+        }
+        //get
+        
         return view('property.facility.index',compact('facilities'));
     }
 

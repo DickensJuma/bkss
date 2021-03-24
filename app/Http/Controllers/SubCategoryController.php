@@ -35,7 +35,12 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $sub_cat = new SubCategory;
+       $sub_cat->cat_id = $request->cat_id;
+       $sub_cat->name = $request->name;
+       $sub_cat->$request->description;
+       $sub_cat->save();
+       return redirect()->back()->with('successalert','Sub Category added successfully');
     }
 
     /**

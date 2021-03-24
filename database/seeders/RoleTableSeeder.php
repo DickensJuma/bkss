@@ -31,7 +31,7 @@ class RoleTableSeeder extends Seeder
             $role_admin_user->save();
 
             $role_super_admin_user = new Role;
-            $role_super_admin_user->name = 'Super admin';
+            $role_super_admin_user->name = 'super';
             $role_super_admin_user->description = 'An elevated admin user';
             $role_super_admin_user->created_at = Carbon::now()->format('Y-m-d H:i:s');
             $role_super_admin_user->updated_at = Carbon::now()->format('Y-m-d H:i:s');

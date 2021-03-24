@@ -23,8 +23,8 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->user()->hasRole('super_admin')){
-            return redirect()->route('superhome');
+        if ($request->user()->hasRole('super')){
+            return redirect()->route('superadminhome');
         }
         if ($request->user()->hasRole('admin')){
             return redirect()->route('adminhome');
