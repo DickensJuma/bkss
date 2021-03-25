@@ -40,7 +40,7 @@
           <div class="divider">
             <hr>
           </div>
-           <!-- Rates-->
+           <!-- Categories-->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-calendar-week"></i>
@@ -80,19 +80,19 @@
               <li class="nav-item">
                 <a href="{{ route('property.add') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add property</p>
+                  <p>Properties</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('property.pageScore') }}" class="nav-link">
+                <a href="{{ route('property.facility') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Propert Page Score</p>
+                  <p>Facilities</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('general.info') }}" class="nav-link">
+                <a href="{{ route('property.amenity') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>General Information</p>
+                  <p>Amenity</p>
                 </a>
               </li>
               <li class="nav-item">

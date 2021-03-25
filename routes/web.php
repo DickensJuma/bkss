@@ -123,7 +123,17 @@ Route::group(['prefix' => 'category'], function () {
     //Sub category sub route
     Route::group(['prefix' => 'sub'], function () {
         Route::get('/', [SubCategoryController::class,'index'])->name('sub_category');
-    
+        Route::post('/', [SubCategoryController::class,'store']);
     });
+});
 
+//facility routes
+Route::group(['prefix' => 'facility'], function () {
+    Route::get('/', [FacilityController::class,'index'])->name('property.facility');
+    Route::post('/', [FacilityController::class,'store']);
+});
+//amenity routes
+Route::group(['prefix' => 'amenity'], function () {
+    Route::get('/', [AmenityController::class,'index'])->name('property.amenity');
+    Route::post('/', [AmenityController::class,'index']);
 });

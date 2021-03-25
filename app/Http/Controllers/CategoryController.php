@@ -22,11 +22,12 @@ class CategoryController extends Controller
         $columns ="";
         foreach($categories as $category){
             $author = User::where(['id'=>$category->author])->first();
+            $date = $category->created_at->format('d-m-Y');
             $columns .= "<tr>
             <td>$category->id</td>
             <td>$category->name</td>
             <td>$category->description </td>
-            <td>$category->created_at</td>
+            <td>$date</td>
             <td>$author->name</td>
             <td><a href='' class='btn btn-sm btn-warning'><i class='fas fa-edit' aria-hidden='true'></i></a> |
                <a href='' class='btn btn-sm btn-danger'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>
