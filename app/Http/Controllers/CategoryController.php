@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\SubCategory;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -14,7 +17,24 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $title = "Categories";
+        $categories = Category::get();
+        $columns ="";
+        foreach($categories as $category){
+            $author = User::where(['id'=>$category->author])->first();
+            $columns .= "<tr>
+            <td>$category->id</td>
+            <td>$category->name</td>
+            <td>$category->description </td>
+            <td>$category->created_at</td>
+            <td>$author->name</td>
+            <td><a href='' class='btn btn-sm btn-warning'><i class='fas fa-edit' aria-hidden='true'></i></a> |
+               <a href='' class='btn btn-sm btn-danger'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>
+           </td>
+            </tr>";
+                 
+        }
+        return view('super.category.index',compact('columns','title'));
     }
 
     /**
@@ -37,7 +57,12 @@ class CategoryController extends Controller
     {
         $category = new Category;
         $category->name = $request->name;
-        $category->description = $request->description;
+        if($request->description){
+            $category->description = $request->description;
+        }else{
+            $category->description = "_";
+        }
+        $category->author = Auth::user()->id;
         $category->save();
         return redirect()->back()->with('successalert','Category added successfully');
     }
