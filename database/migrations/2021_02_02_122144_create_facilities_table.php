@@ -18,6 +18,7 @@ class CreateFacilitiesTable extends Migration
             $table->foreignId('sub_cat_id')->references('id')->on('sub_categories')->onDelete('cascade')->onUpdate('cascade'); 
             $table->string('name');
             $table->text('description')->nullable();
+            $table->foreignId('author')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

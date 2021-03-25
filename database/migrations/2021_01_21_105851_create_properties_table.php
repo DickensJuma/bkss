@@ -26,7 +26,8 @@ class CreatePropertiesTable extends Migration
             $table->string('country');
             $table->string('city');
             $table->string('zip');
-            $table->tinyInteger('owner');
+            $table->foreignId('owner')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade'); 
+            $table->foreignId('admin')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');               
             $table->tinyInteger('type')->default(1);
             $table->tinyInteger('host_type')->default(0);
             $table->string('logo')->default('default.png');

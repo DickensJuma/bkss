@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
+            $table->foreignId('author')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');        
             $table->timestamps();
             $table->softDeletes();
         });
