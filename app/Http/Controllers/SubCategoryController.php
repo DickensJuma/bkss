@@ -86,7 +86,7 @@ class SubCategoryController extends Controller
      */
     public function show(SubCategory $subCategory)
     {
-        //
+        
     }
 
     /**

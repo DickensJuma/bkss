@@ -77,6 +77,12 @@
                           <?php echo $categories_dropdown ?>
                         </select>
                       </div>
+                      <div class="form-group">
+                        <label for="category" class="form-label">Sub Category</label>
+                        <select name="category" id="category" class="form-control">
+                          <?php echo $subcategories_dropdown ?>
+                        </select>
+                      </div>
                       <br>
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
