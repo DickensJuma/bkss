@@ -1,20 +1,21 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LevyController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\PolicyController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FacilityController;
-use App\Http\Controllers\GeneralInformationController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LevyController;
-use App\Http\Controllers\PageScoreController;
-use App\Http\Controllers\PhotoController;
-use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\PropertyController;
-use App\Http\Controllers\PropertyProfileController;
-use App\Http\Controllers\RoomController;
-use App\Http\Controllers\SearchController;
+use App\Http\Controllers\PageScoreController;
 use App\Http\Controllers\SubCategoryController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PropertyProfileController;
+use App\Http\Controllers\GeneralInformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -124,16 +125,18 @@ Route::group(['prefix' => 'category'], function () {
     Route::group(['prefix' => 'sub'], function () {
         Route::get('/', [SubCategoryController::class,'index'])->name('sub_category');
         Route::post('/', [SubCategoryController::class,'store']);
+        Route::get('/get_by_category', [SubCategoryController::class,'get_by_category'])->name('sub_category_by_category');
+
     });
 });
 
 //facility routes
 Route::group(['prefix' => 'facility'], function () {
-    Route::get('/', [FacilityController::class,'index'])->name('property.facility');
-    Route::post('/', [FacilityController::class,'store']);
+    Route::get('/', [FacilityController::class,'superIndex'])->name('property.facility');
+    Route::post('/', [FacilityController::class,'create']);
 });
 //amenity routes
 Route::group(['prefix' => 'amenity'], function () {
-    Route::get('/', [AmenityController::class,'index'])->name('property.amenity');
-    Route::post('/', [AmenityController::class,'index']);
+    Route::get('/', [AmenityController::class,'superIndex'])->name('property.amenity');
+    Route::post('/', [AmenityController::class,'create']);
 });

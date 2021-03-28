@@ -38,7 +38,7 @@ class RoleTableSeeder extends Seeder
             $role_super_admin_user->save(); 
 
             $role_super_vendor_user = new Role;
-            $role_super_vendor_user->name = 'Vendor';
+            $role_super_vendor_user->name = 'vendor';
             $role_super_vendor_user->description = 'Property or hotel owner';
             $role_super_vendor_user->created_at = Carbon::now()->format('Y-m-d H:i:s');
             $role_super_vendor_user->updated_at = Carbon::now()->format('Y-m-d H:i:s');

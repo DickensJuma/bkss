@@ -19,12 +19,12 @@ class SubCategoryController extends Controller
     {
         $title = "Sub Categories";
         $subcategories = SubCategory::get();
-       //Categories drop down start
-       $categories = Category::get();
-       $categories_dropdown = "<option selected>Select Category</option>";
-       foreach ($categories as $category) {
-           $categories_dropdown .= "<option class='bg-ready' value='" . $category->id . "'>" . $category->name . "</option>";
-       }
+        //Categories drop down start
+        $categories = Category::get();
+        $categories_dropdown = "<option selected>Select Category</option>";
+        foreach ($categories as $category) {
+            $categories_dropdown .= "<option class='bg-ready' value='" . $category->id . "'>" . $category->name . "</option>";
+        }
 //Categories dropdown end
         $columns ="";
         foreach($subcategories as $subcategory){
@@ -39,10 +39,9 @@ class SubCategoryController extends Controller
             <td>$date</td>
             <td>$author->name</td>
             <td><a href='' class='btn btn-sm btn-warning'><i class='fas fa-edit' aria-hidden='true'></i></a> |
-               <a href='' class='btn btn-sm btn-danger'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>
-           </td>
-            </tr>";
-                 
+                <a href='' class='btn btn-sm btn-danger'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>
+            </td>
+            </tr>";   
         }
         return view('super.subcat.index',compact('columns','title', 'categories_dropdown'));
     }
@@ -63,19 +62,19 @@ class SubCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-       $sub_cat = new SubCategory;
-       $sub_cat->cat_id = $request->category;
-       $sub_cat->name = $request->name;
-       if($request->description){
+    public function store(Request $request){
+        $sub_cat = new SubCategory;
+        $sub_cat->cat_id = $request->category;
+        $sub_cat->name = $request->name;
+        if($request->description)
+        {
         $sub_cat->description = $request->description;
-    }else{
-        $sub_cat->description = "_";
-    }
-    $sub_cat->author = Auth::user()->id;
-       $sub_cat->save();
-       return redirect()->back()->with('successalert','Sub Category added successfully');
+        }else{
+            $sub_cat->description = "_";
+        }
+        $sub_cat->author = Auth::user()->id;
+        $sub_cat->save();
+        return redirect()->back()->with('successalert','Sub Category added successfully');
     }
 
     /**
@@ -121,5 +120,18 @@ class SubCategoryController extends Controller
     public function destroy(SubCategory $subCategory)
     {
         //
+    }
+
+    public function get_by_category(Request $request){
+        if(!$request->cat_id){
+            $subcategories_dropdown = "<option>Select sub category</option>";
+        }else{
+            $subcategories_dropdown = "<option>Select sub category</option>";
+            $sub_cats = SubCategory::where(['cat_id'=>$request->cat_id])->get();
+            foreach($sub_cats as $sub_cat){
+                $subcategories_dropdown .= "<option class='bg-ready' value='" . $sub_cat->id . "'>" . $sub_cat->name . "</option>";
+            }
+        }
+        return response()->json(['subcategories_dropdown' => $subcategories_dropdown]);
     }
 }

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Amenity;
+use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AmenityController extends Controller
 {
@@ -14,36 +16,40 @@ class AmenityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(){
+
+    }
+
+    public function superIndex()
     {
         $title = "Amenities";
         $amenities = Amenity::get();
-       //Categories drop down start
-       $categories = SubCategory::get();
-       $categories_dropdown = "<option selected>Select Category</option>";
-       foreach ($categories as $category) {
-           $categories_dropdown .= "<option class='bg-ready' value='" . $category->id . "'>" . $category->name . "</option>";
-       }
+        //Categories drop down start
+        $categories = Category::get();
+        $categories_dropdown = "<option selected>Select Category</option>";
+        foreach ($categories as $category) {
+            $categories_dropdown .= "<option class='bg-ready' value='" . $category->id . "'>" . $category->name . "</option>";
+        }
 //Categories dropdown end
         $columns ="";
         foreach($amenities as $amenity){
             $author = User::where(['id'=>$amenity->author])->first();
-            $category = SubCategory::where(['id'=>$amenity->cat_id])->first();
+            $sub_category = SubCategory::where(['id'=>$amenity->sub_cat_id])->first();
             $date = $amenity->created_at->format('d-m-Y');
             $columns .= "<tr>
             <td>$amenity->id</td>
-            <td>$category->name</td>
+            <td>$sub_category->name</td>
             <td>$amenity->name</td>
             <td>$amenity->description </td>
             <td>$date</td>
             <td>$author->name</td>
             <td><a href='' class='btn btn-sm btn-warning'><i class='fas fa-edit' aria-hidden='true'></i></a> |
-               <a href='' class='btn btn-sm btn-danger'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>
-           </td>
-            </tr>";
-                 
+                <a href='' class='btn btn-sm btn-danger'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>
+            </td>
+            </tr>";     
         }
-        return view('property.amenity.index',compact('columns','title', 'categories_dropdown'));
+        return view('super.amenity.index',compact('columns','title', 'categories_dropdown'));
     }
 
     /**
@@ -51,9 +57,20 @@ class AmenityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $amenity = new Amenity;
+        $amenity->sub_cat_id = $request->sub_category;
+        $amenity->name = $request->name;
+        if($request->description)
+        {
+        $amenity->description = $request->description;
+        }else{
+            $amenity->description = "_";
+        }
+        $amenity->author = Auth::user()->id;
+        $amenity->save();
+        return redirect()->back()->with('successalert','Amenity added successfully');
     }
 
     /**

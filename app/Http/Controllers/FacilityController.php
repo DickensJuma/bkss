@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Category;
 use App\Models\Facility;
 use App\Models\Property;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FacilityController extends Controller
 {
@@ -20,14 +23,41 @@ class FacilityController extends Controller
         $property = Property::where(['owner'=>auth()->user()->id])->first();
         //get all facilities
         $facilities = Facility::where(['p_id'=>$property->id])->get();
-        dd($facilities);
         foreach($facilities as $facility){
             $sub_category = SubCategory::where(['id'=>$facility->sub_cat_id])->first();
             dd($sub_category);
         }
         //get
-        
         return view('property.facility.index',compact('facilities'));
+    }
+    public function superIndex(){
+        $title = "Facilities";
+        $amenities = Facility::get();
+        //Categories drop down start
+        $categories = Category::get();
+        $categories_dropdown = "<option selected>Select Category</option>";
+        foreach ($categories as $category) {
+            $categories_dropdown .= "<option class='bg-ready' value='" . $category->id . "'>" . $category->name . "</option>";
+        }
+//Categories dropdown end
+        $columns ="";
+        foreach($amenities as $amenity){
+            $author = User::where(['id'=>$amenity->author])->first();
+            $sub_category = SubCategory::where(['id'=>$amenity->sub_cat_id])->first();
+            $date = $amenity->created_at->format('d-m-Y');
+            $columns .= "<tr>
+            <td>$amenity->id</td>
+            <td>$sub_category->name</td>
+            <td>$amenity->name</td>
+            <td>$amenity->description </td>
+            <td>$date</td>
+            <td>$author->name</td>
+            <td><a href='' class='btn btn-sm btn-warning'><i class='fas fa-edit' aria-hidden='true'></i></a> |
+                <a href='' class='btn btn-sm btn-danger'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>
+            </td>
+            </tr>";     
+        }
+        return view('super.facility.index',compact('columns','title', 'categories_dropdown'));
     }
 
     /**
@@ -35,9 +65,20 @@ class FacilityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $amenity = new Facility;
+        $amenity->sub_cat_id = $request->sub_category;
+        $amenity->name = $request->name;
+        if($request->description)
+        {
+        $amenity->description = $request->description;
+        }else{
+            $amenity->description = "_";
+        }
+        $amenity->author = Auth::user()->id;
+        $amenity->save();
+        return redirect()->back()->with('successalert','Facility added successfully');
     }
 
     /**

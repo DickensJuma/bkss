@@ -42,7 +42,7 @@ class UserTableSeeder extends Seeder
         $super_admin->created_at = Carbon::now()->format('Y-m-d H:i:s');
         $super_admin->updated_at = Carbon::now()->format('Y-m-d H:i:s');
         $super_admin->save();
-        $super_admin->roles()->attach(Role::where('name', 'Super admin')->first());
+        $super_admin->roles()->attach(Role::where('name', 'super')->first());
 
         $vendor = new User;
         $vendor->name = 'Tosby';
@@ -51,6 +51,6 @@ class UserTableSeeder extends Seeder
         $vendor->created_at = Carbon::now()->format('Y-m-d H:i:s');
         $vendor->updated_at = Carbon::now()->format('Y-m-d H:i:s');
         $vendor->save();
-        $vendor->roles()->attach(Role::where('name', 'Vendor')->first());
+        $vendor->roles()->attach(Role::where('name', 'vendor')->first());
     }
 }
