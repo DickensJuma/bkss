@@ -55,7 +55,6 @@ Route::group(['prefix' => 'property'], function () {
     Route::post('/general/info',[GeneralInformationController::class, 'store']);
     Route::get('/vat/taxinfo',[LevyController::class, 'index'])->name('vat.info');
 
-
     //room routes
     Route::group(['prefix' => 'room'], function () {
         Route::get('/', [RoomController::class,'index'])->name('room');
