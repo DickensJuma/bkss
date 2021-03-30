@@ -9,6 +9,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AmenityController;
+use App\Http\Controllers\CallendarController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\PropertyController;
@@ -60,7 +61,14 @@ Route::group(['prefix' => 'property'], function () {
         Route::get('/', [RoomController::class,'index'])->name('room');
         Route::get('/add/{id}', [RoomController::class,'create'])->name('room.create');
         Route::post('/add', [RoomController::class,'store'])->name('room.add');
+        Route::get('/manage', [RoomController::class,'manage'])->name('room.management');
+        Route::post('/manage', [RoomController::class,'manage']);
     });
+
+    //calendar routes
+    Route::get('/calendar', [CallendarController::class,'create'])->name('calendar');
+        Route::post('/calendar', [CallendarController::class,'manage']);
+
     //facility routes
     Route::group(['prefix' => 'facility'], function () {
         Route::get('/', [FacilityController::class,'index'])->name('facility');
