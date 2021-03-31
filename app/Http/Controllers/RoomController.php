@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Facility;
 use App\Models\Room;
 use App\Models\Type;
 use App\Models\Photo;
@@ -80,8 +81,41 @@ class RoomController extends Controller
         $room->capacity = $data['guest_no'];
         $room->normal_charge = $data['price'];
         $room->save();
+
+        $parking_types = Facility::where(['sub_cat_id'=>1])->get();
+        $parking_drop_down = "<option selected >No</option>";
+        foreach($parking_types as $parking_type){
+            $parking_drop_down .= "<option value='" . $parking_type->id . "'>" . $parking_type->name . "</option>"; 
+        }
+
+        $breakfast_types = Facility::where(['sub_cat_id'=>2])->get();
+        $breakfast_drop_down = "<option selected >We do not offer breakfast</option>";
+        foreach($breakfast_types as $breakfast_type){
+            $breakfast_drop_down .= "<option value='" . $breakfast_type->id . "'>" . $breakfast_type->name . "</option>"; 
+        }
+
+        $languages = Facility::where(['sub_cat_id'=>3])->get();
+        $language_drop_down = "<option selected >Select Language</option>";
+        foreach($languages as $language){
+            $language_drop_down .= "<option value='" . $language->id . "'>" . $language->name . "</option>"; 
+        }
+
+        $top_facilities = Facility::where(['sub_cat_id'=>6])->get();
+        $top_facility_design = "";
+        foreach($top_facilities->chunk(6) as $key=>$top_facility){
+            $top_facility_design .= "<div class='row'>";
+            foreach($top_facility as $item){
+                $top_facility_design .= "<div class='col-md-4'>";
+                $top_facility_design .= "<div class='form-check'>
+                <input class='form-check-input' type='checkbox' value='". $item->id ."' id="non_smoking_room" name="facility[]">
+                <label class="form-check-label" for="non_smoking_room">Non Smoking Rooms</label>
+            </div>"
+            }
+
+        }
+        
         $property_id = $data['p_id'];
-        return view('property.facility.add',compact('property_id'));
+        return view('property.facility.add',compact('property_id','parking_drop_down','breakfast_drop_down', 'language_drop_down'));
     }else{
         return redirect('admin/join');
     }

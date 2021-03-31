@@ -143,27 +143,7 @@
                                 <div class="form-group">
                                     <label for="parking">Is parking available to guests?</label>
                                     <select name="parking" id="parking" class="form-control" required> 
-                                        <option value="no">No</option>
-                                        <option value="paid">Yes, paid</option>
-                                        <option value="free">Yes, free</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <select name="parking_type" id="parking_type" class="form-control" hidden>
-                                        <option value="">Select Parking Type</option>
-                                        <option value="private">Private</option>
-                                        <option value="public">Public</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <select name="parking_location" id="parking_location" class="form-control" hidden>
-                                        <option value="">Select Parking Location</option>
-                                        <option value="site">On site</option>
-                                        <option value="street">Off site</option>
+                                        <?php echo $parking_drop_down; ?>
                                     </select>
                                 </div>
                             </div>
@@ -196,42 +176,13 @@
                     <div class="divider">
                         <h5>Breakfast</h5>
                     </div>
-                    <div class="form-group">
-                        <label for="breakfast_availability">Is breakfast available to guests?</label>
-                        <select name="breakfast_availability" id="breakfast_availability" class="form-control">
-                            <option value="no">No</option>
-                            <option value="included">Yes, it's included in the price</option>
-                            <option value="optional">Yes, it's optional</option>
-                        </select>
-                    </div>
-                    <div class="form-group" id="breakfast_cost" hidden>
-                        <label for="b_cost">Price for breakfast (per person, per day, including all fees and taxes)</label>
-                        <div class="row">
-                            <div class="col-md-2 curency-label">us$</div>
-                            <div class="col-md-10 no-margin">
-                                <input type="curency" class="form-control" name="b_cost">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group" id="breakfast_tab" hidden>
-                        <label for="breakfast_type">What kind of breakfast is available?</label>
+                    <div class="form-group" id="breakfast_tab">
+                        <label for="breakfast_type">What kind of breakfast Do you offer?</label>
                         <div id="breakfast_list">
                             <div class="row">
                                 <div class="col-md-11">
                                     <select name="breakfast_type[]" id="breakfast_type" class="form-control">
-                                    <option value="">Please select</option>
-                                    <option value="Continental">Continental</option>
-                                    <option value="American">American</option>
-                                    <option value="Buffet">Buffet</option>
-                                    <option value="À la carte">À la carte</option>
-                                    <option value="Italian">Italian</option>
-                                    <option value="Full English/Irish">Full English/Irish</option>
-                                    <option value="Vegetarian">Vegetarian</option>
-                                    <option value="Vegan">Vegan</option>
-                                    <option value="Halal">Halal</option>
-                                    <option value="Gluten-free">Gluten-free</option>
-                                    <option value="Kosher">Kosher</option>
-                                    <option value="Asian">Asian</option>
+                                    <?php echo $breakfast_drop_down; ?>
                                 </select>
                                 </div>
                                 <div class="col-md-1" id="remove" hidden>
@@ -250,84 +201,7 @@
                         <div class="row">
                             <div class="col-md-11">
                                 <select name="language[]" id="language" class="form-control" required>
-                                    <option value="">Please select</option>
-                                    <option value="af">Afrikaans</option>
-                                    <option value="sq">Albanian</option>
-                                    <option value="ar">Arabic</option>
-                                    <option value="hy">Armenian</option>
-                                    <option value="az">Azerbaijani</option>
-                                    <option value="eu">Basque</option>
-                                    <option value="be">Belarusian</option>
-                                    <option value="bn">Bengali</option>
-                                    <option value="bs">Bosnian</option>
-                                    <option value="bg">Bulgarian</option>
-                                    <option value="my">Burmese</option>
-                                    <option value="yu">Cantonese</option>
-                                    <option value="ca">Catalan</option>
-                                    <option value="zh">Chinese</option>
-                                    <option value="hr">Croatian</option>
-                                    <option value="cs">Czech</option>
-                                    <option value="da">Danish</option>
-                                    <option value="nl">Dutch</option>
-                                    <option value="en" selected="selected">English</option>
-                                    <option value="et">Estonian</option>
-                                    <option value="fo">Faroese</option>
-                                    <option value="fa">Farsi</option>
-                                    <option value="tl">Filipino</option>
-                                    <option value="fi">Finnish</option>
-                                    <option value="fr">French</option>
-                                    <option value="gl">Galician</option>
-                                    <option value="ka">Georgian</option>
-                                    <option value="de">German</option>
-                                    <option value="el">Greek</option>
-                                    <option value="kl">Greenlandic</option>
-                                    <option value="gu">Gujarati</option>
-                                    <option value="ha">Hausa</option>
-                                    <option value="he">Hebrew</option>
-                                    <option value="hi">Hindi</option>
-                                    <option value="hu">Hungarian</option>
-                                    <option value="is">Icelandic</option>
-                                    <option value="id">Indonesian</option>
-                                    <option value="ga">Irish</option>
-                                    <option value="it">Italian</option>
-                                    <option value="ja">Japanese</option>
-                                    <option value="kn">Kannada</option>
-                                    <option value="km">Khmer</option>
-                                    <option value="ko">Korean</option>
-                                    <option value="lo">Lao</option>
-                                    <option value="lv">Latvian</option>
-                                    <option value="lt">Lithuanian</option>
-                                    <option value="mk">Macedonian</option>
-                                    <option value="ms">Malay</option>
-                                    <option value="ml">Malayalam</option>
-                                    <option value="mt">Maltese</option>
-                                    <option value="mr">Marathi</option>
-                                    <option value="mo">Moldovan</option>
-                                    <option value="mn">Mongolian</option>
-                                    <option value="no">Norwegian</option>
-                                    <option value="or">Odia</option>
-                                    <option value="pl">Polish</option>
-                                    <option value="pt">Portuguese</option>
-                                    <option value="pa">Punjabi</option>
-                                    <option value="ro">Romanian</option>
-                                    <option value="ru">Russian</option>
-                                    <option value="sr">Serbian</option>
-                                    <option value="sk">Slovak</option>
-                                    <option value="sl">Slovenian</option>
-                                    <option value="es">Spanish</option>
-                                    <option value="sw">Swahili</option>
-                                    <option value="sv">Swedish</option>
-                                    <option value="ta">Tamil</option>
-                                    <option value="te">Telugu</option>
-                                    <option value="th">Thai</option>
-                                    <option value="tr">Turkish</option>
-                                    <option value="uk">Ukrainian</option>
-                                    <option value="ur">Urdu</option>
-                                    <option value="vi">Vietnamese</option>
-                                    <option value="cy">Welsh</option>
-                                    <option value="xh">Xhosa</option>
-                                    <option value="yo">Yoruba</option>
-                                    <option value="zu">Zulu</option>
+                                    <?php echo $language_drop_down; ?>
                                 </select>
                             </div>
                             <div class="col-md-1" id="lang_remove" hidden>
@@ -507,19 +381,19 @@
                 $("#breakfast_list").append("<div class='row'>"+
                                             "<div class='col-md-11'>"+
                                             "<select name='breakfast_type[]' class='form-control'>"+
-                                            "<option value=''>Please select</option>"+
-                                            "<option value='Continental'>Continental</option>"+
-                                            "<option value='American'>American</option>"+
-                                            "<option value='Buffet'>Buffet</option>"+
-                                            "<option value='À la carte'>À la carte</option>"+
-                                            "<option value='Italian'>Italian</option>"+
-                                            "<option value='Full English/Irish'>Full English/Irish</option>"+
-                                            "<option value='Vegetarian'>Vegetarian</option>"+
-                                            "<option value='Vegan'>Vegan</option>"+
-                                            "<option value='Halal'>Halal</option>"+
-                                            "<option value='Gluten-free'>Gluten-free</option>"+
-                                            "<option value='Kosher'>Kosher</option>"+
-                                            "<option value='Asian'>Asian</option>"+
+                                            "<option selected=''>Select breakfast type</option>"+
+                                            "<option value='5'>Continental</option>"+
+                                            "<option value='6'>American</option>"+
+                                            "<option value='7'>Buffet</option>"+
+                                            "<option value='8'>À la carte</option>"+
+                                            "<option value='9'>Italian</option>"+
+                                            "<option value='10'>Full English/Irish</option>"+
+                                            "<option value='11'>Vegetarian</option>"+
+                                            "<option value='12'>Vegan</option>"+
+                                            "<option value='13'>Halal</option>"+
+                                            "<option value='14'>Gluten-free</option>"+
+                                            "<option value='15'>Kosher</option>"+
+                                            "<option value='16'>Asian</option>"+
                                             "</select>"+
                                             "</div>"+
                                             "<div class='col-md-1' id='remove'>"+
@@ -533,86 +407,86 @@
             $("#add_lang").on('click',function(e){
                 e.preventDefault();
                 $("#lang_tab").append("<div class='row'>"+
-                                      "<div class='col-md-11'>"+
-                                    "<select name='language[]' id='language' class='form-control' required>"+
-                                   "<option value=''>Please select</option>"+
-                                   "<option value='af'>Afrikaans</option>"+
-                                   "<option value='sq'>Albanian</option>"+
-                                   "<option value='ar'>Arabic</option>"+
-                                   "<option value='hy'>Armenian</option>"+
-                                   "<option value='az'>Azerbaijani</option>"+
-                                   "<option value='eu'>Basque</option>"+
-                                   "<option value='be'>Belarusian</option>"+
-                                   "<option value='bn'>Bengali</option>"+
-                                   "<option value='bs'>Bosnian</option>"+
-                                   "<option value='bg'>Bulgarian</option>"+
-                                   "<option value='my'>Burmese</option>"+
-                                   "<option value='yu'>Cantonese</option>"+
-                                   "<option value='ca'>Catalan</option>"+
-                                   "<option value='zh'>Chinese</option>"+
-                                   "<option value='hr'>Croatian</option>"+
-                                   "<option value='cs'>Czech</option>"+
-                                   "<option value='da'>Danish</option>"+
-                                   "<option value='nl'>Dutch</option>"+
-                                   "<option value='en'>English</option>"+
-                                   "<option value='et'>Estonian</option>"+
-                                   "<option value='fo'>Faroese</option>"+
-                                   "<option value='fa'>Farsi</option>"+
-                                   "<option value='tl'>Filipino</option>"+
-                                   "<option value='fi'>Finnish</option>"+
-                                   "<option value='fr'>French</option>"+
-                                   "<option value='gl'>Galician</option>"+
-                                   "<option value='ka'>Georgian</option>"+
-                                   "<option value='de'>German</option>"+
-                                   "<option value='el'>Greek</option>"+
-                                   "<option value='kl'>Greenlandic</option>"+
-                                   "<option value='gu'>Gujarati</option>"+
-                                   "<option value='ha'>Hausa</option>"+
-                                   "<option value='he'>Hebrew</option>"+
-                                   "<option value='hi'>Hindi</option>"+
-                                   "<option value='hu'>Hungarian</option>"+
-                                   "<option value='is'>Icelandic</option>"+
-                                   "<option value='id'>Indonesian</option>"+
-                                   "<option value='ga'>Irish</option>"+
-                                   "<option value='it'>Italian</option>"+
-                                   "<option value='ja'>Japanese</option>"+
-                                   "<option value='kn'>Kannada</option>"+
-                                   "<option value='km'>Khmer</option>"+
-                                   "<option value='ko'>Korean</option>"+
-                                   "<option value='lo'>Lao</option>"+
-                                   "<option value='lv'>Latvian</option>"+
-                                   "<option value='lt'>Lithuanian</option>"+
-                                   "<option value='mk'>Macedonian</option>"+
-                                   "<option value='ms'>Malay</option>"+
-                                   "<option value='ml'>Malayalam</option>"+
-                                   "<option value='mt'>Maltese</option>"+
-                                   "<option value='mr'>Marathi</option>"+
-                                   "<option value='mo'>Moldovan</option>"+
-                                   "<option value='mn'>Mongolian</option>"+
-                                   "<option value='no'>Norwegian</option>"+
-                                   "<option value='or'>Odia</option>"+
-                                   "<option value='pl'>Polish</option>"+
-                                   "<option value='pt'>Portuguese</option>"+
-                                   "<option value='pa'>Punjabi</option>"+
-                                   "<option value='ro'>Romanian</option>"+
-                                   "<option value='ru'>Russian</option>"+
-                                   "<option value='sr'>Serbian</option>"+
-                                   "<option value='sk'>Slovak</option>"+
-                                   "<option value='sl'>Slovenian</option>"+
-                                   "<option value='es'>Spanish</option>"+
-                                   "<option value='sw'>Swahili</option>"+
-                                   "<option value='sv'>Swedish</option>"+
-                                   "<option value='ta'>Tamil</option>"+
-                                   "<option value='te'>Telugu</option>"+
-                                   "<option value='th'>Thai</option>"+
-                                   "<option value='tr'>Turkish</option>"+
-                                   "<option value='uk'>Ukrainian</option>"+
-                                   "<option value='ur'>Urdu</option>"+
-                                   "<option value='vi'>Vietnamese</option>"+
-                                   "<option value='cy'>Welsh</option>"+
-                                   "<option value='xh'>Xhosa</option>"+
-                                   "<option value='yo'>Yoruba</option>"+
-                                   "<option value='zu'>Zulu</option>"+
+                                        "<div class='col-md-11'>"+
+                                        "<select name='language[]' id='language' class='form-control' required>"+
+                                   
+                                            "<option selected=''>Select Language</option>"+
+									"<option value='17'>Afrikaans</option>"+
+									"<option value='18'>Albanian</option>"+
+									"<option value='19'>Arabic</option>"+
+									"<option value='20'>Armanian</option>"+
+									"<option value='21'>Azerbaijani</option>"+
+									"<option value='22'>Basque</option>"+
+									"<option value='23'>Belarusian</option>"+
+									"<option value='24'>Bengali</option>"+
+									"<option value='25'>Bosnian</option>"+
+									"<option value='26'>Bulgarian</option>"+
+									"<option value='27'>Burmese</option>"+
+									"<option value='28'>Cantonese</option>"+
+									"<option value='29'>Catalan</option>"+
+									"<option value='30'>Chinese</option>"+
+									"<option value='31'>Croatian</option>"+
+									"<option value='32'>Czech</option>"+
+									"<option value='33'>Danish</option>"+
+									"<option value='34'>Dutch</option>"+
+									"<option value='35'>English</option>"+
+									"<option value='36'>Estonian</option>"+
+									"<option value='37'>Faroese</option>"+
+									"<option value='38'>Filipino</option>"+
+									"<option value='39'>Finnish</option>"+
+									"<option value='40'>French</option>"+
+									"<option value='41'>Galician</option>"+
+									"<option value='42'>Georgian</option>"+
+									"<option value='43'>German</option>"+
+									"<option value='44'>Greek</option>"+
+									"<option value='45'>Greenlandic</option>"+
+									"<option value='46'>Gujarati</option>"+
+									"<option value='47'>Hausa</option>"+
+									"<option value='48'>Hebrew</option>"+
+									"<option value='49'>Hindi</option>"+
+									"<option value='50'>Hungarian</option>"+
+									"<option value='51'>Icelandic</option>"+
+									"<option value='52'>Indonesian</option>"+
+									"<option value='53'>Irish</option>"+
+									"<option value='54'>Italian</option>"+
+									"<option value='55'>Japanese</option>"+
+									"<option value='56'>Kannada</option>"+
+									"<option value='57'>Khmer</option>"+
+									"<option value='58'>Korean</option>"+
+									"<option value='59'>Lao</option>"+
+									"<option value='60'>Latvian</option>"+
+									"<option value='61'>Lithuanian</option>"+
+									"<option value='62'>Macedonian</option>"+
+									"<option value='63'>Malay</option>"+
+									"<option value='64'>Malayalam</option>"+
+									"<option value='65'>Maltese</option>"+
+									"<option value='66'>Marathi</option>"+
+									"<option value='67'>Moldovian</option>"+
+									"<option value='68'>Mongolian</option>"+
+									"<option value='69'>Norwegian</option>"+
+									"<option value='70'>Odia</option>"+
+									"<option value='71'>Polish</option>"+
+									"<option value='72'>Portuguese</option>"+
+									"<option value='73'>Punjab</option>"+
+									"<option value='74'>Romanian</option>"+
+									"<option value='75'>Russian</option>"+
+									"<option value='76'>Serbian</option>"+
+									"<option value='77'>Slovak</option>"+
+									"<option value='78'>Slovenian</option>"+
+									"<option value='79'>Spanish</option>"+
+									"<option value='80'>Swahili</option>"+
+									"<option value='81'>Swedish</option>"+
+									"<option value='82'>Tamil</option>"+
+									"<option value='83'>Telugu</option>"+
+									"<option value='84'>Thai</option>"+
+									"<option value='85'>Turkish</option>"+
+									"<option value='86'>Ukrainian</option>"+
+									"<option value='87'>Urdu</option>"+
+									"<option value='88'>Vietnamese</option>"+
+									"<option value='89'>Welsh</option>"+
+									"<option value='90'>Xhosa</option>"+
+									"<option value='91'>Yoruba</option>"+
+									"<option value='92'>Zulu</option>"+                                
                                 "</select>"+
                             "</div>"+
                             "<div class='col-md-1' id='lang_remove'>"+

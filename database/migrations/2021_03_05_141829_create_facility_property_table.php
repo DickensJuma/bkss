@@ -17,6 +17,7 @@ class CreateFacilityPropertyTable extends Migration
             $table->id();
             $table->foreignId('facility_id')->references('id')->on('facilities')->onDelete('cascade')->onUpdate('cascade'); 
             $table->foreignId('property_id')->references('id')->on('properties')->onDelete('cascade')->onUpdate('cascade');
+            $table->decimal('amount', 6, 2)->nullable();
             $table->timestamps();
         });
     }

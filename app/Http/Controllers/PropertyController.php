@@ -88,6 +88,7 @@ class PropertyController extends Controller
         $property->city = $data['city'];
         $property->zip = $data['zip'];
         $property->owner =  $ownerid;
+        $property->admin = $ownerid;
         $property->save();
         $property_id = $property->id;
         return view('property.hotel.desc',compact('property_id'));
