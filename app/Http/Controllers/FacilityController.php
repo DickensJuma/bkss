@@ -90,6 +90,7 @@ class FacilityController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        dd($data);
         $breakfast_types = "";
         foreach($data['breakfast_type'] as $breakfast){
             $breakfast_types .= $breakfast;
