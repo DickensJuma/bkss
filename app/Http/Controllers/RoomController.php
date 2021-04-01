@@ -107,15 +107,15 @@ class RoomController extends Controller
             foreach($top_facility as $item){
                 $top_facility_design .= "<div class='col-md-4'>";
                 $top_facility_design .= "<div class='form-check'>
-                <input class='form-check-input' type='checkbox' value='". $item->id ."' id="non_smoking_room" name="facility[]">
-                <label class="form-check-label" for="non_smoking_room">Non Smoking Rooms</label>
-            </div>"
+                <input class='form-check-input' type='checkbox' value='". $item->id . "'name='facility[]'>
+                <label class='form-check-label' for='facility[]'>". $item->name . "</label>
+            </div>
+            </div>";
             }
-
+            $top_facility_design .= "</div>";
         }
-        
         $property_id = $data['p_id'];
-        return view('property.facility.add',compact('property_id','parking_drop_down','breakfast_drop_down', 'language_drop_down'));
+        return view('property.facility.add',compact('property_id','parking_drop_down','breakfast_drop_down', 'language_drop_down', 'top_facility_design'));
     }else{
         return redirect('admin/join');
     }
