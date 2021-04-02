@@ -148,31 +148,6 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group" id="reserve" hidden>                        
-                                <label for="reservation">Do guests need to reserve a parking space?</label>
-                                <select name="reservation" id="reservation" class="form-control">
-                                    <option value="">Select Reservation</option>
-                                    <option value="res_needed">Reservation needed</option>
-                                    <option value="no_res_needed">No reservation needed</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group" id="cost" hidden>
-                                <label for="p_cost">Price for parking (per day)</label>
-                                <div class="row">
-                                    <div class="col-md-2 curency-label">
-                                        <p>us$</p>
-                                    </div>
-                                    <div class="col-md-10 no-margin-md">
-                                        <input type="curency" class="form-control" name="p_cost">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="divider">
                         <h5>Breakfast</h5>
                     </div>
@@ -197,7 +172,7 @@
                     </div>
                     <div class="form-group">
                         <label for="language">What languages do you or your staff speak? </label>
-                       <div id="lang_tab">
+                        <div id="lang_tab">
                         <div class="row">
                             <div class="col-md-11">
                                 <select name="language[]" id="language" class="form-control" required>
@@ -207,9 +182,9 @@
                             <div class="col-md-1" id="lang_remove" hidden>
                                 <span class='text-danger'><i class='fa fa-times'></i></span>
                             </div>
-                       </div>
-                       </div>
-                       <a href="" id="add_lang"><span class="text-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i></span> Add another language</a>
+                        </div>
+                        </div>
+                        <a href="" id="add_lang"><span class="text-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i></span> Add another language</a>
                     </div>
                     <div class="divider">
                         <h5>Facilities That Are Popular With Guests</h5>
@@ -245,10 +220,10 @@
                 $("#facilityForm").prop("hidden",false);
             });
                 //guest number change event listener
-             $("#guest_no").change(function(){
-                 var value = $('#guest_no').val();
-                 $("#pax").contents().replaceWith(value);
-             });
+                $("#guest_no").change(function(){
+                    var value = $('#guest_no').val();
+                    $("#pax").contents().replaceWith(value);
+                });
                 //parking value change event listener
             $("#parking").on('change',function() {
                 var checkValue = $(this).children('option:selected').val();
@@ -336,7 +311,6 @@
                 $("#lang_tab").append("<div class='row'>"+
                                         "<div class='col-md-11'>"+
                                         "<select name='language[]' id='language' class='form-control' required>"+
-                                   
                                             "<option selected=''>Select Language</option>"+
 									"<option value='17'>Afrikaans</option>"+
 									"<option value='18'>Albanian</option>"+
@@ -419,7 +393,7 @@
                             "<div class='col-md-1' id='lang_remove'>"+
                                 "<span class='text-danger'><i class='fa fa-times'></i></span>"+
                             "</div>"+
-                       "</div>");
+                        "</div>");
                 $("#lang_remove").show();
                 $("#lang_remove").prop("hidden",false);
             });
