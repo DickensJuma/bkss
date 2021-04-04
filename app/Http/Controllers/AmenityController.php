@@ -83,7 +83,6 @@ class AmenityController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        //dd($data);
         $property = Property::where(['id'=>$data['p_id']])->first();
         $extra_accomodations  = "";
         if($request->extra_accomodation){

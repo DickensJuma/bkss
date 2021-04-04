@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
+    public function amenities(){
+        return $this->belongsToMany(Amenity::class);
+    }
 }
