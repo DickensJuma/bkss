@@ -11,4 +11,10 @@ class Property extends Model
     public function taxes(){
         return $this->belongsToMany(Levy::class);
     }
+    public function facilities(){
+        return $this->belongsToMany(Facility::class);
+    }
+    public function amenities(){
+        return $this->belongsToMany(Amenity::class);
+    }
 }

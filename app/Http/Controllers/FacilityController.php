@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amenity;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Facility;
@@ -90,37 +91,35 @@ class FacilityController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
-        $breakfast_types = "";
+        $property = Property::where(['id'=>$data['p_id']])->first();
+        $property->facilities()->attach(Facility::where('id', $data['parking'])->first());
+
         foreach($data['breakfast_type'] as $breakfast){
-            $breakfast_types .= $breakfast;
-            $breakfast_types .=" , ";
+            $property->facilities()->attach(Facility::where('id', $breakfast)->first());
         }
-        $languages = "";
         foreach($data['language'] as $language){
-            $languages .= $language;
-            $languages .=" , ";
+            $property->facilities()->attach(Facility::where('id', $language)->first());
         }
-        $facilities = "";
         foreach($data['facility'] as $facility){
-            $facilities .= $facility;
-            $facilities .=" , ";
+            $property->facilities()->attach(Facility::where('id', $facility)->first());
         }
-        $facility = new Facility;
-        $facility->p_id = $data['p_id'];
-        $facility->parking = $data['parking'];
-        $facility->parking_type = $data['parking_type'];
-        $facility->parking_loc = $data['parking_location'];
-        $facility->parking_reservation = $data['reservation'];
-        $facility->parking_fee = $data['p_cost'];
-        $facility->breakfast_availability = $data['breakfast_availability'];
-        $facility->breakfast_cost = $data['b_cost'];
-        $facility->breakfast_type = $breakfast_types;
-        $facility->language = $languages;
-        $facility->facility = $facilities;
-        $facility->save();
         $property_id = $data['p_id'];
-       return view('property.amenity.add',compact('property_id'));
+        //get the relevant categorised amenities
+        $common_amenities = Amenity::where(['sub_cat_id'=>24])->get();
+        $room_amenities = Amenity::where(['sub_cat_id'=>23])->get();
+        $bathroom_amenities = Amenity::where(['sub_cat_id'=>25])->get();
+        $media_amenities = Amenity::where(['sub_cat_id'=>26])->get();
+        $food_amenities = Amenity::where(['sub_cat_id'=>27])->get();
+        $service_amenities = Amenity::where(['sub_cat_id'=>28])->get();
+        $outdoor_amenities = Amenity::where(['sub_cat_id'=>29])->get();
+        $accessibility_amenities = Amenity::where(['sub_cat_id'=>30])->get();
+        $family_amenities = Amenity::where(['sub_cat_id'=>31])->get();
+        $safety_amenities = Amenity::where(['sub_cat_id'=>32])->get();
+        $distancing_amenities = Amenity::where(['sub_cat_id'=>33])->get();
+        $cleanliness_amenities = Amenity::where(['sub_cat_id'=>34])->get();
+        return view('property.amenity.add',compact('property_id','common_amenities','room_amenities'
+        ,'bathroom_amenities','media_amenities','food_amenities','service_amenities','outdoor_amenities'
+        ,'accessibility_amenities','family_amenities','safety_amenities','distancing_amenities','cleanliness_amenities'));
 
     }
 

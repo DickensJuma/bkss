@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Amenity;
 use App\Models\Category;
+use App\Models\Property;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -83,6 +84,7 @@ class AmenityController extends Controller
     {
         $data = $request->all();
         //dd($data);
+        $property = Property::where(['id'=>$data['p_id']])->first();
         $extra_accomodations  = "";
         if($request->extra_accomodation){
             foreach($request->extra_accomodation as $extra_accomodation){
@@ -90,39 +92,67 @@ class AmenityController extends Controller
                 $extra_accomodations .="<span>&#10003;</span>";
             }
         }
-        $common_amenities  = "";
         if($request->common_armenity){
             foreach($request->common_armenity as $common_amenity){
-                $common_amenities .= $common_amenity;
-                $common_amenities .="<span>&#10003;</span>";
+                $property->amenities()->attach(Amenity::where('id', $common_amenity)->first());
             }
         }
-        $room_amenities  = "";
         if($request->room_armenity){
             foreach($request->room_armenity as $room_amenity){
-                $room_amenities .= $room_amenity;
-                $room_amenities .="<span>&#10003;</span>";
+                $property->amenities()->attach(Amenity::where('id', $room_amenity)->first());
             }
         }
-        if($request->extrabeds =="yes"){
-            $extra_beds = 1;
-        }else{
-            $extra_beds = 0;
+        if($request->bathroom_armenity){
+            foreach($request->bathroom_armenity as $bathroom_amenity){
+                $property->amenities()->attach(Amenity::where('id', $bathroom_amenity)->first());
+            }
         }
-        $amenity = new Amenity;
-        $amenity->p_id = $request->p_id;
-        $amenity->extra_beds = $extra_beds;
-        $amenity->extrabeds_no = $request->extrabeds_no;
-        $amenity->extra_accomodation = $extra_accomodations;
-        $amenity->extra_accomodation = $extra_accomodations;
-        $amenity->child_in_crib_cost = $request->child_cost;
-        $amenity->extra_child_max_age = $request->extra_child_max_age;
-        $amenity->extra_child_cost = $request->extra_child_cost;
-        $amenity->extra_adult_cost = $request->extra_adult_cost;
-        $amenity->common_amenities = $common_amenities;
-        $amenity->room_amenities = $room_amenities;
-        $property_id = $request->p_id;
-        $amenity->save();
+        if($request->media_armenity){
+            foreach($request->media_armenity as $media_amenity){
+                $property->amenities()->attach(Amenity::where('id', $media_amenity)->first());
+            }
+        }
+        if($request->food_armenity){
+            foreach($request->food_armenity as $food_amenity){
+                $property->amenities()->attach(Amenity::where('id', $food_amenity)->first());
+            }
+        }
+        if($request->service_armenity){
+            foreach($request->service_armenity as $service_amenity){
+                $property->amenities()->attach(Amenity::where('id', $service_amenity)->first());
+            }
+        }
+        if($request->outdoor_armenity){
+            foreach($request->outdoor_armenity as $outdoor_amenity){
+                $property->amenities()->attach(Amenity::where('id', $outdoor_amenity)->first());
+            }
+        }
+        if($request->accessibility_armenity){
+            foreach($request->accessibility_armenity as $accessibility_amenity){
+                $property->amenities()->attach(Amenity::where('id', $accessibility_amenity)->first());
+            }
+        }
+        if($request->family_armenity){
+            foreach($request->family_armenity as $family_amenity){
+                $property->amenities()->attach(Amenity::where('id', $family_amenity)->first());
+            }
+        }
+        if($request->safety_armenity){
+            foreach($request->safety_armenity as $safety_amenity){
+                $property->amenities()->attach(Amenity::where('id', $safety_amenity)->first());
+            }
+        }
+        if($request->distancing_armenity){
+            foreach($request->distancing_armenity as $distancing_amenity){
+                $property->amenities()->attach(Amenity::where('id', $distancing_amenity)->first());
+            }
+        }
+        if($request->cleanliness_armenity){
+            foreach($request->cleanliness_armenity as $cleanliness_amenity){
+                $property->amenities()->attach(Amenity::where('id', $cleanliness_amenity)->first());
+            }
+        }
+        $property_id = $data['p_id'];
         return view('property.image.add',compact('property_id'));
     }
 

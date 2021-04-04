@@ -106,38 +106,18 @@
                     </div>
                     <div class="form-group">
                         <h6>Most Requested by Guests</h6>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Air conditioning" id="flexCheckDefault" name="common_armenity[]">
-                            <label class="form-check-label" for="flexCheckDefault">Air conditioning</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Bath Tub" id="flexCheckChecked" name="common_armenity[]">
-                            <label class="form-check-label" for="flexCheckChecked">Bath Tub</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="SPA Tub" id="flexCheckDefault" name="common_armenity[]">
-                            <label class="form-check-label" for="flexCheckDefault">SPA Tub</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value=" Flat-screen TV" id="flexCheckChecked" name="common_armenity[]">
-                            <label class="form-check-label" for="flexCheckChecked"> Flat-screen TV</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Electric kettle" id="flexCheckDefault" name="common_armenity[]">
-                            <label class="form-check-label" for="flexCheckDefault">Electric kettle</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Balcony" id="flexCheckChecked" name="common_armenity[]">
-                            <label class="form-check-label" for="flexCheckChecked">Balcony</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="View" id="flexCheckDefault" name="common_armenity[]">
-                            <label class="form-check-label" for="flexCheckDefault">View</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Terrace" id="flexCheckChecked" name="common_armenity[]">
-                            <label class="form-check-label" for="flexCheckChecked">Terrace</label>
-                        </div>
+                        @foreach ($common_amenities->chunk(6) as $key=> $common_amenity)
+                            <div class="row">
+                                @foreach ($common_amenity as $item)
+                                    <div class="col-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="common_armenity[]">
+                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endforeach
                     </div>
                     <div class="divider">
                         <button type="button" class="btn btn-info btn-md" id="show_hide_extra"><i class='fa'></i> Show all amenities</button>
@@ -146,184 +126,279 @@
                         <h5>All Amenities by Category</h5>
                         <div class="accordion" id="accordionExample">
                             <div class="card">
-                              <div class="card-header" id="headingOne">
-                                <h2 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Room amenities</button>
-                                </h2>
-                              </div>
-                              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Children’s cribs" id="flexCheckDefault" name="room_armenity[]">
-                                        <label class="form-check-label" for="flexCheckDefault">Children’s cribs</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Clothes rack" id="flexCheckChecked" name="room_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Clothes rack</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Drying rack for clothing" id="flexCheckDefault" name="room_armenity[]">
-                                        <label class="form-check-label" for="flexCheckDefault">Drying rack for clothing</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Fold-up bed" id="flexCheckChecked" name="room_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Fold-up bed</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Sofa Bed" id="flexCheckDefault" name="room_armenity[]">
-                                        <label class="form-check-label" for="flexCheckDefault">Sofa Bed</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Trash cans" id="flexCheckChecked" name="room_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Trash cans</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Heated pool" id="flexCheckDefault" name="room_armenity[]">
-                                        <label class="form-check-label" for="flexCheckDefault">Heated pool</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Infinity Pool" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Infinity Pool</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Plunge Pool" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Plunge Pool</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Pool cover" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Pool cover</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Pool towels" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Pool towels</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Pool with a view" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Pool with a view</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Rooftop pool" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Rooftop pool</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Saltwater pool" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Saltwater pool</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Shallow end" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Shallow end</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Dryer" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Dryer</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Wardrobe or closet" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Wardrobe or closet</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Carpeted" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Carpeted</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Walk-in closet" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Walk-in closet</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Extra long beds (> 6.5 ft)" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Extra long beds (> 6.5 ft)</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Fan" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Fan</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Fireplace" id="flexCheckChecked" name="common_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Fireplace</label>
-                                    </div>
-
-                                  </div>
-                              </div>
-                            </div>
-                            <div class="card">
-                              <div class="card-header" id="headingTwo">
-                                <h2 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Bathroom
-                                  </button>
-                                </h2>
-                              </div>
-                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Private Bathroom" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Private Bathroom</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Shared bathroom" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Shared bathroom</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Toilet paper" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Toilet paper</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Bidet" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Bidet</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Bathtub or shower" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Bathtub or shower</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Bathrobe" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Bathrobe</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Free toiletries" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Free toiletries</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Guest bathroom" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Guest bathroom</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Hairdryer" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Hairdryer</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Shared toilet" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Shared toilet</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Sauna" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Sauna</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Shower" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Shower</label>
-                                    </div>
-                                  </div>
-                              </div>
-                            </div>
-                            <div class="card">
-                              <div class="card-header" id="headingThree">
-                                <h2 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Media & Technology
-                                  </button>
-                                </h2>
-                              </div>
-                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Game console - PS4" id="flexCheckChecked" name="bathroom_armenity[]">
-                                        <label class="form-check-label" for="flexCheckChecked">Game console - PS4</label>
-                                    </div>  
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Room amenities</button>
+                                    </h2>
                                 </div>
-                              </div>
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($room_amenities->chunk(6) as $key=> $room_amenity)
+                                            <div class="row">
+                                                @foreach ($room_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="room_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
-                          </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Bathroom
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($bathroom_amenities->chunk(6) as $key=> $bathroom_amenity)
+                                            <div class="row">
+                                                @foreach ($bathroom_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="bathroom_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            Media & Technology
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($media_amenities->chunk(6) as $key=> $media_amenity)
+                                            <div class="row">
+                                                @foreach ($media_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="media_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFood" aria-expanded="false" aria-controls="collapseThree">
+                                            Food & Drink
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseFood" class="collapse" aria-labelledby="headingFood" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($food_amenities->chunk(6) as $key=> $food_amenity)
+                                            <div class="row">
+                                                @foreach ($food_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="food_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingService">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseService" aria-expanded="false" aria-controls="collapseService">
+                                           Services & Extra
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseService" class="collapse" aria-labelledby="headingService" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($service_amenities->chunk(6) as $key=> $service_amenity)
+                                            <div class="row">
+                                                @foreach ($service_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="service_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingOutdoor">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOutdoor" aria-expanded="false" aria-controls="collapseOutdoor">
+                                            Outdoor & View
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseOutdoor" class="collapse" aria-labelledby="headingOutdoor" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($outdoor_amenities->chunk(6) as $key=> $outdoor_amenity)
+                                            <div class="row">
+                                                @foreach ($outdoor_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="outdoor_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingAccessibility">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAccessibility" aria-expanded="false" aria-controls="collapseAccessibility">
+                                            Accessibility
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseAccessibility" class="collapse" aria-labelledby="headingAccessibility" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($accessibility_amenities->chunk(6) as $key=> $accessibility_amenity)
+                                            <div class="row">
+                                                @foreach ($accessibility_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="accessibility_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFamily">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFamily" aria-expanded="false" aria-controls="collapseFamily">
+                                            Entertainement & Family services
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseFamily" class="collapse" aria-labelledby="headingFamily" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($family_amenities->chunk(6) as $key=> $family_amenity)
+                                            <div class="row">
+                                                @foreach ($family_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="family_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingSafety">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSafety" aria-expanded="false" aria-controls="collapseSafety">
+                                            Safety Features
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseSafety" class="collapse" aria-labelledby="headingSafety" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($safety_amenities->chunk(6) as $key=> $safety_amenity)
+                                            <div class="row">
+                                                @foreach ($safety_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="safety_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingDistancing">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseDistancing" aria-expanded="false" aria-controls="collapseDistancing">
+                                            Physical Distancing
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseDistancing" class="collapse" aria-labelledby="headingDistancing" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($distancing_amenities->chunk(6) as $key=> $distancing_amenity)
+                                            <div class="row">
+                                                @foreach ($distancing_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="distancing_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingCleanliness">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseCleanliness" aria-expanded="false" aria-controls="collapseCleanliness">
+                                            Cleanliness & Disinfection
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseCleanliness" class="collapse" aria-labelledby="headingCleanliness" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach ($cleanliness_amenities->chunk(6) as $key=> $cleanliness_amenity)
+                                            <div class="row">
+                                                @foreach ($cleanliness_amenity as $item)
+                                                    <div class="col-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}" id="flexCheckDefault" name="cleanliness_armenity[]">
+                                                            <label class="form-check-label" for="flexCheckDefault">{{ $item->name }}</label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <input type="submit" class="form-control btn btn-warning" value="continue">
                 </form>
