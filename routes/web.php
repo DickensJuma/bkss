@@ -17,6 +17,8 @@ use App\Http\Controllers\PageScoreController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\PropertyProfileController;
 use App\Http\Controllers\GeneralInformationController;
+use App\Http\Controllers\RatePlanController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -158,6 +160,6 @@ Route::group(['prefix' => 'tax'], function () {
 
 //Rate routes
 Route::group(['prefix' => 'rate'], function () {
-    Route::get('/', [RatePlanController::class,'superIndex'])->name('property.rates');
-    Route::post('/', [RatePlanController::class,'create']);
+    Route::get('/', [RatePlanController::class,'create'])->name('property.rates');
+    Route::post('/', [RatePlanController::class,'store']);
 });

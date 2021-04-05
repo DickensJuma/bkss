@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RatePlan;
 use App\Models\Rating;
 use Illuminate\Http\Request;
 

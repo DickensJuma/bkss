@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Facilities</h1>
+            <h1>Rate Plans</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Facilities</li>
+              <li class="breadcrumb-item active">Rate Plans</li>
             </ol>
           </div>
         </div>
@@ -25,7 +25,7 @@
           <div class="col-12">
           <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Facilities</h3>&nbsp;<button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#category-modal"><i class="far fa-plus-square"></i></button>
+                <h3 class="card-title">Rate Plans</h3>&nbsp;<button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#category-modal"><i class="far fa-plus-square"></i></button>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -33,7 +33,6 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Sub Category</th>
                       <th>Name</th>
                       <th>Description</th>
                       <th>Date Created</th>
@@ -47,7 +46,6 @@
                   <tfoot>
                     <tr>
                       <th>#</th>
-                      <th>Sub Category</th>
                       <th>Name</th>
                       <th>Description</th>
                       <th>Date Created</th>
@@ -61,28 +59,16 @@
               <!--Add modal-->
               <div class="modal fade" id="category-modal">
                 <div class="modal-dialog">
-                    <form action="{{ route('property.facility') }}" method="POST">
+                    <form action="{{ route('property.rates') }}" method="POST">
                         @csrf
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title">New Facility</h4>
+                      <h4 class="modal-title">New Rate Plan</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                      <div class="form-group">
-                        <label for="category" class="form-label">Category</label>
-                        <select id="category" class="form-control">
-                          <?php echo $categories_dropdown ?>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="category" class="form-label">Sub Category</label>
-                        <select name="sub_category" id="sub_category" class="form-control">
-                        </select>
-                      </div>
-                      <br>
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" name="name" id="name" class="form-control">
@@ -117,16 +103,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <script>
-    $('#category').on('change',function(){
-      var checkValue = $(this).children('option:selected').val();
-      $.ajax({
-                url: "{{ route('sub_category_by_category') }}?cat_id=" + $(this).val(),
-                method: 'GET',
-                success: function(data) {
-                    $('#sub_category').html(data.subcategories_dropdown);
-                }
-            });
-    });
-  </script>
 @endsection

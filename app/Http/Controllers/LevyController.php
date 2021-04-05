@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use App\Models\Levy;
 use App\Models\User;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LevyController extends Controller
 {
@@ -60,7 +60,6 @@ class LevyController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
         $levy = new Levy;
         $levy->name =$request->name;
         $levy->percentage = $request->percentage;
