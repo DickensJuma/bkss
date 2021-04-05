@@ -22,14 +22,50 @@ class FacilityController extends Controller
     {
         //get all properties 
         $property = Property::where(['owner'=>auth()->user()->id])->first();
-        //get all facilities
-        $facilities = Facility::where(['p_id'=>$property->id])->get();
-        foreach($facilities as $facility){
-            $sub_category = SubCategory::where(['id'=>$facility->sub_cat_id])->first();
-            dd($sub_category);
+        //get all subcategories
+        $sub_categories = SubCategory::where(['cat_id'=>1])->get();
+        $facilities_design="";
+        foreach($sub_categories as $sub_category){
+            $facilities_design .= "<div class='card-header'>
+            <h3 class='card-title'><b>$sub_category->name</b></h3>
+            <div class='card-tools'>
+                    <button type='button' class='btn btn-tool' data-card-widget='collapse' title='Collapse'>
+                        <i class='fas fa-minus'></i>
+                    </button>
+                    <button type='button' class='btn btn-tool' data-card-widget='remove' title='Remove'>
+                        <i class='fas fa-times'></i>
+                    </button>
+                </div>
+            </div>";
+            //get facilities
+            $facilities = Facility::where(['sub_cat_id'=>$sub_category->id])->get();
+            foreach($facilities as $facility){
+                $facilities_design .= "<div class='card-body'>
+                <div class='form-group'>
+                        <div class='row'>
+                            <div class='col-md-8'>
+                                <p>$facility->name</p>
+                                </div>
+                            <div class='col-md-2'>
+                                <div class='form-check'>
+                                    <input class='form-check-input' type='radio' name='facility[]' id='yes' value='Yes'>
+                                    <label class='form-check-label'>Yes</label>
+                                </div>
+                            </div>
+                            <div class='col-md-2'>
+                                <div class='form-check'>
+                                    <input class='form-check-input' type='radio' name='facility[]' id='no' value='No'>
+                                    <label class='form-check-label'>No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+            }
+
+
         }
-        //get
-        return view('property.facility.index',compact('facilities'));
+        return view('property.facility.index',compact('facilities_design'));
     }
     public function superIndex(){
         $title = "Facilities";

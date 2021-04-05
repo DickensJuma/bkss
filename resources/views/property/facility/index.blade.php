@@ -18,4 +18,15 @@
       </div>
     </div><!-- /.container-fluid -->
   </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <form action="">
+            <?php echo  $facilities_design; ?>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
   @endsection

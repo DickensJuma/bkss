@@ -35,20 +35,22 @@
                                     </button>
                                 </div>
                             </div>
-                            @foreach ($photos->chunk(6) as $key=>$image)
-                        <div class="row">
-                    @foreach ($image as $item)
-                    <div class="col-md-2">
-                        <div>
-                            <span class="image-block block2">
-                            <a class="image-zoom" href="{{ asset('uploads/property/large/'.$item->path) }}" rel="prettyPhoto[gallery]">							
-                                    <img src="{{ asset('uploads/property/thumbnail/'.$item->path) }}" class="img-responsive" alt="Gallery"></a>
-                        </span>
+                            <div class="card-body">
+                                @foreach ($photos->chunk(6) as $key=>$image)
+                                <div class="row">
+                            @foreach ($image as $item)
+                            <div class="col-md-2">
+                                <div>
+                                    <span class="image-block block2">
+                                    <a class="image-zoom" href="{{ asset('uploads/property/large/'.$item->path) }}" rel="prettyPhoto[gallery]">							
+                                            <img src="{{ asset('uploads/property/thumbnail/'.$item->path) }}" class="img-responsive" alt="Gallery"></a>
+                                </span>
+                                </div>
+                            </div>                        
+                            @endforeach
                         </div>
-                    </div>                        
-                    @endforeach
-                </div>
-                @endforeach
+                        @endforeach
+                            </div>
                     </div>    
                 </div>
             </div>
