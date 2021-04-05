@@ -143,8 +143,21 @@ Route::group(['prefix' => 'facility'], function () {
     Route::get('/', [FacilityController::class,'superIndex'])->name('property.facility');
     Route::post('/', [FacilityController::class,'create']);
 });
+
 //amenity routes
 Route::group(['prefix' => 'amenity'], function () {
     Route::get('/', [AmenityController::class,'superIndex'])->name('property.amenity');
     Route::post('/', [AmenityController::class,'create']);
+});
+
+//Levy routes
+Route::group(['prefix' => 'tax'], function () {
+    Route::get('/', [LevyController::class,'create'])->name('tax');
+    Route::post('/', [LevyController::class,'store']);
+});
+
+//Rate routes
+Route::group(['prefix' => 'rate'], function () {
+    Route::get('/', [RatePlanController::class,'superIndex'])->name('property.rates');
+    Route::post('/', [RatePlanController::class,'create']);
 });
