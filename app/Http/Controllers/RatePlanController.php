@@ -16,7 +16,7 @@ class RatePlanController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

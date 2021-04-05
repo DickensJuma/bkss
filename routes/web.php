@@ -9,16 +9,15 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AmenityController;
-use App\Http\Controllers\CallendarController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\RatePlanController;
+use App\Http\Controllers\CallendarController;
 use App\Http\Controllers\PageScoreController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\PropertyProfileController;
 use App\Http\Controllers\GeneralInformationController;
-use App\Http\Controllers\RatePlanController;
-use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +96,11 @@ Route::group(['prefix' => 'property'], function () {
         Route::get('/', [PropertyProfileController::class,'index'])->name('profile');
         Route::get('/add/{id}', [PropertyProfileController::class,'create'])->name('propertyprofile.add');
         Route::post('/add/{id}', [PropertyProfileController::class,'store']);
+    });
+     //rate plan group
+    Route::group(['prefix' => 'rate'], function () {
+        Route::get('/', [RatePlanController::class,'index'])->name('room.rate.plans');
+        Route::post('/', [RatePlanController::class,'link']);
     });
 });
 
