@@ -76,6 +76,7 @@ Route::group(['prefix' => 'property'], function () {
     });
     //amenity routes
     Route::group(['prefix' => 'amenity'], function () {
+        Route::get('/', [AmenityController::class,'index'])->name('amenity');
         Route::post('/add', [AmenityController::class,'store'])->name('amenity.add');
     });
     //property images group

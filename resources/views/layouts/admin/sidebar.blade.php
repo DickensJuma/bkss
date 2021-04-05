@@ -110,7 +110,7 @@
           <div class="divider">
             <hr>
           </div>
-           <!-- Property-->
+            <!-- Property-->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-sign"></i>
@@ -169,7 +169,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
+                <a href="{{ route('amenity') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Room Amenities</p>
                 </a>

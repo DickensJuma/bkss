@@ -24,6 +24,7 @@
         <div class="col-12">
           <form action="">
             <?php echo  $facilities_design; ?>
+            <input type="submit" class="btn btn-success" value="Update">
           </form>
         </div>
       </div>
