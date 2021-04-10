@@ -16,6 +16,7 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('p_id')->references('id')->on('properties')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('r_id')->references('id')->on('rooms')->onDelete('cascade')->onUpdate('cascade');
             $table->string('path');
             $table->string('alt_text')->nullable();
             $table->timestamps();

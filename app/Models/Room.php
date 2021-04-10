@@ -11,4 +11,7 @@ class Room extends Model
     public function amenities(){
         return $this->belongsToMany(Amenity::class);
     }
+    public function ratePlans(){
+        return $this->belongsToMany(RatePlan::class);
+    }
 }

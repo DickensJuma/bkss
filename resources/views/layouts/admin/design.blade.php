@@ -30,6 +30,10 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="{{asset('back/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('back/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('back/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('back/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('back/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Theme style -->
@@ -57,6 +61,19 @@
 <script src="{{asset('back/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 <!-- Bootstrap -->
 <script src="{{asset('back/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- DataTables  & Plugins -->
+<script src="{{asset('back/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('back/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('back/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('back/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script src="{{asset('back/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('back/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('back/plugins/jszip/jszip.min.js')}}"></script>
+<script src="{{asset('back/plugins/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{asset('back/plugins/pdfmake/vfs_fonts.js')}}"></script>
+<script src="{{asset('back/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{asset('back/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{asset('back/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('back/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- bs-custom-file-input -->
@@ -78,6 +95,40 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('back/dist/js/pages/dashboard2.js')}}"></script>
 <script src="{{asset('back/plugins/yearpicker/dist/yearpicker.js')}}" async></script>
-
+<script type="text/javascript">
+  $(function () {
+    $("#table").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
+  });
+  @if (session('erroralert'))
+$(document).ready(function () {
+    Swal.fire(
+        "Failed!",    
+    "{{ session('erroralert') }}",
+    "error"); 
+});
+@endif
+@if (session('successalert'))
+$(document).ready(function () {
+    Swal.fire(
+        "Done!",    
+    "{{ session('successalert') }}",
+    "success");
+});
+@endif
+@if (session('warningalert'))
+$(document).ready(function () {
+    Swal.fire(
+        "Access Denied!",    
+    "{{ session('warningalert') }}",
+    "warning");
+});
+$(function () {
+  bsCustomFileInput.init();
+});
+@endif
+</script>
 </body>
 </html>

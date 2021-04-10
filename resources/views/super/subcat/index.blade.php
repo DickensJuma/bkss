@@ -42,7 +42,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                 <?php echo $columns ?>
+                  <?php echo $columns ?>
                   </tbody>
                   <tfoot>
                   <tr>

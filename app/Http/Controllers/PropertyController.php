@@ -140,7 +140,7 @@ class PropertyController extends Controller
                     $quantity.="<option value='".$i."'>".$i."</option>";
                 }
                 for($i=0;$i<$room->capacity;$i++){
-                   $capacity.= "<i class='fa fa-user' aria-hidden='true'></i>";
+                    $capacity.= "<i class='fa fa-user' aria-hidden='true'></i>";
                 }
                 $room_charge ="";
                 if(($room->offer_charge*$totalstay)<=($room->normal_charge*$totalstay) &&($room->offer_charge*$totalstay)>0){

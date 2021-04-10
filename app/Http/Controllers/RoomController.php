@@ -31,19 +31,30 @@ class RoomController extends Controller
         $room_design .="<div class='col-4'>
         <div class='card'>
         <div class='card-header'>
-          <h3 class='card-title'>"
+            <h3 class='card-title'>"
             .$room_type->name."
-          </h3>
+            </h3>
         </div>
-        <div class='card-body'>
-        <img src='".asset('uploads/property/small/'.$image->path) ."'class='img-responsive' alt='Gallery'>
+        <div class='card-body'>";
+        if($image==NULL || $image ==""){
+            $room_design .="<img src=''class='img-responsive' alt='Gallery'>
         <p>Occupancy: <b>$room->capacity guests</b></p>
         <p>Number of this type:<b>$room->quantity</b></p>
         <button class='btn btn-warning'>Edit</button>
         <button class='btn btn-danger'>Delete</button>
         </div>
-      </div>
+        </div>
     </div> ";
+        }else{
+        $room_design .="<img src='".asset('uploads/property/small/'.$image->path) ."'class='img-responsive' alt='Gallery'>
+        <p>Occupancy: <b>$room->capacity guests</b></p>
+        <p>Number of this type:<b>$room->quantity</b></p>
+        <button class='btn btn-warning'>Edit</button>
+        <button class='btn btn-danger'>Delete</button>
+        </div>
+        </div>
+    </div> ";
+            }
         }
         
         return view('property.room.index',compact('room_design','property'));
