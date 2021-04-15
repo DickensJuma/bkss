@@ -43,9 +43,7 @@ class RatePlanController extends Controller
                 <td>$rate_plan->plan</td>
                 <td>$rate_plan->amount</td>
                 </tr>";
-        }
-            
-            
+            }
         }
         return view('property.rate.index',compact('rate_plan_design', 'room_dropdown', 'rate_plan_dropdown'));
     }

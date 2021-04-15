@@ -22,17 +22,20 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-8">
-         <div class="row">
+          <div class="row">
           <?php echo $room_design ?>
-         </div>
+          </div>
         </div>
         <div class="col-4">
-          <a href="{{ route('room.create',$property->id) }}" class="btn btn-primary room-btn">
+          <a href="{{ route('room.create',$property->id) }}">
             <div class=" card bg-primary">
+              <div class="card-header text-center">
+                <h3 class="card-title">create a new room</h3>
+              </div>
             <div class="card-body text-center">
-              <p>create a new room</p>
-              <i class="fa fa-plus-circle"></i>
+              <i class="fa fa-plus-circle fa-7x"></i>
             </div>
+            <div class="card-footer"></div>
           </div></a>
         </div>
       </div>

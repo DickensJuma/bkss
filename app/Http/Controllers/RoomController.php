@@ -40,20 +40,40 @@ class RoomController extends Controller
             $room_design .="<img src=''class='img-responsive' alt='Gallery'>
         <p>Occupancy: <b>$room->capacity guests</b></p>
         <p>Number of this type:<b>$room->quantity</b></p>
-        <button class='btn btn-warning'>Edit</button>
-        <button class='btn btn-danger'>Delete</button>
-        </div>
-        </div>
-    </div> ";
+        <button class='btn btn-primary'>Edit</button>
+        <button class='btn btn-danger'>Delete</button>";
+        if($room->status == 1){
+            $room_design .="
+            <a href='".route('room.off', $room->id)."' class='btn btn-warning'>Turn off</a>
+            </div>
+            </div>
+            </div> ";
+        }else{
+            $room_design .="
+            <a href='".route('room.on', $room->id)."' class='btn btn-success'>Turn on</a>
+            </div>
+            </div>
+            </div> ";
+        }
         }else{
         $room_design .="<img src='".asset('uploads/property/small/'.$image->path) ."'class='img-responsive' alt='Gallery'>
         <p>Occupancy: <b>$room->capacity guests</b></p>
         <p>Number of this type:<b>$room->quantity</b></p>
-        <button class='btn btn-warning'>Edit</button>
-        <button class='btn btn-danger'>Delete</button>
-        </div>
-        </div>
-    </div> ";
+        <button class='btn btn-primary'>Edit</button>
+        <button class='btn btn-danger'>Delete</button>";
+        if($room->status == 1){
+            $room_design .="
+            <a href='".route('room.off', $room->id)."' class='btn btn-warning'>Turn off</a>
+            </div>
+            </div>
+            </div> ";
+        }else{
+            $room_design .="
+            <a href='".route('room.on', $room->id)."' class='btn btn-success'>Turn on</a>
+            </div>
+            </div>
+            </div> ";
+        }
             }
         }
         
@@ -175,5 +195,21 @@ class RoomController extends Controller
     public function destroy(Room $room)
     {
         //
+    }
+    public function turnOn(Request $request, $id = null){
+        if($request->isMethod('GET')){
+            dd($request);
+            return null;
+        }
+
+    }
+    public function turnOff(Request $request, $id = null){
+        if($request->isMethod('GET')){
+           //get room
+            $room_to_close = Room::where(['id'=>$id])->first();
+            return view('property.room.toggle',compact('room_to_close'));
+        }
+
+
     }
 }

@@ -64,6 +64,8 @@ Route::group(['prefix' => 'property'], function () {
         Route::post('/add', [RoomController::class,'store'])->name('room.add');
         Route::get('/manage', [RoomController::class,'manage'])->name('room.management');
         Route::post('/manage', [RoomController::class,'manage']);
+        Route::match(['get', 'post'], '/on/{id}', [RoomController::class,'turnOn'])->name('room.on');
+        Route::match(['get', 'post'], '/off/{id}', [RoomController::class,'turnOff'])->name('room.off');
     });
 
     //calendar routes
