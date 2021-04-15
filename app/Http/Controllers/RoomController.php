@@ -207,7 +207,10 @@ class RoomController extends Controller
         if($request->isMethod('GET')){
            //get room
             $room_to_close = Room::where(['id'=>$id])->first();
-            return view('property.room.toggle',compact('room_to_close'));
+            $room_name = Type::where(['id'=>$room_to_close->name])->first();
+            return view('property.room.toggle',compact('room_to_close','room_name'));
+        }else{
+            
         }
 
 

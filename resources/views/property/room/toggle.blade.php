@@ -19,4 +19,32 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h3>{{ $room_name->name }}</h3>
+                    <form action="{{ route('room.off', $room_to_close->id) }}" method="Post">
+                        @csrf
+                        <div class="form-group row">
+                            <div class="col-6">
+                                <label for="from" class="form-lable">Closed From</label>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control datepicker" data-date-format="dd-mm-yyyy" id="from" name="from" required>
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="to" class="form-lable">Closed To</label>
+                                <input type="text" class="form-control datepicker" data-date-format="dd-mm-yyyy" id="to" name="to" required>
+                            </div>
+                        </div>
+                        <input type="Submit" class="btn btn-success from-control" value="Save">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection

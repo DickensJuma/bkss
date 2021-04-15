@@ -45,6 +45,9 @@
   <!-- jQuery -->
 <script src="{{asset('back/plugins/jquery/jquery.min.js')}}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- Include Bootstrap Datepicker -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -101,6 +104,14 @@
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
+
+    $('.datepicker').datepicker({
+    "format": 'dd-mm-yyyy',
+    "setDate": "now",
+        "autoclose": true
+    });
+
+    $('.datepicker').datepicker('setDate', today);
   });
   @if (session('erroralert'))
 $(document).ready(function () {
