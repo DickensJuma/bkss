@@ -210,7 +210,8 @@ class RoomController extends Controller
             $room_name = Type::where(['id'=>$room_to_close->name])->first();
             return view('property.room.toggle',compact('room_to_close','room_name'));
         }else{
-            
+            Room::where(['id'=>$id])->update(['status'=>0,'closed_from'=>$request->from,'closed_to'=>$request->to]);
+            return redirect('/property/room')->with('successalert','The room will not be available from: '.$request->from .' to: '.$request->to);
         }
 
 

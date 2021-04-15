@@ -29,16 +29,11 @@
                         <div class="form-group row">
                             <div class="col-6">
                                 <label for="from" class="form-lable">Closed From</label>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control datepicker" data-date-format="dd-mm-yyyy" id="from" name="from" required>
-                                    <div class="input-group-addon">
-                                        <span class="glyphicon glyphicon-th"></span>
-                                    </div>
-                                </div>
+                                <input type="text" class="form-control datepicker"  id="from" name="from" required>
                             </div>
                             <div class="col-6">
                                 <label for="to" class="form-lable">Closed To</label>
-                                <input type="text" class="form-control datepicker" data-date-format="dd-mm-yyyy" id="to" name="to" required>
+                                <input type="text" class="form-control datepicker"  id="to" name="to" required>
                             </div>
                         </div>
                         <input type="Submit" class="btn btn-success from-control" value="Save">

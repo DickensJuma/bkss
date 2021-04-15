@@ -45,9 +45,10 @@
   <!-- jQuery -->
 <script src="{{asset('back/plugins/jquery/jquery.min.js')}}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="{{asset('front/assets/libs/moment/min/moment.min.js')}}"></script>
 <!-- Include Bootstrap Datepicker -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" integrity="sha512-63+XcK3ZAZFBhAVZ4irKWe9eorFG0qYsy2CaM5Z+F3kUn76ukznN0cp4SArgItSbDFD1RrrWgVMBY9C/2ZoURA==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg==" crossorigin="anonymous"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -105,13 +106,11 @@
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
 
-    $('.datepicker').datepicker({
-    "format": 'dd-mm-yyyy',
-    "setDate": "now",
-        "autoclose": true
+    $('.datepicker').datetimepicker({
+      inline: true,
+      sideBySide: true,
+      format:'YYYY-MM-DD HH:mm:ss'
     });
-
-    $('.datepicker').datepicker('setDate', today);
   });
   @if (session('erroralert'))
 $(document).ready(function () {
