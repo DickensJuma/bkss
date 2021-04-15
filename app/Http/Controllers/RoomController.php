@@ -197,10 +197,9 @@ class RoomController extends Controller
         //
     }
     public function turnOn(Request $request, $id = null){
-        if($request->isMethod('GET')){
-            dd($request);
-            return null;
-        }
+        Room::where(['id'=>$id])->update(['status'=>1,'closed_from'=>NULL,'closed_to'=>NULL]);
+            return redirect('/property/room')->with('successalert','The room is now available and bookable');
+        
 
     }
     public function turnOff(Request $request, $id = null){
