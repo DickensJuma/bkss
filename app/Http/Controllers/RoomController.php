@@ -196,12 +196,11 @@ class RoomController extends Controller
     {
         //
     }
-    public function turnOn(Request $request, $id = null){
+    public function turnOn($id = null){
         Room::where(['id'=>$id])->update(['status'=>1,'closed_from'=>NULL,'closed_to'=>NULL]);
             return redirect('/property/room')->with('successalert','The room is now available and bookable');
-        
-
     }
+
     public function turnOff(Request $request, $id = null){
         if($request->isMethod('GET')){
            //get room
@@ -213,6 +212,20 @@ class RoomController extends Controller
             return redirect('/property/room')->with('successalert','The room will not be available from: '.$request->from .' to: '.$request->to);
         }
 
+
+    }
+
+    public function adjustRoomsToSell(Request $request){
+        if($request->isMethod('GET')){
+            //get property
+        $property = Property::where(['owner'=>auth()->user()->id])->first();
+        //get rooms 
+        $rooms = Room::where(['property' => $property->id])->get();
+        return view('property.room.manage');
+
+        }else{
+
+        }
 
     }
 }
