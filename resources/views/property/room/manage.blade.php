@@ -19,5 +19,10 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
+    <section class="container">
+        <div class="container-fluid">
+            
+        </div>
+    </section>
     
     @endsection
