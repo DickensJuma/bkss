@@ -8,7 +8,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <image class="icon-rounded float-center" src="{{ asset('front/assets/images/apartment-icon.png') }}"></image>
+                        <img class="icon-rounded float-center" src="{{ asset('front/assets/images/apartment-icon.png') }}"/>
                         <h4 class="text-warning text-center">Apartment</h4>
                     </div>
                     <div class="card-body">
@@ -22,7 +22,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <image class="icon-rounded" src="{{ asset('front/assets/images/home-icon.png') }}"></image>
+                        <img class="icon-rounded" src="{{ asset('front/assets/images/home-icon.png') }}"/>
                         <h4 class="text-warning text-center">Homes</h4>
                     </div>
                     <div class="card-body">
@@ -36,7 +36,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <image class="icon-rounded" src="{{ asset('front/assets/images/hotel-icon.png') }}"></image>
+                        <img class="icon-rounded" src="{{ asset('front/assets/images/hotel-icon.png') }}"/>
                         <h4 class="text-warning text-center">Hotel, B&Bs & More</h4>
                     </div>
                     <div class="card-body">
@@ -50,11 +50,11 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <image class="icon-rounded" src="{{ asset('front/assets/images/tent-icon.png') }}"></image>
-                        <h4 class="text-warning text-center">Alternative places</h4>
+                        <img class="icon-rounded" src="{{ asset('front/assets/images/tent-icon.png') }}"/>
+                        <h4 class="text-warning text-center">Confrence facilities</h4>
                     </div>
                     <div class="card-body">
-                        <p>Properties like boats, campgrounds, luxury tents, etc.</p>
+                        <p>Properties like halls, campgrounds, tents, etc.</p>
                     </div>
                     <div class="card-footer">
                         <a href="/property/other" class="btn btn-secondary">List your property</a>
@@ -63,5 +63,4 @@
             </div>
         </div>
     </div>
-
 @endsection

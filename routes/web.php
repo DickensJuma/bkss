@@ -69,7 +69,7 @@ Route::group(['prefix' => 'property'], function () {
     });
 
     //calendar routes
-    Route::get('/calendar', [CallendarController::class,'create'])->name('calendar');
+    Route::get('/calendar', [CallendarController::class,'index'])->name('calendar');
         Route::post('/calendar', [CallendarController::class,'manage']);
 
     //facility routes

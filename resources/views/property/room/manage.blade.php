@@ -19,9 +19,24 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
-    <section class="container">
+    <section class="content">
         <div class="container-fluid">
-            
+            <div class="row">
+                <div class="col-12">
+                    <form action="{{ route('room.management') }}" class="row">
+                        <div class="form-group col-6">
+                            <label for="room">Room</label>
+                            <select class="form-control" name="room" id="room">
+
+                            </select>
+                        </div>
+                            <div class="form-group col-6">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="text" name="quantity" id="quantity" class="form-control">
+                            </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
     
