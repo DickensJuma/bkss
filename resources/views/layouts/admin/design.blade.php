@@ -95,6 +95,8 @@
 <script src="{{asset('back/plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('back/plugins/chart.js/Chart.min.js')}}"></script>
+<!-- jQuery UI -->
+<script src="{{asset('back/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- fullCalendar 2.2.5 -->
 <script src="{{asset('back/plugins/fullcalendar/main.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
