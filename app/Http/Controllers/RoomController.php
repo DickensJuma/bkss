@@ -221,11 +221,26 @@ class RoomController extends Controller
         $property = Property::where(['owner'=>auth()->user()->id])->first();
         //get rooms 
         $rooms = Room::where(['property' => $property->id])->get();
-        return view('property.room.manage');
+        $room_drop_down = "<option slected>Select room </option>";
+        foreach($rooms as $room){
+            $room_name = Type::where(['id'=>$room->name])->first();
+            $room_drop_down .= "<option class='bg-ready' value='" . $room->id . "'>" . $room_name->name . "</option>";
+        }
+        return view('property.room.manage',compact('room_drop_down'));
 
         }else{
-
+            Room::where(['id'=>$request->room])->update(['quantity'=>$request->quantity]);
+            return redirect('/property/room')->with('successalert','The number of rooms to sell has been successfully updated to: '.$request->quantity);
         }
 
+    }
+    public function get_by_room(Request $request){
+        if(!$request->room_id){
+            $quantity = "0";
+        }else{
+            $room = Room::where(['id'=>$request->room_id])->first();
+            $quantity = $room->quantity;
+        }
+        return response()->json(['quantity' => $quantity]);
     }
 }

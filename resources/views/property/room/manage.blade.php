@@ -23,21 +23,40 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <form action="{{ route('room.management') }}" class="row">
-                        <div class="form-group col-6">
-                            <label for="room">Room</label>
-                            <select class="form-control" name="room" id="room">
-
-                            </select>
-                        </div>
+                    <form action="{{ route('room.management') }}" method="POST">
+                        @csrf
+                        <div class="row">
                             <div class="form-group col-6">
-                                <label for="quantity" class="form-label">Quantity</label>
-                                <input type="text" name="quantity" id="quantity" class="form-control">
+                                <label for="room">Room</label>
+                                <select class="form-control" name="room" id="room">
+                                    <?php echo $room_drop_down; ?>
+                                </select>
                             </div>
+                                <div class="form-group col-6">
+                                    <label for="quantity" class="form-label">Quantity</label>
+                                    <input type="text" name="quantity" id="quantity" class="form-control" required>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-success form-control" type="submit" value="Save">
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+        $('#room').on('change',function(){
+            var checkValue = $(this).children('option:selected').val();
+            $.ajax({
+                url: "{{ route('quantity_by_room') }}?room_id=" + $(this).val(),
+                method: 'GET',
+                success: function(data) {
+                    $('#quantity').val(data.quantity);
+                }
+            });
+        });
+
+    </script>
     
     @endsection
