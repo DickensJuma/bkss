@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CallendarController extends Controller
 {
@@ -13,10 +14,10 @@ class CallendarController extends Controller
     }
 
     public function getCalendarContent(){
-        $data = Room::where(['status'=>0])
-                //->whereDate('closed_from', '>=', $request->start)
-                //->whereDate('closed_to',   '<=', $request->end)
-                ->get(['id', 'name AS title', 'closed_from AS start', 'closed_to AS end']);
+        $data = DB::table('rooms')
+        ->join('types', 'rooms.name', 'types.id')
+        ->select('rooms.id','types.name As title', 'rooms.closed_from As start', 'rooms.closed_to As end')
+        ->where(['status' => 0])->get();
             return response()->json($data);
     }
     public function create(){

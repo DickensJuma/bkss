@@ -145,7 +145,7 @@
     bsCustomFileInput.init();
   });
 </script>
-<!-- Page specific script -->
+<!-- Full calendar script -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -160,7 +160,17 @@
       navLinks: true, // can click day/week names to navigate views
       editable: true,
       selectable: true,
-          events: '/property/calendar/data', //This picks up events via JSON calls. You can use other words in place of "events" to convey different requests.
+      eventSources: [
+          {
+          url: '/property/calendar/data',
+          type: 'GET',
+          error: function() {
+          alert('there was an error reading the data.');
+          },
+          color: '#dc3545', // a non-ajax option
+          textColor: 'white' // a non-ajax option
+          },
+          ], //This picks up events via JSON calls. You can use other words in place of "events" to convey different requests.
     });
     calendar.setOption('locale', 'en');
     calendar.render();
