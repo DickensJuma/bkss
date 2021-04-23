@@ -70,9 +70,11 @@ Route::group(['prefix' => 'property'], function () {
     });
 
     //calendar routes
-    Route::get('/calendar', [CallendarController::class,'index'])->name('calendar');
-        Route::post('/calendar', [CallendarController::class,'manage']);
-
+    Route::group(['prefix' => 'calendar'], function () {
+        Route::get('/', [CallendarController::class,'index'])->name('calendar');
+        Route::post('/', [CallendarController::class,'manage']);
+        Route::get('/data', [CallendarController::class,'getCalendarContent'])->name('calendar.content');
+    });
     //facility routes
     Route::group(['prefix' => 'facility'], function () {
         Route::get('/', [FacilityController::class,'index'])->name('facility');

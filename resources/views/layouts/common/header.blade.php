@@ -113,8 +113,8 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button" id="fullscreentoggler">
-          <i class="fas fa-expand-arrows-alt"></i>
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i><span id="fullscreentoggler"></span>
         </a>
       </li>
       <li class="nav-item">
@@ -130,9 +130,9 @@
     </ul>
   </nav>
   <script>
-    $('#fullscreentoggler').on('clock',function(){
+    $('#fullscreentoggler').on('click',function(){
       if((window.fullScreen) || (window.innerWidth == screen.width && window.innerHeight == screen.height)) {
-        $('#fullscreentoggler':info).text('Collapse screen');
+        $('#fullscreentoggler').text('Collapse screen');
       } else {
         $('#fullscreentoggler').text('Expand screen');
       }
