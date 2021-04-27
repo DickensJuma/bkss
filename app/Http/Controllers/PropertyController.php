@@ -121,7 +121,7 @@ class PropertyController extends Controller
         $hotel_data = "";
         $totalstay = (int)$stay;
         //facilities
-        $facilities = Facility::where(['p_id'=>$property_id])->first();
+        $facilities = $hotel->facilities()->get();
         //taxes
         $levies = $hotel->taxes()->get();
         //images
@@ -155,7 +155,20 @@ class PropertyController extends Controller
                 <td>$room_type->name</td>
                 <td> $capacity</td> 
                 <td>$room_charge</td>
-                <td>$facilities->facility</td>
+                <td>";
+                foreach($facilities as $facility){
+                    switch($facility->sub_cat_id){
+                        case 1: $hotel_data.= $facility->name ." Parking , ";
+                        break;
+                        case 2: $hotel_data.= $facility->name ." Breakfast , ";
+                        break;
+                        case 3: $hotel_data.= "Staff speak ".$facility->name ." Language , ";
+                        break;
+                        default: $hotel_data.= $facility->name ." , ";
+                    }
+                    
+                }
+                $hotel_data.="</td>
                 <td><Select name='quantity' required>$quantity</select></td>
                 <td><a href=''>Reserve</a></td>
                 </tr>";

@@ -30,10 +30,9 @@ class SearchController extends Controller
             }
             $result_counter++;
             //get all the rooms for each hotel
-            $rooms = Room::where(['property' => $hotel->id])->where('capacity','>=', $request->adult)->get();
+            $room = Room::where(['property' => $hotel->id])->where('capacity','>=', $request->adult)->first();
             //check if there are rooms returned
-            if($rooms->isNotEmpty()){
-                foreach($rooms as $room){
+            if($room!=null){
                     //get the room type
                     $room_type = Type::where(['id'=>$room->type])->first();
                     if($room->property == $hotel->id){
@@ -73,7 +72,6 @@ class SearchController extends Controller
                         <!-- listing block close  -->
                         </div>";
                     }
-            }
             }
         }        
 
