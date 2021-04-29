@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h3>{{ $room_name->name }}</h3>
+                    <h3>{{ $room_name }}</h3>
                     <form action="{{ route('room.off', $room_to_close->id) }}" method="Post">
                         @csrf
                         <div class="form-group row">

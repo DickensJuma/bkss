@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\Type;
 use App\Models\Photo;
 use App\Models\Property;
+use App\Models\RoomName;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,12 +28,13 @@ class RoomController extends Controller
         foreach ($rooms as $room){
             //get all images for this facility
         $image = Photo::where(['r_id' => $room->id])->first();
-        $room_type = Type::where(['id'=>$room->name])->first();
+        $room_name = RoomName::where(['id'=>$room->name])->first();
+        $room_type = Type::where(['id'=>$room->type])->first();
         $room_design .="<div class='col-4'>
         <div class='card'>
         <div class='card-header'>
             <h3 class='card-title'>"
-            .$room_type->name."
+            .$room_name->name ." ". $room_type->name."
             </h3>
         </div>
         <div class='card-body'>";
@@ -206,7 +208,9 @@ class RoomController extends Controller
         if($request->isMethod('GET')){
            //get room
             $room_to_close = Room::where(['id'=>$id])->first();
-            $room_name = Type::where(['id'=>$room_to_close->name])->first();
+            $roomName = RoomName::where(['id'=>$room_to_close->name])->first();
+            $roomType = Type::where(['id'=>$room_to_close->type])->first();
+            $room_name = $roomName->name. " " . $roomType->name;
             return view('property.room.toggle',compact('room_to_close','room_name'));
         }else{
             Room::where(['id'=>$id])->update(['status'=>0,'closed_from'=>$request->from,'closed_to'=>$request->to]);
@@ -224,8 +228,9 @@ class RoomController extends Controller
         $rooms = Room::where(['property' => $property->id])->get();
         $room_drop_down = "<option slected>Select room </option>";
         foreach($rooms as $room){
-            $room_name = Type::where(['id'=>$room->name])->first();
-            $room_drop_down .= "<option class='bg-ready' value='" . $room->id . "'>" . $room_name->name . "</option>";
+            $room_name = RoomName::where(['id'=>$room->name])->first();
+            $room_type = Type::where(['id'=>$room->type])->first();
+            $room_drop_down .= "<option class='bg-ready' value='" . $room->id . "'>" . $room_name->name ." ". $room_type->name . "</option>";
         }
         return view('property.room.manage',compact('room_drop_down'));
 
