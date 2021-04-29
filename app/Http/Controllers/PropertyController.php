@@ -169,22 +169,17 @@ class PropertyController extends Controller
                 }
 
                 $hotel_data.="<tr>
-                <td>$room_name->name $room_type->name</td>
+                <td><u>$room_name->name $room_type->name</u><br>";
+                foreach($amenities->chunk(4) as $amenity){
+                    foreach($amenity as $item){
+                        $hotel_data.= $item->name ." , ";
+                    }
+                    $hotel_data.= "<br>";
+                }
+                $hotel_data.="</td>
                 <td> $capacity</td> 
                 <td>$room_charge</td>
                 <td>";
-                foreach($amenities as $amenity){
-                    switch($amenity->sub_cat_id){
-                        case 1: $hotel_data.= $amenity->name ." Parking , ";
-                        break;
-                        case 2: $hotel_data.= $amenity->name ." Breakfast , ";
-                        break;
-                        case 3: $hotel_data.= "Staff speak ".$amenity->name ." Language , ";
-                        break;
-                        default: $hotel_data.= $amenity->name ." , ";
-                    }
-                    
-                }
                 $hotel_data.="</td>
                 <td><Select name='quantity' required>$quantity</select></td>
                 <td><a href=''>Reserve</a></td>

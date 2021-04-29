@@ -29,11 +29,13 @@
                         </div>
                     </div>                        
                     @else
-                    <div style="display: block">
+                    <div class="col-md-2">
+                        <div style="display: block">
                             <span class="image-block block2">
                             <a class="image-zoom" href="{{ asset('uploads/property/large/'.$item->path) }}" rel="prettyPhoto[gallery]">							
                                     <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive" alt="Gallery"></a>
                         </span>
+                    </div>
                     </div>
                         
                     @endif
