@@ -14,65 +14,20 @@
                 </div>
                 <input type="text" value="{{ $property_id }}" name="p_id" hidden>
                 <div class="form-group">
-                    <label for="roomtype">Room type</label>
-                    <select name="roomtype" class="form-control" required>
-                        <option value="">Please Select</option>
-                        <option value="1">Single</option>
-                        <option value="2">Double</option>
-                        <option value="3">Twin</option>
-                        <option value="4">Twin / Double</option>
-                        <option value="5">Tripple</option>
-                        <option value="6">Quad</option>
-                        <option value="7">Family</option>
-                        <option value="8">Suite</option>
-                        <option value="9">Studio</option>
-                        <option value="10">Apartment</option>
-                        <option value="11">Dorm Room</option>
-                        <option value="12">Bed in Dorm Room</option>
-                        <option value="13">Presidential</option>
-                        <option value="14">Governor</option>
+                    <label for="room_name">Room name</label>
+                    <select name="room_name" id="room_name" class="form-control" required>
+                        <?php echo $room_name_dropdown; ?>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="room_name">Room name</label>
-                    <select name="room_name" id="room_name" class="form-control" required>
-                        <option value="" class="hidden">Please select</option>
-                        <option value="1">Budget Single Room</option>
-                        <option value="2">Deluxe Single Room</option>
-                        <option value="3">Deluxe Single Room with Balcony</option>
-                        <option value="4">Deluxe Single Room with Sea View</option>
-                        <option value="5">Economy Single Room</option>
-                        <option value="6">Large Single Room</option>
-                        <option value="7">New Year's Eve Special - Single Room</option>
-                        <option value="8">Single Room</option>
-                        <option value="9">Single Room - Disability Access</option>
-                        <option value="10">Single Room with Balcony</option>
-                        <option value="11">Single Room with Bath</option>
-                        <option value="12">Single Room with Bathroom</option>
-                        <option value="13">Single Room with Garden View</option>
-                        <option value="14">Single Room with Lake View</option>
-                        <option value="15">Single Room with Mountain View</option>
-                        <option value="16">Single Room with Park View</option>
-                        <option value="17">Single Room with Pool View</option>
-                        <option value="18">Single Room with Private Bathroom</option>
-                        <option value="19">Single Room with Private External Bathroom</option>
-                        <option value="20">Single Room with Sea View</option>
-                        <option value="21">Single Room with Shared Bathroom</option>
-                        <option value="22">Single Room with Shared Shower and Toilet</option>
-                        <option value="23">Single Room with Shared Toilet</option>
-                        <option value="24">Single Room with Shower</option>
-                        <option value="25">Single Room with Terrace</option>
-                        <option value="26">Small Single Room</option>
-                        <option value="27">Standard Single Room</option>
-                        <option value="28">Standard Single Room with Mountain View</option>
-                        <option value="29">Standard Single Room with Sauna</option>
-                        <option value="30">Standard Single Room with Sea View</option>
-                        <option value="31">Standard Single Room with Shared Bathroom</option>
-                        <option value="32">Standard Single Room with Shower</option>
-                        <option value="33">Superior Single Room</option>
-                        <option value="34">Superior Single Room with Lake View</option>
-                        <option value="35">Superior Single Room with Sea View</option>
+                    <label for="roomtype">Room type</label>
+                    <select name="roomtype" class="form-control" required>
+                        <?php echo $room_type_dropdown; ?>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="custom_name">Custom Name <span class="text-danger">(Optional)</span></label>
+                    <input type="text" class="form-control" name="custom_name" id="custom_name">
                 </div>
                 <div class="form-group">
                     <label for="spolicy">Smoking policy</label>

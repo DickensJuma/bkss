@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Room;
 use App\Models\Type;
 use App\Models\Property;
+use App\Models\RoomName;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -33,6 +34,8 @@ class SearchController extends Controller
             $room = Room::where(['property' => $hotel->id])->where('capacity','>=', $request->adult)->first();
             //check if there are rooms returned
             if($room!=null){
+                //get room name
+                $room_name = RoomName::where(['id'=>$room->name])->first();
                     //get the room type
                     $room_type = Type::where(['id'=>$room->type])->first();
                     if($room->property == $hotel->id){
@@ -51,7 +54,7 @@ class SearchController extends Controller
                                         <div class='col-md-9'>
                                         <div class=''>
                                         <h3 class='h4'> <a href='pages/list-single.html' class='text-dark'>$hotel->name</a><span class='text-warning text-sm'>$stars</span></h3>
-                                        <p class='text-sm font-weight-semi-bold'><i class='mdi mdi-map-marker mr-1'></i>$hotel->city .$hotel->country . $room_type->name</p>
+                                        <p class='text-sm font-weight-semi-bold'><i class='mdi mdi-map-marker mr-1'></i>$hotel->city $hotel->country</p>
                                     </div>
                                     <div class='d-flex justify-content-between'>
                                         <div class=''>

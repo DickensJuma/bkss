@@ -7,6 +7,7 @@ use App\Models\Photo;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Models\Room;
+use App\Models\RoomName;
 use App\Models\Type;
 use Illuminate\Support\Facades\Auth;
 
@@ -91,7 +92,19 @@ class PropertyController extends Controller
         $property->admin = $ownerid;
         $property->save();
         $property_id = $property->id;
-        return view('property.hotel.desc',compact('property_id'));
+        //get room names
+        $roomNames = RoomName::get();
+        $room_name_dropdown = "<option>Please Select</option>";
+        foreach($roomNames as $roomName){
+            $room_name_dropdown .= "<option value='".$roomName->id."'>$roomName->name</option>";
+        }
+        //get types
+        $roomTypes = Type::get();
+        $room_type_dropdown = "<option>Please Select</option>";
+        foreach($roomTypes as $roomType){
+            $room_type_dropdown .= "<option value='".$roomType->id."'>$roomType->name</option>";
+        }
+        return view('property.hotel.desc',compact('property_id','room_name_dropdown','room_type_dropdown'));
     }else{
         return redirect('admin/join');
     }
@@ -132,8 +145,12 @@ class PropertyController extends Controller
         //dd($rooms, $totalstay);
         if($rooms->isNotEmpty()){
             foreach($rooms as $room){
+                //get room name
+                $room_name = RoomName::where(['id'=>$room->name])->first();
                 //get the room type
                 $room_type = Type::where(['id'=>$room->type])->first();
+                //amenities
+                $amenities = $room->amenities()->get();
                 $capacity = "";
                 $quantity = "<option value=''>0</option>";
                 for($i=1;$i<=$room->quantity;$i++){
@@ -152,19 +169,19 @@ class PropertyController extends Controller
                 }
 
                 $hotel_data.="<tr>
-                <td>$room_type->name</td>
+                <td>$room_name->name $room_type->name</td>
                 <td> $capacity</td> 
                 <td>$room_charge</td>
                 <td>";
-                foreach($facilities as $facility){
-                    switch($facility->sub_cat_id){
-                        case 1: $hotel_data.= $facility->name ." Parking , ";
+                foreach($amenities as $amenity){
+                    switch($amenity->sub_cat_id){
+                        case 1: $hotel_data.= $amenity->name ." Parking , ";
                         break;
-                        case 2: $hotel_data.= $facility->name ." Breakfast , ";
+                        case 2: $hotel_data.= $amenity->name ." Breakfast , ";
                         break;
-                        case 3: $hotel_data.= "Staff speak ".$facility->name ." Language , ";
+                        case 3: $hotel_data.= "Staff speak ".$amenity->name ." Language , ";
                         break;
-                        default: $hotel_data.= $facility->name ." , ";
+                        default: $hotel_data.= $amenity->name ." , ";
                     }
                     
                 }
