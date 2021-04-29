@@ -169,14 +169,14 @@ class PropertyController extends Controller
                 }
 
                 $hotel_data.="<tr>
-                <td><u>$room_name->name $room_type->name</u><br>";
-                foreach($amenities->chunk(4) as $amenity){
+                <td><u class='text-success'><b>$room_name->name $room_type->name</b></u><br><small>";
+                foreach($amenities->chunk(3) as $amenity){
                     foreach($amenity as $item){
                         $hotel_data.= $item->name ." , ";
                     }
                     $hotel_data.= "<br>";
                 }
-                $hotel_data.="</td>
+                $hotel_data.="</small></td>
                 <td> $capacity</td> 
                 <td>$room_charge</td>
                 <td>";
