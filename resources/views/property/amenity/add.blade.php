@@ -10,6 +10,7 @@
                 <form action="{{ route('amenity.add') }}" method="POST">
                     @csrf
                     <input type="text" value="{{ $property_id }}" name="p_id" hidden>
+                    <input type="text" value="{{ $room_id }}" name="r_id" hidden>
                     <div class="divider">
                         <h5>Extra Bed Options</h5>
                         <p>These are the options for beds that can be added upon request.</p>

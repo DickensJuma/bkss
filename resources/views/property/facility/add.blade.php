@@ -13,6 +13,7 @@
                         <h3>Layout & Pricing </h3>
                     </div>
                     <input type="text" value="{{ $property_id }}" name="p_id" hidden>
+                    <input type="text" value="{{ $room_id }}" name="r_id" hidden>
                     <div class="form-group">
                         <label for="roomtype">Room type</label>
                         <select name="roomtype" class="form-control" required>
@@ -130,6 +131,7 @@
                 <form action="{{ route('facility.add') }}" method="POST" id="facilityForm" hidden>
                     @csrf
                     <input type="text" value="{{ $property_id }}" name="p_id" hidden>
+                    <input type="text" value="{{ $room_id }}" name="r_id" hidden>
                     <div class="divider">
                         <h3>Facilities & Services </h3>
                         <p>Now let us know some general details about your property like facilities available, internet, parking, and the languages you speak.</p>

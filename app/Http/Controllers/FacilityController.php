@@ -140,6 +140,7 @@ class FacilityController extends Controller
             $property->facilities()->attach(Facility::where('id', $facility)->first());
         }
         $property_id = $data['p_id'];
+        $room_id = $data['r_id'];
         //get the relevant categorised amenities
         $common_amenities = Amenity::where(['sub_cat_id'=>24])->get();
         $room_amenities = Amenity::where(['sub_cat_id'=>23])->get();
@@ -153,7 +154,7 @@ class FacilityController extends Controller
         $safety_amenities = Amenity::where(['sub_cat_id'=>32])->get();
         $distancing_amenities = Amenity::where(['sub_cat_id'=>33])->get();
         $cleanliness_amenities = Amenity::where(['sub_cat_id'=>34])->get();
-        return view('property.amenity.add',compact('property_id','common_amenities','room_amenities'
+        return view('property.amenity.add',compact('property_id', 'room_id', 'common_amenities','room_amenities'
         ,'bathroom_amenities','media_amenities','food_amenities','service_amenities','outdoor_amenities'
         ,'accessibility_amenities','family_amenities','safety_amenities','distancing_amenities','cleanliness_amenities'));
 

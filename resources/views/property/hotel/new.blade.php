@@ -8,25 +8,24 @@
             </div>
             <div class="card-body">
                 <form action="">
-                    <label class="input-container"><image class="icon-rounded" src="{{ asset('front/assets/images/hotel-icon.png') }}"></image>
+                    <label class="input-container"><img class="icon-rounded" src="{{ asset('front/assets/images/hotel-icon.png') }}"/>
                         One hotel with one or multiple rooms that guests can book
-                    <input type="radio" name="hotel_number" class="hotel-radio" value="single">
-                    <span class="checkmark"></span>
-              </label>
-              <label class="input-container" id="multiple-container"><image class="icon-rounded" src="{{ asset('front/assets/images/multiple-hotels-icon.png') }}"></image>
-                  Multiple hotels with one or multiple rooms that guests can book
-                <input type="radio" id="multiple" name="hotel_number" class="hotel-radio" value="multiple">
-                <span class="checkmark"></span>
-              </label>
-              <div class="fom-group" id="number" hidden>
-                <label for="no">Number Of properties</label>
-                <input type="number" class="form-controller" name="no" id="no">
-              </div>
+                        <input type="radio" name="hotel_number" class="hotel-radio" value="single">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="input-container" id="multiple-container"><img class="icon-rounded" src="{{ asset('front/assets/images/multiple-hotels-icon.png') }}"/>
+                        Multiple hotels with one or multiple rooms that guests can book
+                        <input type="radio" id="multiple" name="hotel_number" class="hotel-radio" value="multiple">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="fom-group" id="number" hidden>
+                        <label for="no">Number Of properties</label>
+                        <input type="number" class="form-controller" name="no" id="no">
+                    </div>
                 </form>
             </div>
         </div>
-      <a href="" class="btn btn-sm btn-border" id="back"><</a>
-      <a href="{{ route('hotel.add') }}" class="btn btn-lg btn-secondary" id="next">Continue</a>
+        <a href="{{ route('hotel.add') }}" class="btn btn-lg btn-secondary" id="next">Continue</a>
     </div>
     <script>
         //Wait for document to load

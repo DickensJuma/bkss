@@ -112,6 +112,7 @@ class RoomController extends Controller
         $room->capacity = $data['guest_no'];
         $room->normal_charge = $data['price'];
         $room->save();
+        $room_id = $room->id;
 
         $parking_types = Facility::where(['sub_cat_id'=>1])->get();
         $parking_drop_down = "<option selected >No</option>";
@@ -146,7 +147,7 @@ class RoomController extends Controller
             $top_facility_design .= "</div>";
         }
         $property_id = $data['p_id'];
-        return view('property.facility.add',compact('property_id','parking_drop_down','breakfast_drop_down', 'language_drop_down', 'top_facility_design'));
+        return view('property.facility.add',compact('property_id', 'room_id', 'parking_drop_down','breakfast_drop_down', 'language_drop_down', 'top_facility_design'));
     }else{
         return redirect('admin/join');
     }

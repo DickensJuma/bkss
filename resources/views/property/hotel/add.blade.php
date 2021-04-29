@@ -49,8 +49,8 @@
                 <p>Where's your property located?</p>
             </div>
             <div class="form-group">
-                <label for="street">Street address</label>
-                <input type="text" class="form-control" placeholder="Street address" required name="address1">
+                <label for="street">Address Line 1</label>
+                <input type="text" class="form-control" placeholder="Postal address" required name="address1">
             </div>
             <div class="form-group">
                 <label for="Address2">Address line 2</label>
