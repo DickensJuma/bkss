@@ -7,6 +7,7 @@ use App\Models\Type;
 use App\Models\User;
 use App\Models\Property;
 use App\Models\RatePlan;
+use App\Models\RoomName;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -30,16 +31,17 @@ class RatePlanController extends Controller
                     $rate_plan_dropdown .= "<option class='bg-ready' value='" . $rate_plan->id . "'>" . $rate_plan->name . "</option>";
                 }
         foreach($rooms as $room){
+            $room_name = RoomName::where(['id'=>$room->name])->first();
             $room_type = Type::where(['id'=>$room->type])->first();
             //Room drop down for selecting rooms in plan creation
-            $room_dropdown .= "<option class='bg-ready' value='" . $room->id . "'>" . $room_type->name . "</option>";
+            $room_dropdown .= "<option class='bg-ready' value='" . $room->id . "'>" . $room_name->name." ". $room_type->name . "</option>";
             $rate_plans = DB::table('rate_plan_room')
             ->join('rate_plans', 'rate_plan_room.rate_plan_id', 'rate_plans.id')
             ->select('rate_plan_room.*', 'rate_plans.name As plan')
             ->where(['room_id' => $room->id])->get();
             foreach($rate_plans as $rate_plan){
                 $rate_plan_design .= "<tr>
-                <td>$room_type->name</td>
+                <td>$room_name->name $room_type->name</td>
                 <td>$rate_plan->plan</td>
                 <td>$rate_plan->amount</td>
                 </tr>";

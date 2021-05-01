@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Facility;
-use App\Models\Photo;
-use App\Models\Property;
-use Illuminate\Http\Request;
 use App\Models\Room;
-use App\Models\RoomName;
 use App\Models\Type;
+use App\Models\Photo;
+use App\Models\Facility;
+use App\Models\Property;
+use App\Models\RoomName;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class PropertyController extends Controller
@@ -151,6 +152,11 @@ class PropertyController extends Controller
                 $room_type = Type::where(['id'=>$room->type])->first();
                 //amenities
                 $amenities = $room->amenities()->get();
+                //get rate plans
+                $rate_plans = DB::table('rate_plan_room')
+                ->join('rate_plans', 'rate_plan_room.rate_plan_id', 'rate_plans.id')
+                ->select('rate_plan_room.*', 'rate_plans.name As plan')
+                ->where(['room_id' => $room->id])->get();
                 $capacity = "";
                 $quantity = "<option value=''>0</option>";
                 for($i=1;$i<=$room->quantity;$i++){
@@ -179,8 +185,14 @@ class PropertyController extends Controller
                 $hotel_data.="</small></td>
                 <td> $capacity</td> 
                 <td>$room_charge</td>
-                <td>";
-                $hotel_data.="</td>
+                <td><table>";
+                foreach($rate_plans as $rate_plan){
+                    $hotel_data .= "<tr>
+                    <td>$rate_plan->plan</td>
+                    <td>$rate_plan->amount</td>
+                    </tr>";
+                }
+                $hotel_data.="</table></td>
                 <td><Select name='quantity' required>$quantity</select></td>
                 <td><a href=''>Reserve</a></td>
                 </tr>";
