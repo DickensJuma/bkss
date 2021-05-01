@@ -166,13 +166,13 @@ class PropertyController extends Controller
                     $capacity.= "<i class='fa fa-user' aria-hidden='true'></i>";
                 }
                 $room_charge ="";
-                if(($room->offer_charge*$totalstay)<=($room->normal_charge*$totalstay) &&($room->offer_charge*$totalstay)>0){
+                /*if(($room->offer_charge*$totalstay)<=($room->normal_charge*$totalstay) &&($room->offer_charge*$totalstay)>0){
                     $room_charge.="<p> Now: ".$room->offer_charge*$totalstay."<br>
                     Was: <strike class='text-danger'>".$room->normal_charge*$totalstay."</strike>
                     </p>";
                 }else{
                     $room_charge.="<p>".$room->normal_charge*$totalstay."</p>";
-                }
+                }*/
 
                 $hotel_data.="<tr>
                 <td><u class='text-success'><b>$room_name->name $room_type->name</b></u><br><small>";
@@ -184,16 +184,16 @@ class PropertyController extends Controller
                 }
                 $hotel_data.="</small></td>
                 <td> $capacity</td> 
-                <td>$room_charge</td>
-                <td><table>";
+                <td colspan='3'><table>";
                 foreach($rate_plans as $rate_plan){
+                    $room_charge ="<p>".$rate_plan->amount *$totalstay."</p>";
                     $hotel_data .= "<tr>
-                    <td>$rate_plan->plan</td>
-                    <td>$rate_plan->amount</td>
+                    <td class='charge'>$room_charge</td>
+                    <td class='text-success'>$rate_plan->plan</td>
+                    <td><Select name='quantity' class='quantity' required>$quantity</select></td>
                     </tr>";
                 }
                 $hotel_data.="</table></td>
-                <td><Select name='quantity' required>$quantity</select></td>
                 <td><a href=''>Reserve</a></td>
                 </tr>";
             

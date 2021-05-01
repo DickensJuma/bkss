@@ -162,11 +162,10 @@
 <script>
     //Wait for document to load
     $(document).ready(function(){
-         $("#guest_no").change(function(){
-             var value = $('#guest_no').val();
-             $("#pax").contents().replaceWith(value);
-
-         });
+        $("#guest_no").change(function(){
+            var value = $('#guest_no').val();
+            $("#pax").contents().replaceWith(value);
+        });
     });
     </script>
 @endsection

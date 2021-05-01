@@ -55,7 +55,16 @@
                 <?php echo $hotel_data; ?>
             </table>
         </div>
-        
     </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $(".quantity").on('change', function(){
+            var value = $(this).children('option:selected').val();
+            var cost = $(this).parent().parent().find('td.charge').text();
+            alert(value,"cost", cost);
+            
+            });
+        })
+    </script>
 @endsection
