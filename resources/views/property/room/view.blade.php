@@ -61,8 +61,10 @@
         $(document).ready(function(){
             $(".quantity").on('change', function(){
             var value = $(this).children('option:selected').val();
-            var cost = $(this).parent().parent().find('td.charge').text();
-            alert(value,"cost", cost);
+            var cost = $(this).parent().parent().find('.charge p').text();
+            var totalCost = value*cost;
+            alert(totalCost);
+            $(this).parent().find('.room_no').append('value',value);
             
             });
         })
