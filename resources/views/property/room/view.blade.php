@@ -43,17 +43,31 @@
                 </div>
                 @endforeach
             </div>
-            <table class="table table-striped text-center">
-                <thead class="bg-success">
-                    <th>Room Type</th>
-                    <th>Sleeps</th>
-                    <th>Price For <span class="text-light">{{ $totalstay }} {{ Str::plural('day',$totalstay) }}</span></th>
-                    <th>Your Choices</th>
-                    <th>Select Rooms</th>
-                    <th>Reserve?</th>
-                </thead>
-                <?php echo $hotel_data; ?>
-            </table>
+            <form action='' method = 'POST'>
+            <div class="row">
+                <div class="col-10">
+                    <table class="table table-striped text-center">
+                        <thead class="bg-success">
+                            <th>Room Type</th>
+                            <th>Sleeps</th>
+                            <th>Price For <span class="text-light">{{ $totalstay }} {{ Str::plural('day',$totalstay) }}</span></th>
+                            <th>Your Choices</th>
+                            <th>Select Rooms</th>
+                        </thead>
+                        <?php echo $hotel_data; ?>
+                    </table>
+                </div>
+                <div class="col-2">
+                    <div class='form-group'>
+                        <input type='text' name ='quantity' class='form-control room_no' readonly='readonly'/>
+                </div>
+                    <div class='form-group'>
+                    <input type='text' name ='total_cost' class='form-control total_cost' readonly='readonly'/>
+                    </div>
+                    <input type='submit' value='Reserve'/>
+                </div>
+            </div>
+            </form>
         </div>
     </div>
     </div>
@@ -63,9 +77,9 @@
             var value = $(this).children('option:selected').val();
             var cost = $(this).parent().parent().find('.charge p').text();
             var totalCost = value*cost;
-            alert(totalCost);
-            $(this).parent().find('.room_no').append('value',value);
-            
+            //alert(totalCost);
+            $('.room_no').val(value);
+            $('.total_cost').val(totalCost);
             });
         })
     </script>

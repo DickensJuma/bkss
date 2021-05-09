@@ -190,22 +190,14 @@ class PropertyController extends Controller
                     $hotel_data .= "<tr>
                     <td class='charge'>$room_charge</td>
                     <td class='text-success'>$rate_plan->plan</td>
-                    <td><form action='' method = 'POST'><Select name='quantity' class='quantity'>$quantity</select></td>
+                    <td><Select name='quantity' class='quantity'>$quantity</select></td>
                     </tr>";
                 }
-                $hotel_data.="</table></td>
-                <td>
-                <div class='form-group'>
-                <input type='text' name ='quantity' class='form-control room_no' readonly='readonly'/>
-                </div>
-                <div class='form-group'>
-                <input type='text' name ='total_cost' class='form-control total_cost' readonly='readonly'/>
-                </div>
-                <input type='submit' value='Reserve'/></td>
-                </form></tr>";
-            
+                $hotel_data .="</table></td>
+                </tr>";
             }
         }
+        
         return view('property.room.view')->with(compact('hotel_data','hotel','levies','images','totalstay'));
 
     }
