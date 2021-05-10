@@ -136,6 +136,36 @@ class PropertyController extends Controller
         $totalstay = (int)$stay;
         //facilities
         $facilities = $hotel->facilities()->get();
+        $facility_design = "";
+        foreach ($facilities->chunk(4) as $facility){
+            $facility_design .= "<div class='row'>";
+            foreach ($facility as $item){
+                $facility_design .="<div class='col-md-3'>";
+                switch($item->sub_cat_id){
+                    case 1: 
+                        $facility_design .="<i class='fas fa-parking'></i><small> ".$item->name ." Parking </small>";
+                    break;
+                    case 2:
+                        $facility_design .="<i class='fas fa-utensils'></i><small> ".$item->name ." Breakfast Available </small>";
+                    break;
+                    case 3:
+                        $facility_design .="<i class='fas fa-language'></i><small> Our staff speak ".$item->name ." Language </small>";
+                    break;
+                    case 4:
+                        $facility_design .="<i class='fas fa-medkit'></i><small> ".$item->name ." </small>";
+                    break;
+                    case 5:
+                        $facility_design .="<i class='fas fa-arrows-alt-h'></i><small> ".$item->name ." </small>";
+                    break;
+
+                }
+                $facility_design .="</div>";
+
+            }
+        $facility_design .="</div>";
+
+        }
+            
         //taxes
         $levies = $hotel->taxes()->get();
         //images
@@ -198,7 +228,7 @@ class PropertyController extends Controller
             }
         }
         
-        return view('property.room.view')->with(compact('hotel_data','hotel','levies','images','totalstay'));
+        return view('property.room.view')->with(compact('facility_design','hotel_data','hotel','levies','images','totalstay'));
 
     }
 

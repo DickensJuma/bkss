@@ -98,9 +98,9 @@ Route::group(['prefix' => 'property'], function () {
     });
     //profile group
     Route::group(['prefix' => 'profile'], function () {
-        Route::get('/', [PropertyProfileController::class,'index'])->name('profile');
-        Route::get('/add/{id}', [PropertyProfileController::class,'create'])->name('propertyprofile.add');
-        Route::post('/add/{id}', [PropertyProfileController::class,'store']);
+        Route::get('/', [ProfileController::class,'index'])->name('profile');
+        Route::get('/add/{id}', [ProfileController::class,'create'])->name('profile.add');
+        Route::post('/add/{id}', [ProfileController::class,'store']);
     });
      //rate plan group
     Route::group(['prefix' => 'rate'], function () {

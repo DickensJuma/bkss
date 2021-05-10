@@ -44,30 +44,34 @@
                 @endforeach
             </div>
             <form action='' method = 'POST'>
-            <div class="row">
-                <div class="col-10">
-                    <table class="table table-striped text-center">
-                        <thead class="bg-success">
-                            <th>Room Type</th>
-                            <th>Sleeps</th>
-                            <th>Price For <span class="text-light">{{ $totalstay }} {{ Str::plural('day',$totalstay) }}</span></th>
-                            <th>Your Choices</th>
-                            <th>Select Rooms</th>
-                        </thead>
-                        <?php echo $hotel_data; ?>
-                    </table>
-                </div>
-                <div class="col-2">
-                    <div class='form-group'>
-                        <input type='text' name ='quantity' class='form-control room_no' readonly='readonly'/>
-                </div>
-                    <div class='form-group'>
-                    <input type='text' name ='total_cost' class='form-control total_cost' readonly='readonly'/>
+                <div class="row">
+                    <div class="col-10">
+                        <table class="table table-striped text-center">
+                            <thead class="bg-success">
+                                <th>Room Type</th>
+                                <th>Sleeps</th>
+                                <th>Price For <span class="text-light">{{ $totalstay }} {{ Str::plural('day',$totalstay) }}</span></th>
+                                <th>Your Choices</th>
+                                <th>Select Rooms</th>
+                            </thead>
+                            <?php echo $hotel_data; ?>
+                        </table>
                     </div>
-                    <input type='submit' value='Reserve'/>
+                    <div class="col-2">
+                        <div class='form-group'>
+                            <input type='text' name ='quantity' class='form-control room_no' readonly='readonly'/>
+                    </div>
+                        <div class='form-group'>
+                        <input type='text' name ='total_cost' class='form-control total_cost' readonly='readonly'/>
+                        </div>
+                        <input type='submit' value='Reserve'/>
+                    </div>
                 </div>
-            </div>
             </form>
+            <h3>Our facilities</h3>
+            <ul>
+            <?php echo $facility_design; ?>
+            </ul>
         </div>
     </div>
     </div>
