@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Property;
 use Illuminate\Http\Request;
-use App\Models\PropertyProfile;
+use App\Models\Profile;
 
-class PropertyProfileController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,8 @@ class PropertyProfileController extends Controller
     public function index()
     {
         $property = Property::where(['owner'=>auth()->user()->id])->first();
-        $propertyProfile = PropertyProfile::where(['p_id'=>$property->id])->first();
+        $property_id = $property->id;
+        $propertyProfile = Profile::where(['p_id'=>$property->id])->first();
         $month_drop_down ="<option value='0'>Select Month</option>";
         $month_drop_down1 ="<option value='0'>Select Month</option>";
         for($i=1;$i<=12;$i++){
@@ -37,7 +38,7 @@ class PropertyProfileController extends Controller
                 $month_drop_down1 .= "<option value='$i'>".date("F", mktime(0, 0, 0, $i, 1))."</option>";
             }
         }
-        return  view('property.profile.index',compact('propertyProfile','month_drop_down','month_drop_down1'));
+        return  view('property.profile.index',compact('propertyProfile','month_drop_down','month_drop_down1','property_id'));
     }
 
     /**
@@ -67,7 +68,7 @@ class PropertyProfileController extends Controller
      * @param  \App\Models\PropertyProfile  $propertyProfile
      * @return \Illuminate\Http\Response
      */
-    public function show(PropertyProfile $propertyProfile)
+    public function show(Profile $propertyProfile)
     {
         //
     }
@@ -78,7 +79,7 @@ class PropertyProfileController extends Controller
      * @param  \App\Models\PropertyProfile  $propertyProfile
      * @return \Illuminate\Http\Response
      */
-    public function edit(PropertyProfile $propertyProfile)
+    public function edit(Profile $propertyProfile)
     {
         //
     }
@@ -90,7 +91,7 @@ class PropertyProfileController extends Controller
      * @param  \App\Models\PropertyProfile  $propertyProfile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PropertyProfile $propertyProfile)
+    public function update(Request $request, Profile $propertyProfile)
     {
         //
     }
@@ -101,7 +102,7 @@ class PropertyProfileController extends Controller
      * @param  \App\Models\PropertyProfile  $propertyProfile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PropertyProfile $propertyProfile)
+    public function destroy(Profile $propertyProfile)
     {
         //
     }

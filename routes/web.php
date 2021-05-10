@@ -16,7 +16,7 @@ use App\Http\Controllers\RatePlanController;
 use App\Http\Controllers\CallendarController;
 use App\Http\Controllers\PageScoreController;
 use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\PropertyProfileController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GeneralInformationController;
 
 /*
@@ -75,7 +75,7 @@ Route::group(['prefix' => 'property'], function () {
         Route::post('/', [CallendarController::class,'manage']);
         Route::get('/data', [CallendarController::class,'getCalendarContent'])->name('calendar.content');
     });
-    
+
     //facility routes
     Route::group(['prefix' => 'facility'], function () {
         Route::get('/', [FacilityController::class,'index'])->name('facility');

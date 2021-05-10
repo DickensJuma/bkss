@@ -116,6 +116,11 @@
       sideBySide: true,
       format:'YYYY-MM-DD HH:mm:ss'
     });
+    $('.yearpicker').datetimepicker({
+      inline: true,
+      sideBySide: true,
+      format:'YYYY'
+    });
   });
   @if (session('erroralert'))
     $(document).ready(function () {
