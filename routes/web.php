@@ -75,33 +75,39 @@ Route::group(['prefix' => 'property'], function () {
         Route::post('/', [CallendarController::class,'manage']);
         Route::get('/data', [CallendarController::class,'getCalendarContent'])->name('calendar.content');
     });
+    
     //facility routes
     Route::group(['prefix' => 'facility'], function () {
         Route::get('/', [FacilityController::class,'index'])->name('facility');
         Route::post('/add', [FacilityController::class,'store'])->name('facility.add');
     });
+
     //amenity routes
     Route::group(['prefix' => 'amenity'], function () {
         Route::get('/', [AmenityController::class,'index'])->name('amenity');
         Route::post('/add', [AmenityController::class,'store'])->name('amenity.add');
     });
+
     //property images group
     Route::group(['prefix' => 'images'], function () {
         Route::get('/', [PhotoController::class,'index'])->name('image.index');
         Route::post('/add', [PhotoController::class,'store'])->name('image.add');
     });
+
     //property Policies group
     Route::group(['prefix' => 'policy'], function () {
         Route::get('/', [PolicyController::class,'index'])->name('policy');
         Route::get('/add', [PolicyController::class,'create'])->name('policy.add');
         Route::post('/add', [PolicyController::class,'store']);
     });
+
     //profile group
     Route::group(['prefix' => 'profile'], function () {
         Route::get('/', [ProfileController::class,'index'])->name('profile');
         Route::get('/add/{id}', [ProfileController::class,'create'])->name('profile.add');
         Route::post('/add/{id}', [ProfileController::class,'store']);
     });
+
      //rate plan group
     Route::group(['prefix' => 'rate'], function () {
         Route::get('/', [RatePlanController::class,'index'])->name('room.rate.plans');
