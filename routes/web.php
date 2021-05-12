@@ -39,6 +39,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::match(['get', 'post'], '/search', [SearchController::class, 'search'])->name('search');
 Route::get('/hotels/hotel/{id}/{stay}', [PropertyController::class, 'show'])->name('property');
+Route::post('/hotels/hotel/{id}/{stay}', [PropertyController::class, 'addToCart']);
 //property routre group
 Route::group(['prefix' => 'property'], function () {
     Route::get('/add', [PropertyController::class, 'create'])->name('property.add');

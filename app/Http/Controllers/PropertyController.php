@@ -232,6 +232,11 @@ class PropertyController extends Controller
 
     }
 
+    public function addToCart(Request $request){
+        $value = session('key');
+        dd($value);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
