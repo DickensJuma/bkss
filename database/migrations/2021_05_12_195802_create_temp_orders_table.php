@@ -15,6 +15,11 @@ class CreateTempOrdersTable extends Migration
     {
         Schema::create('temp_orders', function (Blueprint $table) {
             $table->id();
+            $table->string('session');
+            $table->tinyInteger('p_id')->unsigned();
+            $table->tinyInteger('r_id')->unsigned();
+            $table->tinyInteger('quantity')->unsigned();
+            $table->integer('cost')->unsigned();
             $table->timestamps();
         });
     }

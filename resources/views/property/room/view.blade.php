@@ -44,6 +44,7 @@
                 @endforeach
             </div>
             <form action='' method = 'POST'>
+                @csrf
                 <div class="row">
                     <div class="col-10">
                         <table class="table table-striped text-center">
