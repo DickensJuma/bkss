@@ -85,10 +85,10 @@
             var oldRoomNo = $('.room_no').val();
             var numberOfRooms = parseInt(oldRoomNo)+ parseInt(roomNo);
             var oldCost = $('.total_cost').val();
-            var cost = parseInt(oldCost)+totalRoomCost;
+            var total_cost = parseInt(oldCost)+totalRoomCost;
             //alert(totalCost);
             $('.room_no').val(numberOfRooms);
-            $('.total_cost').val(cost);
+            $('.total_cost').val(total_cost);
             });
         })
     </script>
