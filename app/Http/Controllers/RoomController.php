@@ -91,7 +91,19 @@ class RoomController extends Controller
     {
         //get property property
         $property = Property::where(['id'=>$id])->first();
-        return view('property.room.create',compact('property'));
+            //get room names
+            $roomNames = RoomName::get();
+            $room_name_dropdown = "<option>Please Select</option>";
+            foreach($roomNames as $roomName){
+                $room_name_dropdown .= "<option value='".$roomName->id."'>$roomName->name</option>";
+            }
+            //get types
+            $roomTypes = Type::get();
+            $room_type_dropdown = "<option>Please Select</option>";
+            foreach($roomTypes as $roomType){
+                $room_type_dropdown .= "<option value='".$roomType->id."'>$roomType->name</option>";
+            }
+        return view('property.room.create',compact('property','room_name_dropdown','room_type_dropdown'));
     }
 
     /**

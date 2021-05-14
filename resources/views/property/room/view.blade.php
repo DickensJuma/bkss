@@ -60,10 +60,10 @@
                     </div>
                     <div class="col-2">
                         <div class='form-group'>
-                            <input type='text' name ='quantity' class='form-control room_no' readonly='readonly'/>
+                            <input type='text' name ='quantity' class='form-control room_no' readonly='readonly' value="0"/>
                     </div>
                         <div class='form-group'>
-                        <input type='text' name ='total_cost' class='form-control total_cost' readonly='readonly'/>
+                        <input type='text' name ='total_cost' class='form-control total_cost' readonly='readonly' value="0"/>
                         </div>
                         <input type='submit' value='Reserve'/>
                     </div>
@@ -79,12 +79,16 @@
     <script>
         $(document).ready(function(){
             $(".quantity").on('change', function(){
-            var value = $(this).children('option:selected').val();
+            var roomNo = $(this).children('option:selected').val();
             var cost = $(this).parent().parent().find('.charge p').text();
-            var totalCost = value*cost;
+            var totalRoomCost = roomNo*cost;
+            var oldRoomNo = $('.room_no').val();
+            var numberOfRooms = parseInt(oldRoomNo)+ parseInt(roomNo);
+            var oldCost = $('.total_cost').val();
+            var cost = parseInt(oldCost)+totalRoomCost;
             //alert(totalCost);
-            $('.room_no').val(value);
-            $('.total_cost').val(totalCost);
+            $('.room_no').val(numberOfRooms);
+            $('.total_cost').val(cost);
             });
         })
     </script>

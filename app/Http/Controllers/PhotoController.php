@@ -56,9 +56,9 @@ class PhotoController extends Controller
                     if ($image_temp->isValid()) {
                         $extension = $image_temp->getClientOriginalExtension();
                         $filename = 'bks'.mt_rand(000, 9999999999) . '.' . $extension;
-                        $filepath = 'uploads/property/large/' . $filename;
-                        $webimagefilepath = 'uploads/property/small/' . $filename;
-                        $thumbnailpath = 'uploads/property/thumbnail/' . $filename;
+                        $filepath = public_path().'/uploads/property/large/' . $filename;
+                        $webimagefilepath = public_path().'/uploads/property/small/' . $filename;
+                        $thumbnailpath = public_path().'/uploads/property/thumbnail/' . $filename;
                         //upload the image
                         Image::make($image_temp)->resize(600, 600)->save($filepath);
                         Image::make($image_temp)->resize(200, 200)->save($webimagefilepath);
