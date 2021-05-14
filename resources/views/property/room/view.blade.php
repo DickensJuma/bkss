@@ -78,17 +78,18 @@
     </div>
     <script>
         $(document).ready(function(){
-            $(".quantity").on('change', function(){
-            var roomNo = $(this).children('option:selected').val();
-            var cost = $(this).parent().parent().find('.charge p').text();
-            var totalRoomCost = roomNo*cost;
-            var oldRoomNo = $('.room_no').val();
-            var numberOfRooms = parseInt(oldRoomNo)+ parseInt(roomNo);
-            var oldCost = $('.total_cost').val();
-            var total_cost = parseInt(oldCost)+totalRoomCost;
-            //alert(totalCost);
-            $('.room_no').val(numberOfRooms);
-            $('.total_cost').val(total_cost);
+            $(".quantity").on('change', function() {
+                var totalRoomCost = 0;
+                var numberOfRooms = 0;
+                //loop through each select
+                $(".quantity").each(function() {
+                    var roomNo = $(this).val() != "" ? parseInt($(this).val()) : 0;
+                    var cost = parseInt($(this).closest("tr").find('.charge p').text());
+                    totalRoomCost += roomNo * cost;
+                    numberOfRooms += roomNo;
+                });
+                $('.room_no').val(numberOfRooms);
+                $('.total_cost').val(totalRoomCost);
             });
         })
     </script>
