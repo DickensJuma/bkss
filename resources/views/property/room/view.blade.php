@@ -12,7 +12,7 @@
                 @endfor
             </span>
             <i class="fas fa-thumbs-up text-warning" data-toggle="tooltip" data-placement="left" title="This is a Preferred Partner property. It's committed to giving guests positive experiences with its excellent service and great value. This property might pay Book sasa a little more to be in this Program"></i>
-            <i class="fas fa-map-pin" data-toggle="tooltip" data-placement="left" title="After booking, all of the property’s details, including telephone and address, are sent to you as part of your booking confirmation and your account." >{{ $hotel->address2 }}</i>
+            <i class="fas fa-map-pin" data-toggle="tooltip" data-placement="left" title="After booking, all of the propertyâ€™s details, including telephone and address, are sent to you as part of your booking confirmation and your account." >{{ $hotel->address2 }}</i>
         </div>
         <div class="card-body">
             <div class="portfolio-area">
@@ -37,7 +37,6 @@
                         </span>
                     </div>
                     </div>
-                        
                     @endif
                     @endforeach
                 </div>
@@ -61,8 +60,10 @@
                     <div class="col-2">
                         <div class='form-group'>
                             <input type='text' name ='quantity' class='form-control room_no' readonly='readonly' value="0"/>
+                            <label for='quantity'>Rooms</label>
                     </div>
                         <div class='form-group'>
+                        <label for='total_costy'>for</label>
                         <input type='text' name ='total_cost' class='form-control total_cost' readonly='readonly' value="0"/>
                         </div>
                         <input type='submit' value='Reserve'/>
@@ -84,7 +85,7 @@
                 //loop through each select
                 $(".quantity").each(function() {
                     var roomNo = $(this).val() != "" ? parseInt($(this).val()) : 0;
-                    var cost = parseInt($(this).closest("tr").find('.charge p').text());
+                    var cost = parseInt($(this).closest("tr").find('.charge p span').text());
                     totalRoomCost += roomNo * cost;
                     numberOfRooms += roomNo;
                 });

@@ -157,7 +157,6 @@ class PropertyController extends Controller
                     case 5:
                         $facility_design .="<i class='fas fa-arrows-alt-h'></i><small> ".$item->name ." </small>";
                     break;
-
                 }
                 $facility_design .="</div>";
 
