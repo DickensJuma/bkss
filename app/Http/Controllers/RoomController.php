@@ -167,6 +167,25 @@ class RoomController extends Controller
     }
     }
 
+    public function new(Request $request){
+        if(Auth::user()){
+            $data = $request->all();
+            $room = new Room;
+            $room->property = $data['p_id'];
+            $room->type = $data['roomtype'];
+            $room->name = $data['room_name'];
+            $room->s_policy = $data['spolicy'];
+            $room->quantity = $data['no'];
+            $room->bed = $data['bed'];
+            $room->capacity = $data['guest_no'];
+            $room->normal_charge = $data['price'];
+            $room->save();
+            return redirect('/property/room')->with('successalert','Room added successfully');
+        }else{
+            return redirect('admin/join');
+        }
+    }
+
     /**
      * Display the specified resource.
      *

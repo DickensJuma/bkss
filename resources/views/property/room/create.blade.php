@@ -27,7 +27,7 @@
                                 <div class="card-header">
                                     </div>
                                 <div class="card-body">
-                                    <form action="{{ route('room.add') }}" method="POST" id="roomForm">
+                                    <form action="{{ route('room.new') }}" method="POST" id="roomForm">
                                         @csrf
                                         <div class="divider">
                                             <h3>Layout & Pricing </h3>
