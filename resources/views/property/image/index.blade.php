@@ -45,12 +45,16 @@
                                                             <img src="{{ asset('uploads/property/thumbnail/'.$item->path) }}" class="img-responsive" alt="Gallery">
                                                         </a>
                                                     </span>
-                                                    <span class="text-center btn btn-success btn-sm">Set as main</span>
+                                                    @if ($item->is_main!=1)
+                                                    <a href="{{ route('image.main',$item->id) }}" class="btn btn-success btn-sm">Set as main</a>
+                                                    @else
+                                                    <span class="btn btn-ready"><input type="checkbox" checked>&nbsp;&nbsp;&nbsp;&nbsp; Main</span>
+                                                    @endif
                                                     <span data-toggle="modal" data-target="#imageModal{{ $item->id }}" class="btn btn-primary btn-sm">Link to room</span>
                                                 </div> 
                                                 <div class="modal fade" id="imageModal{{ $item->id }}">
                                                     <div class="modal-dialog">
-                                                        <form action="" method="POST">
+                                                        <form action="{{ route('image.room.main') }}" method="POST">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h4 class="modal-title">Link to room</h4>
@@ -59,10 +63,10 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 @csrf
-                                                                
                                                                 <select name="room" id="room" class="form-control">
                                                                     <?php echo $room_dropdown; ?>
                                                                 </select>
+                                                                <input type="text" value="{{ $item->id }}" name="image" id="image" hidden>
                                                                 </div>
                                                             <div class="modal-footer justify-content-between">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

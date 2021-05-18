@@ -112,8 +112,30 @@ class PhotoController extends Controller
             }
             return redirect()->back()->with('successalert','Images Uploaded successfully');
         }
-        $property_id = $request->p_id;
-    return redirect()->back()->with('erroralert','Please select a valid imagfe to upload');
+    return redirect()->back()->with('erroralert','Please select a valid image to upload');
+    }
+    
+    public function linkToRoom(Request $request){
+       //unlink the old image from this room
+        Photo::where(['r_id'=> $request->room])
+        ->update(['r_id'=>null]);
+        //get the particular photo form the db
+        $photo =Photo::find($request->image);
+        $photo->r_id = $request->room;
+        $photo->save();
+        return redirect()->back()->with('successalert','Image linked to room successfully');
+    }
+
+    public function setMain($id = null){
+        $property = Property::where(['owner' => Auth::user()->id])->first();
+        Photo::where(['p_id'=> $property->id])
+            ->where(['is_main'=> 1])
+            ->update(['is_main'=>0]);
+        //get the particular photo form the db
+        $photo =Photo::find($id);
+        $photo->is_main = 1;
+        $photo->save();
+        return redirect()->back()->with('successalert','Image set as main successfully');
     }
 
     /**

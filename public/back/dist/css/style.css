@@ -3,9 +3,11 @@
     height: 50%;
 }
 .image-block-item .btn{
+    margin-top: .05rem;
+}
+.image-block-item .btn-sm{
     visibility: hidden !important;
 }
-.image-block-item:hover .btn{
+.image-block-item:hover .btn-sm{
     visibility: visible !important;
-    margin-top: .05rem;
 }
