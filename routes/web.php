@@ -93,6 +93,7 @@ Route::group(['prefix' => 'property'], function () {
     Route::group(['prefix' => 'images'], function () {
         Route::get('/', [PhotoController::class,'index'])->name('image.index');
         Route::post('/add', [PhotoController::class,'store'])->name('image.add');
+        Route::post('/new', [PhotoController::class,'storeNew'])->name('image.new');
     });
 
     //property Policies group

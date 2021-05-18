@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Photo;
-use Intervention\Image\Facades\Image;
-use Illuminate\Http\Request;
 use App\Models\Property;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class PhotoController extends Controller
 {
@@ -44,7 +45,6 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
         //check if an image has been selected
             if ($request->property_image) {
                 $images = $request->property_image;
@@ -74,6 +74,38 @@ class PhotoController extends Controller
             }
             $property_id = $request->p_id;
         return view('property.image.add',compact('property_id'))->with('erroralert','Please select a valid imagfe to upload');
+    }
+
+    public function storeNew(Request $request){
+        //check if an image has been selected
+        if ($request->property_image) {
+        $property = Property::where(['owner' => Auth::user()->id])->first();
+            $images = $request->property_image;
+            foreach($images as $image) {
+                $photo = new Photo;
+                $photo->p_id =$property->id;
+                $image_temp = $image;
+                //echo $image_temp; die;
+                if ($image_temp->isValid()) {
+                    $extension = $image_temp->getClientOriginalExtension();
+                    $filename = 'bks'.mt_rand(000, 9999999999) . '.' . $extension;
+                    $filepath = public_path().'/uploads/property/large/' . $filename;
+                    $webimagefilepath = public_path().'/uploads/property/small/' . $filename;
+                    $thumbnailpath = public_path().'/uploads/property/thumbnail/' . $filename;
+                    //upload the image
+                    Image::make($image_temp)->resize(600, 600)->save($filepath);
+                    Image::make($image_temp)->resize(200, 200)->save($webimagefilepath);
+                    Image::make($image_temp)->resize(100, 100)->save($thumbnailpath);
+                    $photo->path = $filename;
+                    $photo->alt_text = "Book sasa property image";
+                    $photo->save();
+                }
+
+            }
+            return redirect()->back()->with('successalert','Images Uploaded successfully');
+        }
+        $property_id = $request->p_id;
+    return redirect()->back()->with('erroralert','Please select a valid imagfe to upload');
     }
 
     /**

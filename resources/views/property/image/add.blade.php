@@ -14,17 +14,18 @@
                 <div class="form-group">
                     <h5>Photo gallery</h5>
                     <label for="" class="form-label">Great, thanks! You can now continue signing up. To increase your chances of getting 
-                        more bookings, make sure to add additional photos later on — once you're up and running. </label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="images" name="property_image[]" multiple>
-                              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
-                            <div class="input-group-append">
-                              <input type="submit" class="input-group-text" id="" value="Upload">
-                            </div>
-                            <span class="text-danger" id="image-input-error"></span>
-                          </div>
+                        more bookings, make sure to add additional photos later on — once you're up and running. 
+                    </label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="images" name="property_image[]" multiple>
+                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <input type="submit" class="input-group-text" id="" value="Upload">
+                        </div>
+                        <span class="text-danger" id="image-input-error"></span>
+                    </div>
                 </div>
             </form>
             <div class="container">
