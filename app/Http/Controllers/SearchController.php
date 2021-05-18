@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Room;
 use App\Models\Type;
+use App\Models\Photo;
 use App\Models\Property;
 use App\Models\RoomName;
 use Illuminate\Http\Request;
@@ -24,6 +25,18 @@ class SearchController extends Controller
         if($hotels->isNotEmpty()){
             //Loop through the hotels
             foreach($hotels as $hotel){
+                //get hotels main image
+                $banner = Photo::where(['p_id'=>$hotel->id])->where(['is_main'=>1])->first();
+                $altbanner = Photo::where(['p_id'=>$hotel->id])->first();
+                $banner_path = "";
+                $altText = "";
+                if($banner!=null){
+                    $banner_path = $banner->path;
+                    $altText = $banner->alt_text;
+                }else{
+                    $banner_path = $altbanner->path;
+                    $altText = $altbanner->alt_text;
+                }
                 //hotel rating
                 $stars ="";
                 for($star=0;$star<$hotel->rating;$star++){
@@ -46,14 +59,14 @@ class SearchController extends Controller
                                         <div class='row'>
                                             <div class='col-md-3'>
                                                 <div class='card-img'>
-                                                    <a href='pages/list-single.html'> 
-                                                    <img src='front/assets/images/listing-img-1.jpg' alt='' class='img-fluid rounded-top'></a>
+                                                    <a href='/hotels/hotel/".$hotel->id."/".$stay."'> 
+                                                    <img src='uploads/property/small/".$banner_path."' alt='$altText' class='img-fluid rounded-top'></a>
                                                     <div class='btn-wishlist'></div>
                                                 </div>
                                             </div>
                                             <div class='col-md-9'>
                                             <div class=''>
-                                            <h3 class='h4'> <a href='pages/list-single.html' class='text-dark'>$hotel->name</a><span class='text-warning text-sm'>$stars</span></h3>
+                                            <h3 class='h4'> <a href='/hotels/hotel/".$hotel->id."/".$stay."' class='text-dark'>$hotel->name</a><span class='text-warning text-sm'>$stars</span></h3>
                                             <p class='text-sm font-weight-semi-bold'><i class='mdi mdi-map-marker mr-1'></i>$hotel->city $hotel->country</p>
                                         </div>
                                         <div class='d-flex justify-content-between'>

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
+use App\Models\Type;
 use App\Models\Photo;
 use App\Models\Property;
+use App\Models\RoomName;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -19,12 +22,17 @@ class PhotoController extends Controller
     {
         //get all property
         $property = Property::where(['owner'=>auth()->user()->id])->first();
+        $rooms = Room::where(['property'=>$property->id])->get();
+        $room_dropdown = "<option>Select Room</option>";
+        foreach($rooms as $room){
+            $room_name = RoomName::where(['id'=>$room->name])->first();
+            $room_type = Type::where(['id'=>$room->type])->first();
+            //Room drop down for selecting rooms in plan creation
+            $room_dropdown .= "<option class='bg-ready' value='" . $room->id . "'>" . $room_name->name." ". $room_type->name . "</option>";
+        }
         //get photos
         $photos = Photo::where(['p_id'=>$property->id])->get();
-        return view('property.image.index',compact('photos'));
-
-    
-        
+        return view('property.image.index',compact('photos','room_dropdown'));
     }
 
     /**

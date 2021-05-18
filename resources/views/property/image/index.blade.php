@@ -39,14 +39,42 @@
                                     @foreach ($photos->chunk(6) as $key=>$image)
                                         <div class="row">
                                             @foreach ($image as $item)
-                                                <div class="col-md-2">
-                                                    <div>
-                                                        <span class="image-block block2">
+                                                <div class="col-md-2 image-block-item">
+                                                    <span class="image-block block2">
                                                         <a class="image-zoom" href="{{ asset('uploads/property/large/'.$item->path) }}" rel="prettyPhoto[gallery]">							
-                                                                <img src="{{ asset('uploads/property/thumbnail/'.$item->path) }}" class="img-responsive" alt="Gallery"></a>
+                                                            <img src="{{ asset('uploads/property/thumbnail/'.$item->path) }}" class="img-responsive" alt="Gallery">
+                                                        </a>
                                                     </span>
+                                                    <span class="text-center btn btn-success btn-sm">Set as main</span>
+                                                    <span data-toggle="modal" data-target="#imageModal{{ $item->id }}" class="btn btn-primary btn-sm">Link to room</span>
+                                                </div> 
+                                                <div class="modal fade" id="imageModal{{ $item->id }}">
+                                                    <div class="modal-dialog">
+                                                        <form action="" method="POST">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Link to room</h4>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                @csrf
+                                                                
+                                                                <select name="room" id="room" class="form-control">
+                                                                    <?php echo $room_dropdown; ?>
+                                                                </select>
+                                                                </div>
+                                                            <div class="modal-footer justify-content-between">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                <input type="submit" class="btn btn-primary" value="Save changes"/>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                        </form>
                                                     </div>
-                                                </div>                        
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                                <!-- /.modal -->                       
                                             @endforeach
                                         </div>
                                     @endforeach
