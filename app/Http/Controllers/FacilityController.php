@@ -39,32 +39,54 @@ class FacilityController extends Controller
             </div>";
             //get facilities
             $facilities = Facility::where(['sub_cat_id'=>$sub_category->id])->get();
-            foreach($facilities as $facility){
-                $facilities_design .= "<div class='card-body'>
-                <div class='form-group'>
-                        <div class='row'>
-                            <div class='col-md-8'>
-                                <p>$facility->name</p>
-                                </div>
-                            <div class='col-md-2'>
-                                <div class='form-check'>
-                                    <input class='form-check-input' type='radio' name='facility[]' id='yes' value='Yes'>
-                                    <label class='form-check-label'>Yes</label>
+                foreach($facilities as $facility){
+                    if($property->hasFacility($facility->id)){
+                        $facilities_design .= "<div class='card-body'>
+                        <div class='form-group'>
+                                <div class='row'>
+                                    <div class='col-md-8'>
+                                        <p>$facility->name</p>
+                                        </div>
+                                    <div class='col-md-2'>
+                                        <div class='form-check'>
+                                            <input class='form-check-input' type='radio' name='facility".$facility->id ."' id='yes' value='Yes' checked>
+                                            <label class='form-check-label'>Yes</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-2'>
+                                        <div class='form-check'>
+                                            <input class='form-check-input' type='radio' name='facility".$facility->id."' id='no' value='No'>
+                                            <label class='form-check-label'>No</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class='col-md-2'>
-                                <div class='form-check'>
-                                    <input class='form-check-input' type='radio' name='facility[]' id='no' value='No'>
-                                    <label class='form-check-label'>No</label>
+                        </div>";
+                    }else{
+                        $facilities_design .= "<div class='card-body'>
+                        <div class='form-group'>
+                                <div class='row'>
+                                    <div class='col-md-8'>
+                                        <p>$facility->name</p>
+                                        </div>
+                                    <div class='col-md-2'>
+                                        <div class='form-check'>
+                                            <input class='form-check-input' type='radio' name='facility".$facility->id."' id='yes' value='Yes'>
+                                            <label class='form-check-label'>Yes</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-2'>
+                                        <div class='form-check'>
+                                            <input class='form-check-input' type='radio' name='facility".$facility->id."' id='no' value='No' checked>
+                                            <label class='form-check-label'>No</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>";
+                        </div>";
+                    }
+                }
             }
-
-
-        }
         return view('property.facility.index',compact('facilities_design'));
     }
     public function superIndex(){
@@ -204,4 +226,5 @@ class FacilityController extends Controller
     {
         //
     }
+
 }
