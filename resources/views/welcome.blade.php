@@ -3,60 +3,54 @@
 @section('content')
 <div class="bg-img-hero" style="background: url(front/assets/images/hero-slide-img-1.jpg) no-repeat;background-size: cover;">
 	<div id="booking" class="section">
-		<div class="section-center">
-			<div class="container">
-				<div class="row">
-					<div class="booking-form">
-                        <form action="{{ route('search') }}" method="POST">
-                            @csrf
-							<div class="row no-margin">
-								<div class="col-md-3">
-									<div class="form-header">
-										<div class="form-group">
-                                            <span class="form-label">Destination</span>
-                                            <input class="form-control" type="text" name="destination" placeholder="Where To ?">
-                                        </div>
-									</div>
-								</div>
-								<div class="col-md-7">
-									<div class="row no-margin">
-										<div class="col-md-4">
-											<div class="form-group">
-												<span class="form-label">Check In</span>
-												<input class="form-control" name="in" type="date">
-											</div>
-										</div>
-										<div class="col-md-4">
-											<div class="form-group">
-												<span class="form-label">Check out</span>
-												<input class="form-control" name="out" type="date">
-											</div>
-										</div>
-										<div class="col-md-2">
-											<div class="form-group">
-												<span class="form-label">Adults</span>
-												<input type="number" class="form-control" name="adult" value="1">
-											</div>
-										</div>
-										<div class="col-md-2">
-											<div class="form-group">
-												<span class="form-label">Kids</span>
-												<input type="number" class="form-control" name="kids" value="0">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-btn">
-										<button class="submit-btn">Search</button>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="booking-form">
+            <form action="{{ route('search') }}" method="POST">
+                @csrf
+                <div class="row no-margin">
+                    <div class="col-md-3">
+                        <div class="form-header">
+                            <div class="form-group">
+                                <span class="form-label">Destination</span>
+                                <input class="form-control" type="text" name="destination" placeholder="Where To ?">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row no-margin">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <span class="form-label">Check In</span>
+                                    <input class="form-control" name="in" type="date">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <span class="form-label">Check out</span>
+                                    <input class="form-control" name="out" type="date">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="form-label">Adults</span>
+                                    <input type="number" class="form-control" name="adult" value="1">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="form-label">Kids</span>
+                                    <input type="number" class="form-control" name="kids" value="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-btn btn">
+                            <input type="submit" class="submit-btn" value="Search"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
 	</div>
         </div>
         <div class="pt-lg-11 pb-lg-11 pt-7 pb-7 bg-light">
