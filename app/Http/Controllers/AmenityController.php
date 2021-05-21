@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
+use App\Models\Room;
+use App\Models\Type;
 use App\Models\User;
 use App\Models\Amenity;
 use App\Models\Category;
 use App\Models\Property;
-use App\Models\Role;
-use App\Models\Room;
+use App\Models\RoomName;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,53 +22,101 @@ class AmenityController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(){
-        //get all properties 
-        $property = Property::where(['owner'=>auth()->user()->id])->first();
-        //get all subcategories
-        $sub_categories = SubCategory::where(['cat_id'=>2])->get();
-        $amenities_design="";
-        foreach($sub_categories as $sub_category){
-            $amenities_design .= "<div class='card-header'>
-            <h3 class='card-title'><b>$sub_category->name</b></h3>
-            <div class='card-tools'>
-                    <button type='button' class='btn btn-tool' data-card-widget='collapse' title='Collapse'>
-                        <i class='fas fa-minus'></i>
-                    </button>
-                    <button type='button' class='btn btn-tool' data-card-widget='remove' title='Remove'>
-                        <i class='fas fa-times'></i>
-                    </button>
-                </div>
-            </div>";
-            //get amenities
-            $amenities = Amenity::where(['sub_cat_id'=>$sub_category->id])->get();
-            foreach($amenities as $amenity){
-                $amenities_design .= "<div class='card-body'>
-                <div class='form-group'>
-                        <div class='row'>
-                            <div class='col-md-8'>
-                                <p>$amenity->name</p>
+    public function index(Request $request){
+        if($request->isMethod('post')){
+             //get all properties 
+            $property = Property::where(['owner'=>auth()->user()->id])->first();
+            $rooms = Room::where(['property'=>$property->id])->get();
+            $selected_room = Room::where(['id'=>$request->room])->first();
+            $room_dropdown = "<option>Select Room</option>";
+            foreach($rooms as $room){
+                $room_name = RoomName::where(['id'=>$room->name])->first();
+                $room_type = Type::where(['id'=>$room->type])->first();
+                //Room drop down for selecting rooms in plan creation
+                $room_dropdown .= "<option class='bg-ready' value='" . $room->id . "'>" . $room_name->name." ". $room_type->name . "</option>";
+            }
+            //get all subcategories
+            $sub_categories = SubCategory::where(['cat_id'=>2])->get();
+            $amenities_design="";
+            foreach($sub_categories as $sub_category){
+                $amenities_design .= "<div class='card-header'>
+                <h3 class='card-title'><b>$sub_category->name</b></h3>
+                <div class='card-tools'>
+                        <button type='button' class='btn btn-tool' data-card-widget='collapse' title='Collapse'>
+                            <i class='fas fa-minus'></i>
+                        </button>
+                        <button type='button' class='btn btn-tool' data-card-widget='remove' title='Remove'>
+                            <i class='fas fa-times'></i>
+                        </button>
+                    </div>
+                </div>";
+                //get amenities
+                $amenities = Amenity::where(['sub_cat_id'=>$sub_category->id])->get();
+                foreach($amenities as $amenity){
+                    if($selected_room->hasAmenity($amenity->id)){
+                        $amenities_design .= "<div class='card-body'>
+                    <div class='form-group'>
+                            <div class='row'>
+                                <div class='col-md-8'>
+                                    <p>$amenity->name</p>
+                                    </div>
+                                <div class='col-md-2'>
+                                    <div class='form-check'>
+                                        <input class='form-check-input' type='radio' name='amenity".$amenity->id ."' id='yes' value='Yes' checked> 
+                                        <label class='form-check-label'>Yes</label>
+                                    </div>
                                 </div>
-                            <div class='col-md-2'>
-                                <div class='form-check'>
-                                    <input class='form-check-input' type='radio' name='amenity[]' id='yes' value='Yes'>
-                                    <label class='form-check-label'>Yes</label>
-                                </div>
-                            </div>
-                            <div class='col-md-2'>
-                                <div class='form-check'>
-                                    <input class='form-check-input' type='radio' name='amenity[]' id='no' value='No'>
-                                    <label class='form-check-label'>No</label>
+                                <div class='col-md-2'>
+                                    <div class='form-check'>
+                                        <input class='form-check-input' type='radio' name='amenity".$amenity->id ."' id='no' value='No'>
+                                        <label class='form-check-label'>No</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>";
+                    </div>";
+                    }else{
+                        $amenities_design .= "<div class='card-body'>
+                    <div class='form-group'>
+                            <div class='row'>
+                                <div class='col-md-8'>
+                                    <p>$amenity->name</p>
+                                    </div>
+                                <div class='col-md-2'>
+                                    <div class='form-check'>
+                                        <input class='form-check-input' type='radio' name='amenity".$amenity->id ."' id='yes' value='Yes'>
+                                        <label class='form-check-label'>Yes</label>
+                                    </div>
+                                </div>
+                                <div class='col-md-2'>
+                                    <div class='form-check'>
+                                        <input class='form-check-input' type='radio' name='amenity".$amenity->id ."' id='no' value='No' checked>
+                                        <label class='form-check-label'>No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+                    }
+                }
             }
-
-
+            $amenities_design.="<input type='submit' class='btn btn-success' value='Update'>";
+            return view('property.amenity.index',compact('amenities_design','room_dropdown'));
+        }else{
+            //get all properties 
+            $property = Property::where(['owner'=>auth()->user()->id])->first();
+            $rooms = Room::where(['property'=>$property->id])->get();
+            $room_dropdown = "<option>Select Room</option>";
+            foreach($rooms as $room){
+                $room_name = RoomName::where(['id'=>$room->name])->first();
+                $room_type = Type::where(['id'=>$room->type])->first();
+                //Room drop down for selecting rooms in plan creation
+                $room_dropdown .= "<option class='bg-ready' value='" . $room->id . "'>" . $room_name->name." ". $room_type->name . "</option>";
+            }
+            $amenities_design="";
+            return view('property.amenity.index',compact('amenities_design','room_dropdown'));
         }
-        return view('property.amenity.index',compact('amenities_design'));
+        
 
     }
 
