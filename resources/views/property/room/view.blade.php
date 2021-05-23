@@ -57,14 +57,14 @@
                             <?php echo $hotel_data; ?>
                         </table>
                     </div>
-                    <div class="col-2">
+                    <div class="col-2 sticky">
                         <div class='form-group'>
-                            <input type='text' name ='quantity' class='form-control room_no' readonly='readonly' value="0"/>
+                            <input type='text' name ='quantity' class='room_no' readonly='readonly' value="0"/>
                             <label for='quantity'>Rooms</label>
-                    </div>
+                        </div>
                         <div class='form-group'>
-                        <label for='total_costy'>for</label>
-                        <input type='text' name ='total_cost' class='form-control total_cost' readonly='readonly' value="0"/>
+                            <label for='total_costy'>for</label>
+                            <input type='text' name ='total_cost' class='total_cost' readonly='readonly' value="0"/>
                         </div>
                         <input type='submit' value='Reserve'/>
                     </div>

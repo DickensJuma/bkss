@@ -154,17 +154,17 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-  }
-  
+}
+
   /* Hide the browser's default radio button */
-  .input-container input {
+.input-container input {
 	position: absolute;
 	opacity: 0;
 	cursor: pointer;
-  }
-  
+}
+
   /* Create a custom radio button */
-  .checkmark {
+.checkmark {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -172,27 +172,27 @@
 	width: 25px;
 	background-color: #eee;
 	border-radius: 50%;
-  }
-  
+}
+
   /* On mouse-over, add a grey background color */
-  .input-container:hover input ~ .checkmark {
+.input-container:hover input ~ .checkmark {
 	background-color: #ccc;
-  }
-  
+}
+
   /* When the radio button is checked, add a white background */
-  .input-container input:checked ~ .checkmark {
+.input-container input:checked ~ .checkmark {
 	background-color: #ffffff;
-  }
-  
+}
+
   /* Create the indicator (the dot/circle - hidden when not checked) */
-  .checkmark:after {
+.checkmark:after {
 	content: "";
 	position: absolute;
 	display: none;
-  }
-  
+}
+
   /* Show the indicator (dot/circle) when checked */
-  .input-container input:checked ~ .checkmark:after {
+.input-container input:checked ~ .checkmark:after {
 	content: "\2713";
 	position: absolute;
     left: 50%;
@@ -203,66 +203,62 @@
     transform: translate(-50%,-50%);
 	color: #2196F3;
 	display: block;
-  }
-  .input-container input:checked ~ label::after{
+}
+.input-container input:checked ~ label::after{
 	border: 1px solid red;
-  }
-  
-  /* Style the indicator (dot/circle) */
-  .input-container .checkmark:after {
-	   top: 9px;
-	  left: 9px;
-	  width: 8px;
-	  height: 8px;
-	  border-radius: 50%;
-	  background: white;
-  }
-  .btn-border{
-	  border: 1px solid blue;
-  }
-  .no-margin{
-	  margin-left: -125px;
-	  float: left;
-  }
-  .no-margin-md{
-	  float: left;
-	  margin-left: -50px;
-  }
-  .curency-label{
-	  width: 50px;
+}
 
-  }
-  ul {
+  /* Style the indicator (dot/circle) */
+.input-container .checkmark:after {
+	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+.btn-border{
+	border: 1px solid blue;
+}
+.no-margin{
+	margin-left: -125px;
+	float: left;
+}
+.no-margin-md{
+	float: left;
+	margin-left: -50px;
+}
+.curency-label{
+	width: 50px;
+}
+ul {
 	list-style: none;
-  }
-  
-  ul .tick:before {
+}
+ul .tick:before {
 	content: '✓';
 	color: #28a745;
-  }
-  ul .cross:before {
+}
+ul .cross:before {
 	content: 'x';
 	color: #dc3545;
-  }
-  ul .pointer-right:before {
+}
+ul .pointer-right:before {
 	content: '>';
 	font-weight: bold;
 	font-style: oblique;
-  }
-  .switch {
+}
+.switch {
 	position: relative;
 	display: inline-block;
 	width: 30px;
 	height: 17px;
-  }
-  
-  .switch input { 
+}
+.switch input { 
 	opacity: 0;
 	width: 0;
 	height: 0;
-  }
-  
-  .slider {
+}
+.slider {
 	position: absolute;
 	cursor: pointer;
 	top: 0;
@@ -272,9 +268,8 @@
 	background-color: #ccc;
 	-webkit-transition: .4s;
 	transition: .4s;
-  }
-  
-  .slider:before {
+}
+.slider:before {
 	position: absolute;
 	content: "";
 	height: 13px;
@@ -284,29 +279,36 @@
 	background-color: white;
 	-webkit-transition: .4s;
 	transition: .4s;
-  }
-  
-  input:checked + .slider {
+}
+input:checked + .slider {
 	background-color: #4CAF50;
-  }
-  
-  input:focus + .slider {
+}
+input:focus + .slider {
 	box-shadow: 0 0 1px #4CAF50;
-  }
-  
-  input:checked + .slider:before {
+}
+input:checked + .slider:before {
 	-webkit-transform: translateX(13px);
 	-ms-transform: translateX(13px);
 	transform: translateX(13px);
-  }
+}
   /* Rounded sliders */
 .slider.round {
 	border-radius: 17px;
-  }
-  
-  .slider.round:before {
+}
+.slider.round:before {
 	border-radius: 50%;
-  }
-  .input-group [data-toggle="datetimepicker"] {
+}
+.input-group [data-toggle="datetimepicker"] {
     cursor: pointer;
+}
+.room-no,.total-cost{
+	width: 25px;
+}
+div.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	background-color: yellow;
+	padding: 10px;
+	height: 50% !important;
 }
