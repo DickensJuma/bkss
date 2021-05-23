@@ -213,13 +213,13 @@ class PropertyController extends Controller
                 }
                 $hotel_data.="</small></td>
                 <td> $capacity</td> 
-                <td colspan='3'><table>";
+                <td colspan='3'><table class='table table-striped text-center'>";
                 foreach($rate_plans as $rate_plan){
-                    $room_charge ="<p>".$rate_plan->amount *$totalstay."</p>";
+                    $room_charge ="<p>$ <span>".$rate_plan->amount *$totalstay.".00</span></p>";
                     $hotel_data .= "<tr>
                     <td class='charge'>$room_charge</td>
                     <td class='text-success'>$rate_plan->plan</td>
-                    <td><Select name='quantity' class='quantity'>$quantity</select></td>
+                    <td><Select name='$room_name->name $room_type->name $rate_plan->plan' class='quantity'>$quantity</select></td>
                     </tr>";
                 }
                 $hotel_data .="</table></td>
@@ -232,8 +232,8 @@ class PropertyController extends Controller
     }
 
     public function addToCart(Request $request){
-        $value = session('key');
-        dd($value);
+        return redirect()->back()->with('successalert','Images Uploaded successfully');
+        
     }
 
     /**

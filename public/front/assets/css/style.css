@@ -2,7 +2,6 @@
 	position: relative;
 	height: 40vh;
 }
-
 .section .section-center {
 	position: absolute;
 	top: 50%;
@@ -11,14 +10,12 @@
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
-
 #booking {
 	font-family: 'Source Sans Pro', sans-serif;
 	background-image: url('../img/background.jpg');
 	background-size: cover;
 	background-position: center;
 }
-
 .booking-form {
 	background: #ffffff;
 	-webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.3);
@@ -26,38 +23,32 @@
 	border: 1px solid rgba(60, 64, 101, 0.1);
 	width: 100%;
 }
-
 .booking-form>form .row.no-margin {
 	margin-right: 0px;
 	margin-left: 0px;
 }
-
 .booking-form>form .row.no-margin>[class*="col-"] {
 	padding-right: 0px;
 	padding-left: 0px;
 }
-
 .booking-form .form-header {
 	padding: 15px 10px;
 	height: 110px;
 	line-height: 110px;
 	text-align: center;
 }
-
 .booking-form .form-header h2 {
 	font-family: 'Alegreya', serif;
 	margin: 0;
 	display: inline-block;
 		color: #9a8067;
 }
-
 .booking-form .form-group {
 	position: relative;
 	height: 110px;
 	padding: 15px 10px;
 	margin-bottom: 2px solid #123451!important;
 }
-
 .booking-form .form-control {
 	font-family: 'Alegreya', serif;
 	background-color: transparent;
@@ -71,13 +62,11 @@
 	color: #3c404a;
 	font-weight: 700;
 }
-
 .booking-form select.form-control {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
-
 .booking-form select.form-control+.select-arrow {
 	position: absolute;
 	right: 0px;
@@ -90,14 +79,12 @@
 	color: #818390;
 	font-size: 12px;
 }
-
 .booking-form select.form-control+.select-arrow:after {
 	content: '\279C';
 	display: block;
 	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg);
 }
-
 .booking-form .form-label {
 	color: #818390;
 	display: block;
@@ -106,12 +93,10 @@
 	line-height: 30px;
 	font-size: 14px;
 }
-
 .booking-form .form-btn {
 	padding: 15px 10px;
 	height: 110px;
 }
-
 .booking-form .submit-btn {
 	background: #000E32;
 	color: #fff;
@@ -155,14 +140,12 @@
 	-ms-user-select: none;
 	user-select: none;
 }
-
   /* Hide the browser's default radio button */
 .input-container input {
 	position: absolute;
 	opacity: 0;
 	cursor: pointer;
 }
-
   /* Create a custom radio button */
 .checkmark {
 	position: absolute;
@@ -173,24 +156,20 @@
 	background-color: #eee;
 	border-radius: 50%;
 }
-
   /* On mouse-over, add a grey background color */
 .input-container:hover input ~ .checkmark {
 	background-color: #ccc;
 }
-
   /* When the radio button is checked, add a white background */
 .input-container input:checked ~ .checkmark {
 	background-color: #ffffff;
 }
-
   /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
 	content: "";
 	position: absolute;
 	display: none;
 }
-
   /* Show the indicator (dot/circle) when checked */
 .input-container input:checked ~ .checkmark:after {
 	content: "\2713";
@@ -207,7 +186,6 @@
 .input-container input:checked ~ label::after{
 	border: 1px solid red;
 }
-
   /* Style the indicator (dot/circle) */
 .input-container .checkmark:after {
 	top: 9px;
@@ -301,9 +279,7 @@ input:checked + .slider:before {
 .input-group [data-toggle="datetimepicker"] {
     cursor: pointer;
 }
-.room-no,.total-cost{
-	width: 25px;
-}
+
 div.sticky {
 	position: -webkit-sticky;
 	position: sticky;
