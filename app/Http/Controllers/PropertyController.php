@@ -231,7 +231,7 @@ class PropertyController extends Controller
 
     }
 
-    public function addToCart(Request $request){
+    public function reserve(Request $request){
         
         return redirect()->back()->with('successalert','Images Uploaded successfully');
         

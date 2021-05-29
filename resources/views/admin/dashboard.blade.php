@@ -51,7 +51,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Reservations</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number">{{ $reservations }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
