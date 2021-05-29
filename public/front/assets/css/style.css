@@ -12,12 +12,9 @@
 }
 #booking {
 	font-family: 'Source Sans Pro', sans-serif;
-	background-image: url('../img/background.jpg');
-	background-size: cover;
-	background-position: center;
 }
-.booking-form {
-	background: #ffffff;
+.booking-form .container{
+	background: #FF5E57;
 	-webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.3);
 	box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.3);
 	border: 1px solid rgba(60, 64, 101, 0.1);
@@ -41,15 +38,15 @@
 	font-family: 'Alegreya', serif;
 	margin: 0;
 	display: inline-block;
-		color: #9a8067;
+		color: #000000;
 }
 .booking-form .form-group {
 	position: relative;
-	height: 110px;
+	height: 50px;
 	padding: 15px 10px;
 	margin-bottom: 2px solid #123451!important;
 }
-.booking-form .form-control {
+.booking-form input {
 	font-family: 'Alegreya', serif;
 	background-color: transparent;
 	border-radius: 0px;
@@ -59,7 +56,7 @@
 	box-shadow: none;
 	padding: 0;
 	font-size: 14px;
-	color: #3c404a;
+	color: #000000;
 	font-weight: 700;
 }
 .booking-form select.form-control {
@@ -86,7 +83,7 @@
 	transform: rotate(90deg);
 }
 .booking-form .form-label {
-	color: #818390;
+	color: #000000;
 	display: block;
 	font-weight: 400;
 	height: 30px;

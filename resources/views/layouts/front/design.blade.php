@@ -32,6 +32,9 @@
         <link rel="stylesheet" href="{{asset('front/assets/css/style.css')}}">
         <!-- Jquery-->
         <script src="{{asset('back/plugins/jquery/jquery.min.js')}}"></script>
+        <!--jquery ui -->
+        <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <!-- SweetAlert2 -->
         <link rel="stylesheet" href="{{asset('back/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
         <!-- bs-custom-file-input -->
@@ -57,7 +60,6 @@
         <script src="{{asset('front/assets/libs/lightpick/lightpick.js')}}"></script> 
         <!-- Theme JS -->
         <script src="{{asset('front/assets/js/theme.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('front/assets/js/jquery-1.7.2.js') }}"></script>
         <script src="{{ asset('front/assets/js/jquery.quicksand.js')}}" type="text/javascript"></script>
         <script src="{{ asset('front/assets/js/script.js')}}" type="text/javascript"></script>
         <script src="{{ asset('front/assets/js/jquery.prettyPhoto.js')}}" type="text/javascript"></script>
@@ -67,7 +69,7 @@
         <!--timepicker-->
         <script src="{{ asset('back/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js') }}"></script>
         <script type="text/javascript">
-            $('.timepick').timepicker();
+            jQuery('.timepick').timepicker();
             @if (session('erroralert'))
             $(document).ready(function () {
                 Swal.fire(
