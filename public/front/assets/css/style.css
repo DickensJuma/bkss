@@ -349,12 +349,16 @@ div.sticky {
     display: none;
 }
 
-.pics-area .overflow-img:last-child .count_pics {
+.pics-area .overflow-img:nth-child(5) .count_pics {
     display: flex !important;
     background-color: rgba(0, 0, 0, 0.35);
     color: #fff;
     font-size: 1.5em;
     font-weight: 800;
+}
+
+.pics-area .overflow-img:nth-child(n + 6) {
+    display: none !important;
 }
 
 .pics-area > div {
@@ -394,6 +398,10 @@ div.sticky {
 .overflow-img:nth-child(5) {
     grid-column: 2/3;
     grid-row: 3/4;
+}
+
+.gallery-img .overflow-img:nth-child(n + 6) span {
+    display: none !important;
 }
 
 @media (max-width: 768px) {
