@@ -77,7 +77,7 @@
 
 
             </div>
-            <form action='' method='POST' class="container">
+            <form action='' method='POST' class="container room_table_container">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-lg-10 col-md-10">

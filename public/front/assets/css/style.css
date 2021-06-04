@@ -452,7 +452,6 @@ div.sticky {
 }
 
 table {
-  
     border-collapse: collapse;
     margin: 0;
     padding: 0;
@@ -482,6 +481,10 @@ table th {
 }
 
 @media screen and (max-width: 600px) {
+    .room_table_container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     table {
         border: 0;
     }
