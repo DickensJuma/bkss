@@ -21,7 +21,7 @@
 
         <div class="gallery-card card-body">
             <div class="pics-area">
-                @foreach ($images->chunk(5) as $key=>$image)
+                @foreach ($images->chunk(100) as $key=>$image)
                 @foreach ($image as $item)
                 @if ($key===0)
                 @if (count($images) == 1)
@@ -51,7 +51,7 @@
                     <div>
                         <span class="image-block block2">
                             <a class="" href="{{ asset('uploads/property/large/'.$item->path) }}"
-                                rel="prettyPhoto[gallery]">
+                                rel="prettyPhoto[gallery]" data-lightbox="hotel">
                                 <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive"
                                     alt="Gallery"></a>
                         </span>
@@ -59,8 +59,10 @@
                 </div>
                 @else
                 <div class="gallery-img overflow-img">
-                    <a class="count_pics" href="#">+ {{ count($images) - 4 }}</a>
-                    <a class="" href="{{ asset('uploads/property/large/'.$item->path) }}" rel="prettyPhoto[gallery]">
+
+                    <a class="" data-lightbox="hotel" href="{{ asset('uploads/property/large/'.$item->path) }}"
+                        rel="prettyPhoto[gallery]">
+                        <p class="count_pics">+ {{ count($images) - 4 }}</p>
                         <img src="{{ asset('uploads/property/small/'.$item->path) }}" alt="Gallery">
 
                     </a>
@@ -71,33 +73,7 @@
                 @endif
                 @endforeach
                 @endforeach
-                <!--
-                @foreach ($image as $item)
-                @if ($key===0)
-                <div class="col-md-3">
-                    <div>
-                        <span class="image-block block2">
-                            <a class="" href="{{ asset('uploads/property/large/'.$item->path) }}"
-                                rel="prettyPhoto[gallery]">
-                                <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive"
-                                    alt="Gallery"></a>
-                        </span>
-                    </div>
-                </div>
-                @else
-                <div class="">
-                    <div style="display: block">
-                        <span class="image-block block2">
-                            <a class="" href="{{ asset('uploads/property/large/'.$item->path) }}"
-                                rel="prettyPhoto[gallery]">
-                                <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive"
-                                    alt="Gallery"></a>
-                        </span>
-                    </div>
-                </div>
 
-                @endif
-                @endforeach -->
 
 
             </div>
