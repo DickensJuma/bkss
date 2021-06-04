@@ -480,6 +480,10 @@ table th {
     text-transform: uppercase;
 }
 
+.proceed {
+    display: none;
+}
+
 @media screen and (max-width: 600px) {
     .room_table_container {
         padding-left: 0px;
@@ -489,6 +493,26 @@ table th {
         border: 0;
     }
 
+    .proceed_large {
+        display: none;
+    }
+
+    .proceed {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .proceed > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .proceed > div p:first-child {
+        font-weight: 800;
+    }
     table caption {
         font-size: 1.3em;
     }

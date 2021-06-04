@@ -93,7 +93,7 @@
                             <?php echo $hotel_data; ?>
                         </table>
                     </div>
-                    <div class="col sticky">
+                    <div class="col sticky proceed_large">
                         <p>
                             <span class='room_no'>0</span>
                             Rooms For: $
