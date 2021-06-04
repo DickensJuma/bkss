@@ -211,7 +211,7 @@ class PropertyController extends Controller
                     foreach ($amenity as $item) {
                         $hotel_data .= $item->name . " , ";
                     }
-                    $hotel_data .= "<br>";
+                    $hotel_data .= " ";
                 }
                 $hotel_data .= "</small></td>
                 <td data-label='Sleeps'> $capacity</td>
