@@ -77,10 +77,10 @@
 
 
             </div>
-            <form action='' method='POST' class="container">
+            <form action='' method='POST' class="container room_table_container">
                 @csrf
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-12 col-lg-10 col-md-10">
                         <table class="table table-striped text-center">
                             <thead class="bg-success">
                                 <th>Room Type</th>
@@ -93,7 +93,7 @@
                             <?php echo $hotel_data; ?>
                         </table>
                     </div>
-                    <div class="col sticky">
+                    <div class="col sticky proceed_large">
                         <p>
                             <span class='room_no'>0</span>
                             Rooms For: $
