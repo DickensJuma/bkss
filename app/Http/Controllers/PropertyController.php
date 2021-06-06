@@ -226,18 +226,7 @@ class PropertyController extends Controller
                     </tr>";
                 }
                 $hotel_data .= "</table></td>
-                <td class='proceed'>
-                <div class='col'>
-                <p>
-                    <span class='room_no'>0</span>
-                    Rooms For: $
-                    <span class='total_cost'>0</span>.00
-                </p>
-                <p class='btn btn-primary btn-sm' data-toggle='modal' data-target='#modal-info'>
-                    Proceed to reserve
-                </p>
-            </div>
-                </td>
+             
                 </tr>";
             }
         }
