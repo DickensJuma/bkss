@@ -222,6 +222,7 @@ class PropertyController extends Controller
                     <td><Select name='$room_name->name $room_type->name $rate_plan->plan' class='quantity'>$quantity</select></td>
                     </tr>";
                 }
+
                 $hotel_data .="</table></td>
                 </tr>";
             }
