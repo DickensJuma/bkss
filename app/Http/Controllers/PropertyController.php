@@ -31,88 +31,84 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        if (Auth::user()) {
+        if(Auth::user()){
             return view('property.new');
-        } else {
+        }else{
             return redirect('admin/join');
         }
     }
-    public function createApartment()
-    {
-        if (Auth::user()) {
+    public function createApartment(){
+        if(Auth::user()){
             return view('property.apartment.new');
-        } else {
+        }else{
             return redirect('admin/join');
         }
+
     }
-    public function createHome()
-    {
-        if (Auth::user()) {
+    public function createHome(){
+        if(Auth::user()){
             return view('property.home.new');
-        } else {
+        }else{
             return redirect('admin/join');
         }
     }
-    public function createHotel()
-    {
-        if (Auth::user()) {
+    public function createHotel(){
+        if(Auth::user()){
             return view('property.hotel.new');
-        } else {
+        }else{
             return redirect('admin/join');
         }
+        
     }
-    public function createOther()
-    {
-        if (Auth::user()) {
+    public function createOther(){
+        if(Auth::user()){
             return view('property.other.new');
-        } else {
+        }else{
             return redirect('admin/join');
         }
     }
-    public function addHotel()
-    {
-        if (Auth::user()) {
+    public function addHotel(){
+        if(Auth::user()){
             return view('property.hotel.add');
-        } else {
+        }else{
             return redirect('admin/join');
-        }
+        } 
     }
-    public function storeHotel(Request $request)
-    {
-        if (Auth::user()) {
-            $data = $request->all();
-            $ownerid = Auth::user()->id;
-            $property = new Property;
-            $property->name = $data['pname'];
-            $property->rating = $data['rating'];
-            $property->contact_name = $data['contact_name'];
-            $property->phone = $data['phone'];
-            $property->email = $data['email'];
-            $property->address = $data['address1'];
-            $property->address2 = $data['address2'];
-            $property->country = $data['country'];
-            $property->city = $data['city'];
-            $property->zip = $data['zip'];
-            $property->owner =  $ownerid;
-            $property->admin = $ownerid;
-            $property->save();
-            $property_id = $property->id;
-            //get room names
-            $roomNames = RoomName::get();
-            $room_name_dropdown = "<option>Please Select</option>";
-            foreach ($roomNames as $roomName) {
-                $room_name_dropdown .= "<option value='" . $roomName->id . "'>$roomName->name</option>";
-            }
-            //get types
-            $roomTypes = Type::get();
-            $room_type_dropdown = "<option>Please Select</option>";
-            foreach ($roomTypes as $roomType) {
-                $room_type_dropdown .= "<option value='" . $roomType->id . "'>$roomType->name</option>";
-            }
-            return view('property.hotel.desc', compact('property_id', 'room_name_dropdown', 'room_type_dropdown'));
-        } else {
-            return redirect('admin/join');
+    public function storeHotel(Request $request){
+        if(Auth::user()){
+        $data = $request->all();
+        $ownerid = Auth::user()->id;
+        $property = new Property;
+        $property->name = $data['pname'];
+        $property->rating = $data['rating'];
+        $property->contact_name = $data['contact_name'];
+        $property->phone = $data['phone'];
+        $property->email = $data['email'];
+        $property->address = $data['address1'];
+        $property->address2 = $data['address2'];
+        $property->country = $data['country'];
+        $property->city = $data['city'];
+        $property->zip = $data['zip'];
+        $property->owner =  $ownerid;
+        $property->admin = $ownerid;
+        $property->save();
+        $property_id = $property->id;
+        //get room names
+        $roomNames = RoomName::get();
+        $room_name_dropdown = "<option>Please Select</option>";
+        foreach($roomNames as $roomName){
+            $room_name_dropdown .= "<option value='".$roomName->id."'>$roomName->name</option>";
         }
+        //get types
+        $roomTypes = Type::get();
+        $room_type_dropdown = "<option>Please Select</option>";
+        foreach($roomTypes as $roomType){
+            $room_type_dropdown .= "<option value='".$roomType->id."'>$roomType->name</option>";
+        }
+        return view('property.hotel.desc',compact('property_id','room_name_dropdown','room_type_dropdown'));
+    }else{
+        return redirect('admin/join');
+    }
     }
 
     /**
@@ -132,71 +128,73 @@ class PropertyController extends Controller
      * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function show($property_id = null, $stay = null)
+    public function show($property_id = null, $stay=null)
     {
         //get the property
-        $hotel = Property::where(['id' => $property_id])->first();
+        $hotel = Property::where(['id'=>$property_id])->first();
         $hotel_data = "";
         $totalstay = (int)$stay;
         //facilities
         $facilities = $hotel->facilities()->get();
         $facility_design = "";
-        foreach ($facilities->chunk(4) as $facility) {
+        foreach ($facilities->chunk(4) as $facility){
             $facility_design .= "<div class='row'>";
-            foreach ($facility as $item) {
-                $facility_design .= "<div class='col-md-3'>";
-                switch ($item->sub_cat_id) {
-                    case 1:
-                        $facility_design .= "<i class='fas fa-parking'></i><small> " . $item->name . " Parking </small>";
-                        break;
+            foreach ($facility as $item){
+                $facility_design .="<div class='col-md-3'>";
+                switch($item->sub_cat_id){
+                    case 1: 
+                        $facility_design .="<i class='fas fa-parking'></i><small> ".$item->name ." Parking </small>";
+                    break;
                     case 2:
-                        $facility_design .= "<i class='fas fa-utensils'></i><small> " . $item->name . " Breakfast Available </small>";
-                        break;
+                        $facility_design .="<i class='fas fa-utensils'></i><small> ".$item->name ." Breakfast Available </small>";
+                    break;
                     case 3:
-                        $facility_design .= "<i class='fas fa-language'></i><small> Our staff speak " . $item->name . " Language </small>";
-                        break;
+                        $facility_design .="<i class='fas fa-language'></i><small> Our staff speak ".$item->name ." Language </small>";
+                    break;
                     case 4:
-                        $facility_design .= "<i class='fas fa-medkit'></i><small> " . $item->name . " </small>";
-                        break;
+                        $facility_design .="<i class='fas fa-medkit'></i><small> ".$item->name ." </small>";
+                    break;
                     case 5:
-                        $facility_design .= "<i class='fas fa-arrows-alt-h'></i><small> " . $item->name . " </small>";
-                        break;
+                        $facility_design .="<i class='fas fa-arrows-alt-h'></i><small> ".$item->name ." </small>";
+                    break;
                 }
-                $facility_design .= "</div>";
-            }
-            $facility_design .= "</div>";
-        }
+                $facility_design .="</div>";
 
+            }
+        $facility_design .="</div>";
+
+        }
+            
         //taxes
         $levies = $hotel->taxes()->get();
         //images
-        $images = Photo::where(['p_id' => $property_id])->get();
+        $images = Photo::where(['p_id'=>$property_id])->get();
         //images count
         //get rooms
-        $rooms = Room::where(['property' => $hotel->id])->get();
+        $rooms = Room::where(['property'=>$hotel->id])->get();
         //dd($rooms, $totalstay);
-        if ($rooms->isNotEmpty()) {
-            foreach ($rooms as $room) {
+        if($rooms->isNotEmpty()){
+            foreach($rooms as $room){
                 //get room name
-                $room_name = RoomName::where(['id' => $room->name])->first();
+                $room_name = RoomName::where(['id'=>$room->name])->first();
                 //get the room type
-                $room_type = Type::where(['id' => $room->type])->first();
+                $room_type = Type::where(['id'=>$room->type])->first();
                 //amenities
                 $amenities = $room->amenities()->get();
                 //get rate plans
                 $rate_plans = DB::table('rate_plan_room')
-                    ->join('rate_plans', 'rate_plan_room.rate_plan_id', 'rate_plans.id')
-                    ->select('rate_plan_room.*', 'rate_plans.name As plan')
-                    ->where(['room_id' => $room->id])->get();
+                ->join('rate_plans', 'rate_plan_room.rate_plan_id', 'rate_plans.id')
+                ->select('rate_plan_room.*', 'rate_plans.name As plan')
+                ->where(['room_id' => $room->id])->get();
                 $capacity = "";
                 $quantity = "<option value=''>0</option>";
-                for ($i = 1; $i <= $room->quantity; $i++) {
-                    $quantity .= "<option value='" . $i . "'>" . $i . "</option>";
+                for($i=1;$i<=$room->quantity;$i++){
+                    $quantity.="<option value='".$i."'>".$i."</option>";
                 }
-                for ($i = 0; $i < $room->capacity; $i++) {
-                    $capacity .= "<i class='fa fa-user' aria-hidden='true'></i>";
+                for($i=0;$i<$room->capacity;$i++){
+                    $capacity.= "<i class='fa fa-user' aria-hidden='true'></i>";
                 }
-                $room_charge = "";
+                $room_charge ="";
                 /*if(($room->offer_charge*$totalstay)<=($room->normal_charge*$totalstay) &&($room->offer_charge*$totalstay)>0){
                     $room_charge.="<p> Now: ".$room->offer_charge*$totalstay."<br>
                     Was: <strike class='text-danger'>".$room->normal_charge*$totalstay."</strike>
@@ -205,39 +203,39 @@ class PropertyController extends Controller
                     $room_charge.="<p>".$room->normal_charge*$totalstay."</p>";
                 }*/
 
-                $hotel_data .= "<tr>
-                <td data-label='Room Type'><u class='text-success'><b>$room_name->name $room_type->name</b></u><br><small>";
-                foreach ($amenities->chunk(3) as $amenity) {
-                    foreach ($amenity as $item) {
-                        $hotel_data .= $item->name . " , ";
+                $hotel_data.="<tr>
+                <td><u class='text-success'><b>$room_name->name $room_type->name</b></u><br><small>";
+                foreach($amenities->chunk(3) as $amenity){
+                    foreach($amenity as $item){
+                        $hotel_data.= $item->name ." , ";
                     }
-                    $hotel_data .= " ";
+                    $hotel_data.= "<br>";
                 }
-                $hotel_data .= "</small></td>
-                <td data-label='Sleeps'> $capacity</td>
-                <td colspan='3' ><table class='table table-striped text-center'>";
-                foreach ($rate_plans as $rate_plan) {
-                    $room_charge = "<p>$ <span>" . $rate_plan->amount * $totalstay . ".00</span></p>";
-                    $days = $totalstay > 1 ? "day" : "days";
+                $hotel_data.="</small></td>
+                <td> $capacity</td> 
+                <td colspan='3'><table class='table table-striped text-center'>";
+                foreach($rate_plans as $rate_plan){
+                    $room_charge ="<p>$ <span>".$rate_plan->amount *$totalstay.".00</span></p>";
                     $hotel_data .= "<tr>
-                    <td data-label=\"Price for $totalstay $days\" class='charge'>$room_charge</td>
-                    <td data-label='Your Choices' class='text-success'>$rate_plan->plan</td>
-                    <td data-label='Select Rooms'><Select name='$room_name->name $room_type->name $rate_plan->plan' class='quantity'>$quantity</select></td>
+                    <td class='charge'>$room_charge</td>
+                    <td class='text-success'>$rate_plan->plan</td>
+                    <td><Select name='$room_name->name $room_type->name $rate_plan->plan' class='quantity'>$quantity</select></td>
                     </tr>";
                 }
-                $hotel_data .= "</table></td>
-             
+
+                $hotel_data .="</table></td>
                 </tr>";
             }
         }
+        
+        return view('property.room.view')->with(compact('facility_design','hotel_data','hotel','levies','images','totalstay'));
 
-        return view('property.room.view')->with(compact('facility_design', 'hotel_data', 'hotel', 'levies', 'images', 'totalstay'));
     }
 
-    public function reserve(Request $request)
-    {
-
-        return redirect()->back()->with('successalert', 'Images Uploaded successfully');
+    public function reserve(Request $request){
+        
+        return redirect()->back()->with('successalert','Images Uploaded successfully');
+        
     }
 
     /**
