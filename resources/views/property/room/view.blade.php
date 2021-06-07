@@ -82,16 +82,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-10 col-md-10">
                         <div id="room_table" class="w-100 table-hover dt-responsive table table-striped ">
-                            <!-- <thead class="bg-success">
-                                <th>Room Type</th>
-                                <th>Sleeps</th>
-                                <th></th>
-                            </thead> -->
-                            <!-- <div class="rooms_table_div">
-                                <div>Room Type</div>
-                                <div class='text-center'>Sleeps</div>
-                                <div class='details_header'>Details</div>
-                            </div> -->
+
                             <?php echo $hotel_data; ?>
                         </div>
                     </div>
