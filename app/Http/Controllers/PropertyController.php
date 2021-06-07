@@ -205,29 +205,56 @@ class PropertyController extends Controller
                     $room_charge.="<p>".$room->normal_charge*$totalstay."</p>";
                 }*/
 
-                $hotel_data .= "<tr>
-                <td data-label='Room Type'><u class='text-success'><b>$room_name->name $room_type->name</b></u><br><small>";
+                // $hotel_data .= "<tr>
+                // <td>test</td>
+                // <td>Thisi sjdkhjgjrgegjghrghnj j</td>
+                // <td>teskjgkrjgkerhgkghergherkgt</td>
+                // </tr>";
+
+                $hotel_data .= "
+                <div class='room_outer'>
+                <div class='rooms_table_div'>
+                <div>Room Type</div>
+                <div class='text-center'>Sleeps</div>
+                <div class='details_header'>Details</div>
+            </div>
+                <div class='rooms_table_div w-100'>
+                <div data-label='Room Type'>
+                <u class='text-success'>
+                <b>$room_name->name $room_type->name</b></u><br><small id='room_desc' class='d-none d-md-block d-lg-block'>";
                 foreach ($amenities->chunk(3) as $amenity) {
                     foreach ($amenity as $item) {
                         $hotel_data .= $item->name . " , ";
                     }
                     $hotel_data .= " ";
                 }
-                $hotel_data .= "</small></td>
-                <td data-label='Sleeps'> $capacity</td>
-                <td colspan='3' ><table class='table table-striped text-center'>";
+                $days = $totalstay > 1 ? "day" : "days";
+                $hotel_data .= "</small></div>
+                <div data-label='Sleeps' class='text-center'> $capacity</div>
+                <div  class='more_room_details'><table class='table table-striped table_details d-none d-md-block d-lg-block'>
+                <thead >
+                <th>Price For
+                    <span class='text-light'> $totalstay $days</span>
+                </th>
+                <th class='text-center text-lg-left text-md-left'>Your Choices</th>
+                <th class='text-center text-lg-left text-md-left'>Select Rooms</th>
+                </thead>
+                ";
                 foreach ($rate_plans as $rate_plan) {
                     $room_charge = "<p>$ <span>" . $rate_plan->amount * $totalstay . ".00</span></p>";
-                    $days = $totalstay > 1 ? "day" : "days";
+
                     $hotel_data .= "<tr>
                     <td data-label=\"Price for $totalstay $days\" class='charge'>$room_charge</td>
                     <td data-label='Your Choices' class='text-success'>$rate_plan->plan</td>
                     <td data-label='Select Rooms'><Select name='$room_name->name $room_type->name $rate_plan->plan' class='quantity'>$quantity</select></td>
                     </tr>";
                 }
-                $hotel_data .= "</table></td>
-             
-                </tr>";
+                $hotel_data .= "</table></div>
+                <div class='view_more_rooms'>
+                <button type='button' class='btn btn-primary'>View details</button>
+                </div>
+                </div>
+                </div>";
             }
         }
 

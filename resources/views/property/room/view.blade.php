@@ -81,17 +81,19 @@
                 @csrf
                 <div class="row">
                     <div class="col-12 col-lg-10 col-md-10">
-                        <table class="table table-striped text-center">
-                            <thead class="bg-success">
+                        <div id="room_table" class="w-100 table-hover dt-responsive table table-striped ">
+                            <!-- <thead class="bg-success">
                                 <th>Room Type</th>
                                 <th>Sleeps</th>
-                                <th>Price For <span class="text-light">{{ $totalstay }}
-                                        {{ Str::plural('day',$totalstay) }}</span></th>
-                                <th>Your Choices</th>
-                                <th>Select Rooms</th>
-                            </thead>
+                                <th></th>
+                            </thead> -->
+                            <!-- <div class="rooms_table_div">
+                                <div>Room Type</div>
+                                <div class='text-center'>Sleeps</div>
+                                <div class='details_header'>Details</div>
+                            </div> -->
                             <?php echo $hotel_data; ?>
-                        </table>
+                        </div>
                     </div>
                     <div class="col sticky proceed_large">
                         <p>
