@@ -99,9 +99,41 @@
             "Access Denied!",
             "{{ session('warningalert') }}",
             "warning");
-
     });
     @endif
+    </script>
+
+    <script type="text/javascript">
+    const viewMore = document.querySelectorAll('.rooms_table_div');
+    const tables = document.querySelectorAll('.table_details');
+
+    viewMore.forEach((e) => {
+        e.addEventListener('click', (event) => {
+            const table = e.getElementsByClassName('table_details')
+            if (event.target.nodeName == 'BUTTON') {
+                const btn = e.getElementsByClassName('btn');
+                tables.forEach(item => {
+
+                    if (!item.classList.contains('d-none')) {
+                        if (item !== table[0]) {
+                            item.classList.add('d-none')
+                        };
+                    }
+                });
+                const desc = e.querySelector('#room_desc');
+                table[0].classList.toggle('d-none');
+                if (!table[0].classList.contains('d-none')) {
+                    btn[0].innerText = 'Hide details'
+                    desc.classList.remove('d-none');
+                } else {
+                    btn[0].innerText = 'View details';
+                    desc.classList.add('d-none');
+                }
+
+            }
+
+        })
+    })
     </script>
 </body>
 
