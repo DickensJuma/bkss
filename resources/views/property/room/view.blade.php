@@ -151,19 +151,19 @@
     </div>
 </div>
 <script>
-$(document).ready(function() {
-    $(".quantity").on('change', function() {
+jQuery(document).ready(function() {
+    jQuery(".quantity").on('change', function() {
         var totalRoomCost = 0;
         var numberOfRooms = 0;
         //loop through each select
-        $(".quantity").each(function() {
-            var roomNo = $(this).val() != "" ? parseInt($(this).val()) : 0;
-            var cost = parseInt($(this).closest("tr").find('.charge p span').text());
+        jQuery(".quantity").each(function() {
+            var roomNo = jQuery(this).val() != "" ? parseInt(jQuery(this).val()) : 0;
+            var cost = parseInt(jQuery(this).closest("tr").find('.charge p span').text());
             totalRoomCost += roomNo * cost;
             numberOfRooms += roomNo;
         });
-        $('.room_no').text(numberOfRooms);
-        $('.total_cost').text(totalRoomCost);
+        jQuery('.room_no').html(numberOfRooms);
+        jQuery('.total_cost').html(totalRoomCost);
     });
 })
 </script>

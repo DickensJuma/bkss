@@ -1,5 +1,4 @@
 @extends('layouts.front.design')
-
 @section('content')
 <div class="bg-img-hero"
     style="background: url(front/assets/images/hero-slide-img-1.jpg) no-repeat;background-size: cover;">
@@ -10,15 +9,11 @@
                     @csrf
                     <div class="hotel-search">
                         <div class="">
-
                             <div class="form-group">
                                 <span class="form-label">Destination</span>
                                 <input type="text" name="destination" placeholder="Where To ?">
                             </div>
-
                         </div>
-
-
                         <div class="">
                             <div class="form-group">
                                 <span class="form-label">Check In</span>
@@ -43,8 +38,6 @@
                                 <input type="number" name="kids" value="0">
                             </div>
                         </div>
-
-
                         <div class="search-submit">
                             <div class="form-btn btn">
                                 <input type="submit" class="submit-btn" value="Search" />
