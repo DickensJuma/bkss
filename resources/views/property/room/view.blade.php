@@ -77,23 +77,16 @@
 
 
             </div>
-            <form action='' method='POST' class="container">
+            <form action='' method='POST' class="container room_table_container">
                 @csrf
                 <div class="row">
-                    <div class="col-10">
-                        <table class="table table-striped text-center">
-                            <thead class="bg-success">
-                                <th>Room Type</th>
-                                <th>Sleeps</th>
-                                <th>Price For <span class="text-light">{{ $totalstay }}
-                                        {{ Str::plural('day',$totalstay) }}</span></th>
-                                <th>Your Choices</th>
-                                <th>Select Rooms</th>
-                            </thead>
+                    <div class="col-12 col-lg-10 col-md-10">
+                        <div id="room_table" class="w-100 table-hover dt-responsive table table-striped ">
+
                             <?php echo $hotel_data; ?>
-                        </table>
+                        </div>
                     </div>
-                    <div class="col sticky">
+                    <div class="col sticky proceed_large">
                         <p>
                             <span class='room_no'>0</span>
                             Rooms For: $
