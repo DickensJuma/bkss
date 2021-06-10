@@ -99,6 +99,8 @@
 <!-- jQuery UI -->
 <script src="{{asset('back/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- fullCalendar 2.2.5 -->
+<script src="{{ asset('front/assets/js/jquery.prettyPhoto.js')}}" type="text/javascript"></script>
+    <!-- //jQuery-Photo-filter-lightbox-Gallery-plugin -->
 <script src="{{asset('back/plugins/fullcalendar/main.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('back/dist/js/demo.js')}}"></script>
@@ -106,24 +108,24 @@
 <script src="{{asset('back/dist/js/pages/dashboard2.js')}}"></script>
 <script src="{{asset('back/plugins/yearpicker/dist/yearpicker.js')}}" async></script>
 <script type="text/javascript">
-  $(document).ready(function () {
-    $("#table").DataTable({
+ jQuery(document).ready(function () {
+   jQuery("#table").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
-    $('.datepicker').datetimepicker({
+   jQuery('.datepicker').datetimepicker({
       inline: true,
       sideBySide: true,
       format:'YYYY-MM-DD HH:mm:ss'
     });
-    $('.yearpicker').datetimepicker({
+   jQuery('.yearpicker').datetimepicker({
       inline: true,
       sideBySide: true,
       format:'YYYY'
     });
   });
   @if (session('erroralert'))
-    $(document).ready(function () {
+   jQuery(document).ready(function () {
       Swal.fire(
           "Failed!",    
       "{{ session('erroralert') }}",
@@ -131,7 +133,7 @@
     });
   @endif
   @if (session('successalert'))
-    $(document).ready(function () {
+   jQuery(document).ready(function () {
       Swal.fire(
           "Done!",    
       "{{ session('successalert') }}",
@@ -139,14 +141,14 @@
     });
   @endif
   @if (session('warningalert'))
-    $(document).ready(function () {
+   jQuery(document).ready(function () {
       Swal.fire(
           "Access Denied!",    
       "{{ session('warningalert') }}",
       "warning");
     });
   @endif  
-  $(function () {
+ jQuery(function () {
     bsCustomFileInput.init();
   });
 </script>

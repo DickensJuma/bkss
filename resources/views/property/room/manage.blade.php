@@ -46,9 +46,9 @@
         </div>
     </section>
     <script>
-        $('#room').on('change',function(){
+        Jquery('#room').on('change',function(){
             var checkValue = $(this).children('option:selected').val();
-            $.ajax({
+            Jquery.ajax({
                 url: "{{ route('quantity_by_room') }}?room_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {

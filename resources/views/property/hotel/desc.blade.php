@@ -87,16 +87,16 @@
 </div>
 <script>
     //Wait for document to load
-    $(document).ready(function(){
+   jQuery(document).ready(function(){
         //Check for the change value
-        $("#addRoom").on('click',function() {
+       jQuery("#addRoom").on('click',function() {
             //make the form visible
-            $("#roomForm").prop("hidden",false);
-            $("#addRoom").prop("hidden",true);
+           jQuery("#roomForm").prop("hidden",false);
+           jQuery("#addRoom").prop("hidden",true);
         });
-         $("#guest_no").change(function(){
-             var value = $('#guest_no').val();
-             $("#pax").contents().replaceWith(value);
+        jQuery("#guest_no").change(function(){
+             var value =jQuery('#guest_no').val();
+            jQuery("#pax").contents().replaceWith(value);
 
          });
     });

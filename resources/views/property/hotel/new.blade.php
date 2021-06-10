@@ -29,24 +29,24 @@
     </div>
     <script>
         //Wait for document to load
-        $(document).ready(function(){
+       jQuery(document).ready(function(){
             //Check for the change value
-            $(".hotel-radio").on('change',function() {
+           jQuery(".hotel-radio").on('change',function() {
                 //store the selected value in var
-                var checkValue = $('input[name=hotel_number]:checked').val();
+                var checkValue =jQuery('input[name=hotel_number]:checked').val();
                 //check what the var value is
                 if(checkValue=="multiple"){
                     //if it is multiple, show more
-                    $("#number").show();
-                    $("#number").prop("hidden",false);
+                   jQuery("#number").show();
+                   jQuery("#number").prop("hidden",false);
                 }else{
                     //otherwise hide more
-                    $("#number").hide();
-                    $("#number").prop("hidden",true);
+                   jQuery("#number").hide();
+                   jQuery("#number").prop("hidden",true);
                 }
             }); 
             //check if the button has been clicked
-            $("#next").on("click", function(){
+           jQuery("#next").on("click", function(){
 
             });
 

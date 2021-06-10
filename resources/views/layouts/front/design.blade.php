@@ -78,7 +78,7 @@
     <script type="text/javascript">
     jQuery('.timepick').timepicker();
     @if(session('erroralert'))
-    $(document).ready(function() {
+    jQuery(document).ready(function() {
         Swal.fire(
             "Failed!",
             "{{ session('erroralert') }}",
@@ -86,7 +86,7 @@
     });
     @endif
     @if(session('successalert'))
-    $(document).ready(function() {
+    jQuery(document).ready(function() {
         Swal.fire(
             "Done!",
             "{{ session('successalert') }}",
@@ -94,7 +94,7 @@
     });
     @endif
     @if(session('warningalert'))
-    $(document).ready(function() {
+    jQuery(document).ready(function() {
         Swal.fire(
             "Access Denied!",
             "{{ session('warningalert') }}",

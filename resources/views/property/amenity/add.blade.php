@@ -408,63 +408,63 @@
     </div>
     <script>
         //Wait for document to load
-        $(document).ready(function(){
+      jQuery(document).ready(function(){
             //Check for the change value
-            $(".extrabeds-radio").on('change',function() {
+          jQuery(".extrabeds-radio").on('change',function() {
                 //store the selected value in var
-                var checkValue = $('input[name=extrabeds]:checked').val();
+                var checkValue =Jquery('input[name=extrabeds]:checked').val();
                 //check what the var value is
                 if(checkValue=="Yes"){
                     //if it is yes, show more
-                    $("#extra-details").show();
-                    $("#extra-details").prop("hidden",false);
+                  jQuery("#extra-details").show();
+                  jQuery("#extra-details").prop("hidden",false);
                 }else{
                     //otherwise hide more
-                    $("#extra-details").hide();
-                    $("#extra-details").prop("hidden",true);
+                  jQuery("#extra-details").hide();
+                  jQuery("#extra-details").prop("hidden",true);
                 }
             }); 
-            $("#children_upto_2_years_in_crib").on('change',function(){
+          jQuery("#children_upto_2_years_in_crib").on('change',function(){
                 if(this.checked){
-                    $("#cost-per-child-tab").show();
-                    $("#cost-per-child-tab").prop("hidden",false);
+                  jQuery("#cost-per-child-tab").show();
+                  jQuery("#cost-per-child-tab").prop("hidden",false);
                 }else{
-                    $("#cost-per-child-tab").hide();
-                    $("#cost-per-child-tab").prop("hidden",true);
+                  jQuery("#cost-per-child-tab").hide();
+                  jQuery("#cost-per-child-tab").prop("hidden",true);
                 }
             });
-            $("#extra_children").on('change',function(){
+          jQuery("#extra_children").on('change',function(){
                 if(this.checked){
-                    $("#children-extra-tab").show();
-                    $("#children-extra-tab").prop("hidden",false);
+                  jQuery("#children-extra-tab").show();
+                  jQuery("#children-extra-tab").prop("hidden",false);
                 }else{
-                    $("#children-extra-tab").hide();
-                    $("#children-extra-tab").prop("hidden",true);
+                  jQuery("#children-extra-tab").hide();
+                  jQuery("#children-extra-tab").prop("hidden",true);
                 }
             });
-            $("#extra_adult").on('change',function(){
+          jQuery("#extra_adult").on('change',function(){
                 if(this.checked){
-                    $("#cost-per-adult-tab").show();
-                    $("#cost-per-adult-tab").prop("hidden",false);
+                  jQuery("#cost-per-adult-tab").show();
+                  jQuery("#cost-per-adult-tab").prop("hidden",false);
                 }else{
-                    $("#cost-per-adult-tab").hide();
-                    $("#cost-per-adult-tab").prop("hidden",true);
+                  jQuery("#cost-per-adult-tab").hide();
+                  jQuery("#cost-per-adult-tab").prop("hidden",true);
                 }
             });
-            $("#show_hide_extra").on('click',function(e){
+          jQuery("#show_hide_extra").on('click',function(e){
                 e.preventDefault();
                 if($("#extra-amenities-tab").is(":visible")){
-                    $("#extra-amenities-tab").hide();
-                    $("#extra-amenities-tab").prop("hidden",true);
-                    $("i").removeClass("fa-angle-down");
-                    $("i").addClass("fa-angle-right");
-                    $("#show_hide_extra").text("Show all amenities");
+                  jQuery("#extra-amenities-tab").hide();
+                  jQuery("#extra-amenities-tab").prop("hidden",true);
+                  jQuery("i").removeClass("fa-angle-down");
+                  jQuery("i").addClass("fa-angle-right");
+                  jQuery("#show_hide_extra").text("Show all amenities");
                 }else{
-                    $("#extra-amenities-tab").show();
-                    $("#extra-amenities-tab").prop("hidden",false);
-                    $("i").removeClass("fa-angle-right");
-                    $("i").addClass("fa-angle-down");
-                    $("#show_hide_extra").text("Hide all amenities");
+                  jQuery("#extra-amenities-tab").show();
+                  jQuery("#extra-amenities-tab").prop("hidden",false);
+                  jQuery("i").removeClass("fa-angle-right");
+                  jQuery("i").addClass("fa-angle-down");
+                  jQuery("#show_hide_extra").text("Hide all amenities");
                 }
             });            
         });

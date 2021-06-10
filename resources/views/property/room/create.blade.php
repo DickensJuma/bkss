@@ -108,10 +108,10 @@
         </section>
     </div>
     <script>
-        $(document).ready(function(){
-            $("#guest_no").change(function(){
-                var value = $('#guest_no').val();
-                $("#pax").contents().replaceWith(value);
+        Jquery(document).ready(function(){
+            Jquery("#guest_no").change(function(){
+                var value = Jquery('#guest_no').val();
+                Jquery("#pax").contents().replaceWith(value);
             });
         });
     </script>

@@ -84,8 +84,8 @@
             </section>
     </div>
     <script>
-        $('#servicecharge').on('change',function(){
-            var selectedValue = $(this).children('option:selected').val();
+        Jquery('#servicecharge').on('change',function(){
+            var selectedValue = Jquery(this).children('option:selected').val();
             BootstrapDialog.show({
             message: 'Hi Apple!'
         });

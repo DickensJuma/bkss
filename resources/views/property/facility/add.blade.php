@@ -204,85 +204,85 @@
     </div>
     <script>
         //Wait for document to load
-        $(document).ready(function(){
+       jQuery(document).ready(function(){
             //add new room button clicked even listener
-            $("#addRoom").on('click',function() {
+           jQuery("#addRoom").on('click',function() {
                 //make the form visible
-                $("#roomForm").prop("hidden",false);
-                $("#addRoom").prop("hidden",true);
-                $("#addFacility").prop("hidden",true);
-                $("#facilityForm").prop("hidden",true);
+               jQuery("#roomForm").prop("hidden",false);
+               jQuery("#addRoom").prop("hidden",true);
+               jQuery("#addFacility").prop("hidden",true);
+               jQuery("#facilityForm").prop("hidden",true);
             });
             //add facility button clicked event listener
-            $("#addFacility").on('click',function() {
+           jQuery("#addFacility").on('click',function() {
                 //make the form visible
-                $("#roomForm").prop("hidden",true);
-                $("#addRoom").prop("hidden",true);
-                $("#addFacility").prop("hidden",true);
-                $("#facilityForm").prop("hidden",false);
+               jQuery("#roomForm").prop("hidden",true);
+               jQuery("#addRoom").prop("hidden",true);
+               jQuery("#addFacility").prop("hidden",true);
+               jQuery("#facilityForm").prop("hidden",false);
             });
                 //guest number change event listener
-                $("#guest_no").change(function(){
-                    var value = $('#guest_no').val();
-                    $("#pax").contents().replaceWith(value);
+               jQuery("#guest_no").change(function(){
+                    var value =jQuery('#guest_no').val();
+                   jQuery("#pax").contents().replaceWith(value);
                 });
                 //parking value change event listener
-            $("#parking").on('change',function() {
-                var checkValue = $(this).children('option:selected').val();
+           jQuery("#parking").on('change',function() {
+                var checkValue =jQuery(this).children('option:selected').val();
                 if(checkValue=="paid"){
-                    $("#parking_type").show();
-                    $("#parking_type").prop("hidden",false);
-                    $("#parking_location").show();
-                    $("#parking_location").prop("hidden",false);
-                    $("#reserve").show();
-                    $("#reserve").prop("hidden",false);
-                    $("#cost").show();
-                    $("#cost").prop("hidden",false);
+                   jQuery("#parking_type").show();
+                   jQuery("#parking_type").prop("hidden",false);
+                   jQuery("#parking_location").show();
+                   jQuery("#parking_location").prop("hidden",false);
+                   jQuery("#reserve").show();
+                   jQuery("#reserve").prop("hidden",false);
+                   jQuery("#cost").show();
+                   jQuery("#cost").prop("hidden",false);
                 }else if(checkValue=="free"){
-                    $("#parking_type").show();
-                    $("#parking_type").prop("hidden",false);
-                    $("#parking_location").show();
-                    $("#parking_location").prop("hidden",false);
-                    $("#reserve").show();
-                    $("#reserve").prop("hidden",false);
-                    $("#cost").hide();
-                    $("#cost").prop("hidden",true);
+                   jQuery("#parking_type").show();
+                   jQuery("#parking_type").prop("hidden",false);
+                   jQuery("#parking_location").show();
+                   jQuery("#parking_location").prop("hidden",false);
+                   jQuery("#reserve").show();
+                   jQuery("#reserve").prop("hidden",false);
+                   jQuery("#cost").hide();
+                   jQuery("#cost").prop("hidden",true);
                 }else{
-                    $("#parking_type").hide();
-                    $("#parking_type").prop("hidden",true);
-                    $("#parking_location").hide();
-                    $("#parking_location").prop("hidden",true);
-                    $("#reserve").hide();
-                    $("#reserve").prop("hidden",true);
-                    $("#cost").hide();
-                    $("#cost").prop("hidden",true);
+                   jQuery("#parking_type").hide();
+                   jQuery("#parking_type").prop("hidden",true);
+                   jQuery("#parking_location").hide();
+                   jQuery("#parking_location").prop("hidden",true);
+                   jQuery("#reserve").hide();
+                   jQuery("#reserve").prop("hidden",true);
+                   jQuery("#cost").hide();
+                   jQuery("#cost").prop("hidden",true);
                 }
             }); 
                 //breakfast availability change even listener
-            $("#breakfast_availability").on('change',function() {
-                var checkValue = $(this).children('option:selected').val();
+           jQuery("#breakfast_availability").on('change',function() {
+                var checkValue =jQuery(this).children('option:selected').val();
                 if(checkValue=="included"){
-                    $("#breakfast_tab").show();
-                    $("#breakfast_tab").prop("hidden",false);
-                    $("#breakfast_cost").hide();
-                    $("#breakfast_cost").prop("hidden",true);
+                   jQuery("#breakfast_tab").show();
+                   jQuery("#breakfast_tab").prop("hidden",false);
+                   jQuery("#breakfast_cost").hide();
+                   jQuery("#breakfast_cost").prop("hidden",true);
                 }else if(checkValue=="optional"){
-                    $("#breakfast_tab").show();
-                    $("#breakfast_tab").prop("hidden",false);
-                    $("#breakfast_cost").show();
-                    $("#breakfast_cost").prop("hidden",false);
+                   jQuery("#breakfast_tab").show();
+                   jQuery("#breakfast_tab").prop("hidden",false);
+                   jQuery("#breakfast_cost").show();
+                   jQuery("#breakfast_cost").prop("hidden",false);
                 }else{
-                    $("#breakfast_tab").hide();
-                    $("#breakfast_tab").prop("hidden",true);
-                    $("#breakfast_cost").hide();
-                    $("#breakfast_cost").prop("hidden",true);
+                   jQuery("#breakfast_tab").hide();
+                   jQuery("#breakfast_tab").prop("hidden",true);
+                   jQuery("#breakfast_cost").hide();
+                   jQuery("#breakfast_cost").prop("hidden",true);
                 }
             }); 
             //add breakfast type button click event listener
-            $("#add_breakfast_type").on('click',function(e) {
+           jQuery("#add_breakfast_type").on('click',function(e) {
                 e.preventDefault();
                 //add another column
-                $("#breakfast_list").append("<div class='row'>"+
+               jQuery("#breakfast_list").append("<div class='row'>"+
                                             "<div class='col-md-11'>"+
                                             "<select name='breakfast_type[]' class='form-control'>"+
                                             "<option selected=''>Select breakfast type</option>"+
@@ -305,12 +305,12 @@
                                             "</i></span>"+
                                             "</div>"+
                                             "</div>");
-                $("#remove").show();
-                $("#remove").prop("hidden",false);                
+               jQuery("#remove").show();
+               jQuery("#remove").prop("hidden",false);                
             });
-            $("#add_lang").on('click',function(e){
+           jQuery("#add_lang").on('click',function(e){
                 e.preventDefault();
-                $("#lang_tab").append("<div class='row'>"+
+               jQuery("#lang_tab").append("<div class='row'>"+
                                         "<div class='col-md-11'>"+
                                         "<select name='language[]' id='language' class='form-control' required>"+
                                             "<option selected=''>Select Language</option>"+
@@ -396,8 +396,8 @@
                                 "<span class='text-danger'><i class='fa fa-times'></i></span>"+
                             "</div>"+
                         "</div>");
-                $("#lang_remove").show();
-                $("#lang_remove").prop("hidden",false);
+               jQuery("#lang_remove").show();
+               jQuery("#lang_remove").prop("hidden",false);
             });
         });
     </script>
