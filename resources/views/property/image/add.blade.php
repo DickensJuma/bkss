@@ -248,7 +248,7 @@
     </div>
 </div>
     <script type="text/javascript">
-        $(document).ready(function () {
+        jQuery(document).ready(function () {
             bsCustomFileInput.init();
             /*$.ajaxSetup({
                 headers: {'X-CSRF-TOKEN': $('input[name=_token]').val()}
@@ -294,7 +294,7 @@
 
             });
             */
-            $('#addPolicy').on('click',function(){
+            jQuery('#addPolicy').on('click',function(){
                 jQuery('#images_tab').prop('hidden',true);
                 jQuery('#policies_tab').prop('hidden',false);
             });

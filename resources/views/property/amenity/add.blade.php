@@ -453,7 +453,7 @@
             });
           jQuery("#show_hide_extra").on('click',function(e){
                 e.preventDefault();
-                if($("#extra-amenities-tab").is(":visible")){
+                if(Jquery("#extra-amenities-tab").is(":visible")){
                   jQuery("#extra-amenities-tab").hide();
                   jQuery("#extra-amenities-tab").prop("hidden",true);
                   jQuery("i").removeClass("fa-angle-down");
