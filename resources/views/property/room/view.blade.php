@@ -127,7 +127,7 @@
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                                <input type="submit" class="btn btn-outline-success" value="Save and reserve" />
+                                <input type="submit" class="btn btn-outline-success" value="Save and continue" />
                             </div>
                         </div>
                         <!-- /.modal-content -->
