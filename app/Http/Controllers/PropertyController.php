@@ -263,8 +263,8 @@ class PropertyController extends Controller
 
     public function reserve(Request $request)
     {
-        return view('property.reserve');
-        //return redirect()->back()->with('successalert', 'Images Uploaded successfully');
+
+        return redirect()->back()->with('successalert', 'Images Uploaded successfully');
     }
 
     /**
