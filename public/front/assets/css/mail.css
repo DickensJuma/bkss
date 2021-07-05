@@ -1,0 +1,64 @@
+body {
+    background: #eff0f1;
+    display: flex;
+    justify-content: center;
+}
+
+.booking_mail_container {
+    min-width: 768px;
+}
+
+.booking_mail_container p:first-child {
+    margin-bottom: 2rem;
+}
+
+.security {
+    background: #fd7d142a;
+    border: 1px solid #fd7e14 !important;
+    padding: 3px 10px;
+}
+img {
+    margin: 1.5rem 0px;
+}
+
+.booking_msg {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    background: white;
+    border-radius: 3px;
+}
+
+.table-blue {
+    background: rgba(178, 222, 243, 0.4);
+}
+.booking_msg th,
+td {
+    padding: 16px 5px;
+}
+
+.booking_msg table {
+    width: 100%;
+}
+
+.booking_msg table th,
+.booking_msg table td {
+    border: none;
+}
+
+.booking_msg table thead td {
+    text-align: center;
+}
+
+.aware {
+    margin-bottom: 3rem;
+}
+.booking_mail_footer {
+    text-align: center;
+    color: grey;
+    font-size: 14px;
+}
+
+.booking_mail_footer hr {
+    border: none;
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.1);
+}
