@@ -7,93 +7,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booksasa.com</title>
     <style>
-    body {
-        background: #eff0f1;
-        display: flex;
-        justify-content: center;
-    }
+        body {
+            background: #eff0f1;
+            display: flex;
+            justify-content: center;
+        }
 
-    .booking_mail_container {
-        max-width: 768px;
-        width: fit-content;
-    }
+        .booking_mail_container {
+            max-width: 768px;
+            width: fit-content;
+        }
 
-    .booking_mail_container p:first-child {
-        margin-bottom: 2rem;
-    }
+        .booking_mail_container p:first-child {
+            margin-bottom: 2rem;
+        }
 
-    .security {
-        background: #fd7d142a;
-        border: 1px solid #fd7e14 !important;
-        padding: 3px 10px;
+        .security {
+            background: #fd7d142a;
+            border: 1px solid #fd7e14 !important;
+            padding: 3px 10px;
 
-    }
+        }
 
-    img {
-        margin: 1.5rem 0px;
+        img {
+            margin: 1.5rem 0px;
 
-    }
+        }
 
-    .booking_msg {
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        padding: 10px;
-        background: white;
-        border-radius: 3px;
-    }
+        .booking_msg {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            background: white;
+            border-radius: 3px;
+        }
 
-    .table-blue {
-        background: #000E32;
-        color: #fff;
-    }
+        .table-blue {
+            background: #000E32;
+            color: #fff;
+        }
 
-    .booking_msg th,
-    td {
-        padding: 16px 5px;
-    }
+        .booking_msg th,
+        td {
+            padding: 16px 5px;
+        }
 
-    .booking_msg table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+        .booking_msg table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-    .booking_msg table th,
-    .booking_msg table td {
-        border: none;
-    }
+        .booking_msg table th,
+        .booking_msg table td {
+            border: none;
+        }
 
-    .booking_msg table thead td {
-        text-align: center
-    }
+        .booking_msg table thead td {
+            text-align: center
+        }
 
-    .aware {
-        margin-bottom: 3rem;
-    }
+        .aware {
+            margin-bottom: 3rem;
+        }
 
-    .booking_mail_footer {
-        text-align: center;
-        color: grey;
-        font-size: 14px;
-    }
+        .booking_mail_footer {
+            text-align: center;
+            color: grey;
+            font-size: 14px;
+        }
 
-    .booking_mail_footer hr {
-        border: none;
-        border-bottom: 0.2px solid rgba(0, 0, 0, 0.1)
-    }
+        .booking_mail_footer hr {
+            border: none;
+            border-bottom: 0.2px solid rgba(0, 0, 0, 0.1)
+        }
     </style>
 </head>
 
 <body>
     <div class="booking_mail_container">
         <div class="security">
-            <p>For security purposes make sure yourURL reads <a
-                    href="https://admin.booksasa.com">https://admin.booksasa.com</a>
+            <p>For security purposes make sure yourURL reads <a href="https://admin.booksasa.com">https://admin.booksasa.com</a>
                 when you sign in.
             </p>
         </div>
-        <img src="{{ asset('front/assets/images/logo.png') }}" alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3">
+        <img src="{{ asset('front/assets/images/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
         <div class="booking_msg">
-            <p>Dear Vittoria Suites Reservations</p>
+            <p>Dear Baobab Beach Resort & Spa Reservations</p>
             <p>The following reservation has an arrival date for today:</p>
             <table>
                 <thead>

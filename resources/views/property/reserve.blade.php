@@ -95,9 +95,11 @@
                     </div>
                 </div>
             </div>
+
             <!-- Your Info -->
-            <div class="your__info">
+            <div class=" your__info">
                 <h3>Enter your info</h3>
+
                 <div>
                     <div class="info_form_group">
                         <div class="form_label_grp">
@@ -118,7 +120,8 @@
                         <div class="form_checkbox_grp">
                             <div>
                                 <input type="checkbox" name="paperless" />
-                                <label for="paperless">Yes, I'd like free paperless confirmation (recommeded)</label>
+                                <label for="paperless">Yes, I'd like free paperless confirmation
+                                    (recommeded)</label>
                             </div>
                             <i>We'll text you a link to download our app</i>
                         </div>
@@ -200,7 +203,8 @@
                         <label for="later">Pay later</label>
                         <div>
                             <p>
-                                The property will handle payment. The date you'll be charged depends on your booking
+                                The property will handle payment. The date you'll be charged depends on
+                                your booking
                                 conditions
                             </p>
                             <div>
@@ -214,7 +218,8 @@
                         <label for="now">Pay now <span>Save US$11.0</span></label>
                         <div>
                             <p>
-                                Booksasa.com will facilitate your payment. You'll pay today when you complete your
+                                Booksasa.com will facilitate your payment. You'll pay today when you
+                                complete your
                                 booking
                             </p>
                             <div>
@@ -226,6 +231,7 @@
                     </div>
 
                 </div>
+
             </div>
             <!-- Pay date end -->
 
@@ -234,8 +240,10 @@
                 <h3>Special Requests</h3>
                 <div>
                     <ul>
-                        <li>Please write your requests in English - we will share it with the property.</li>
-                        <li>Special requests cannot be guaranteed - but the accommodation will do its best to meet
+                        <li>Please write your requests in English - we will share it with the property.
+                        </li>
+                        <li>Special requests cannot be guaranteed - but the accommodation will do its
+                            best to meet
                             your
                             needs.
                         </li>
@@ -250,10 +258,12 @@
             </div>
             <!-- Special requests end -->
             <div class="booking__final__info">
-                Your booking is with Baobab Beach Resort & Spa directly and by completing this booking you agree
+                Your booking is with Baobab Beach Resort & Spa directly and by completing this booking
+                you agree
                 to
                 the
-                <a href="#">booking conditions</a>, <a href="#">general terms</a>, <a href="#">privacy policy
+                <a href="#">booking conditions</a>, <a href="#">general terms</a>, <a href="#">privacy
+                    policy
                 </a>
                 and<a href="#"> wallet terms.</a>
             </div>
@@ -264,4 +274,5 @@
         </form>
     </div>
 </div>
+
 @endsection
