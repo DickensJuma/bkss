@@ -28,6 +28,6 @@ class ClientMail extends Mailable
      */
     public function build()
     {
-        return $this->from('545d9e695b-01509b@inbox.mailtrap.io')->subject('Reservations with today\'s or tomorrow\'s arrival date for Baobab Beach Resort & Spa')->view('emails.Booking_mail');
+        return $this->from('545d9e695b-01509b@inbox.mailtrap.io')->subject('Reservations with today\'s or tomorrow\'s arrival date for Baobab Beach Resort & Spa')->view('emails.Client_mail');
     }
 }
