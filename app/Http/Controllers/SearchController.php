@@ -59,7 +59,7 @@ class SearchController extends Controller
                                         <div class='row'>
                                             <div class='col-md-3'>
                                                 <div class='card-img'>
-                                                    <a href='/hotels/hotel/".$hotel->id."/".$stay."'> 
+                                                    <a href='/hotels/hotel/".$hotel->id."/".$stay."'>
                                                     <img src='uploads/property/small/".$banner_path."' alt='$altText' class='img-fluid rounded-top'></a>
                                                     <div class='btn-wishlist'></div>
                                                 </div>
@@ -71,7 +71,7 @@ class SearchController extends Controller
                                         </div>
                                         <div class='d-flex justify-content-between'>
                                             <div class=''>
-                                                <span class='text-dark h5'>$room->normal_charge</span><span class='text-sm font-weight-semi-bold ml-1'>/night</span>
+                                                <span class='text-dark h5'>$$room->normal_charge</span><span class='text-sm font-weight-semi-bold ml-1'>/night</span>
                                             </div>
                                             <div class=''>
                                                 <span class='text-dark h5'><a href='/hotels/hotel/".$hotel->id."/".$stay."' class= 'btn btn-primary'>See Availability</a></span>
@@ -89,7 +89,7 @@ class SearchController extends Controller
                             </div>";
                         }
                 }
-            }        
+            }
 
         }else{
             $hotel_data = "<p class='text-danger'>No hotels are currently available in your selected location</p>";

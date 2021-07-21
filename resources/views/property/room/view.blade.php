@@ -30,8 +30,10 @@
                         <span class="image-block block2">
                             <a class="" href="{{ asset('uploads/property/large/'.$item->path) }}"
                                 rel="prettyPhoto[gallery]">
-                                <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive"
-                                    alt="Gallery"></a>
+                                <div class="hotel-image"
+                                    style="background: url({{asset('uploads/property/large/'.$item->path) }}) 30% 30% no-repeat;">
+                                </div>
+                            </a>
                         </span>
                     </div>
                 </div>
@@ -41,8 +43,10 @@
                         <span class="image-block block2">
                             <a class="" href="{{ asset('uploads/property/large/'.$item->path) }}"
                                 rel="prettyPhoto[gallery]">
-                                <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive"
-                                    alt="Gallery"></a>
+                                <div class="hotel-image"
+                                    style="background: url({{asset('uploads/property/large/'.$item->path) }}) 30% 30% no-repeat;">
+                                </div>
+                            </a>
                         </span>
                     </div>
                 </div>
@@ -52,8 +56,10 @@
                         <span class="image-block block2">
                             <a class="" href="{{ asset('uploads/property/large/'.$item->path) }}"
                                 rel="prettyPhoto[gallery]" data-lightbox="hotel">
-                                <img src="{{ asset('uploads/property/small/'.$item->path) }}" class="img-responsive"
-                                    alt="Gallery"></a>
+                                <div class="hotel-image"
+                                    style="background: url({{asset('uploads/property/large/'.$item->path) }}) 30% 30% no-repeat;">
+                                </div>
+                            </a>
                         </span>
                     </div>
                 </div>
@@ -63,7 +69,10 @@
                     <a class="" data-lightbox="hotel" href="{{ asset('uploads/property/large/'.$item->path) }}"
                         rel="prettyPhoto[gallery]">
                         <p class="count_pics">+ {{ count($images) - 4 }}</p>
-                        <img src="{{ asset('uploads/property/small/'.$item->path) }}" alt="Gallery">
+                        <div class="hotel-image"
+                            style="background: url({{asset('uploads/property/large/'.$item->path) }}) 30% 30% no-repeat;">
+                        </div>
+                        <!-- <img src="{{ asset('uploads/property/small/'.$item->path) }}" alt="Gallery"> -->
 
                     </a>
 

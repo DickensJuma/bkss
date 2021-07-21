@@ -1029,6 +1029,12 @@ h6 {
     color: #fff;
     background: #4a98d8;
 }
+
+.hotel-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
+}
 /* responsive */
 @media (max-width: 768px) {
     .info_form_group {
