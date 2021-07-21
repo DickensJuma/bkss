@@ -45,6 +45,11 @@ Route::get('/reserve', function () {
     \Mail::to('545d9e695b-01509b@inbox.mailtrap.io')->send(new \App\Mail\Sendmail($details));
     echo "Email sent!";
 });
+Route::get('/mail-client', function () {
+    $details = ['title' => 'Booking Confirmation', 'body' => 'This is the room'];
+    \Mail::to('545d9e695b-01509b@inbox.mailtrap.io')->send(new \App\Mail\ClientMail($details));
+    echo "Email sent!";
+});
 //property routre group
 Route::group(['prefix' => 'property'], function () {
     Route::get('/add', [PropertyController::class, 'create'])->name('property.add');
