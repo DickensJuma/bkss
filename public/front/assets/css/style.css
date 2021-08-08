@@ -534,6 +534,186 @@ table th {
     padding: 5px;
 }
 
+/* Health & safety */
+.health_safety {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: 4rem auto;
+    gap: 1.5rem;
+    padding: 10px;
+}
+
+.health_safety h4 {
+    font-size: 1rem !important;
+}
+
+.health_safety img {
+    width: 100%;
+}
+
+/* top picks */
+.top_picks h4 {
+    color: #fd7e14;
+    padding: 10px 0px;
+}
+
+.top_picks h4 span {
+    padding: 3px;
+    background: #fd7e14;
+    color: #fff;
+    border-radius: 100%;
+    height: 0.8rem;
+    width: 0.8rem;
+}
+
+.top_picks h5 {
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.missing {
+    color: #58a9ec;
+    text-align: right;
+}
+
+.missing a {
+    font-weight: 900;
+}
+
+/* facilities */
+.facilities h3 span {
+    font-size: 13px;
+    font-weight: 300;
+    margin-left: 10px;
+}
+
+.facilities h3 span strong {
+    font-weight: 800;
+}
+
+.facilities > h4 {
+    font-size: 15px !important;
+}
+
+.facilities .popular {
+    list-style: none;
+    display: flex;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-bottom: 10px;
+}
+
+.facilities .popular li {
+    list-style: none;
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+    font-size: 14px;
+}
+.facilities .popular li:not(:last-child) {
+    margin-right: 15px;
+}
+
+.facilities .popular li i {
+    color: #53c519;
+}
+
+.services_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.list_header {
+    font-size: 16px !important;
+    font-weight: 400;
+}
+
+.services_list ul {
+    padding-left: 0px;
+    font-size: 13px;
+}
+
+.services_list ul li span {
+    background-color: rgb(240, 240, 240);
+    padding: 3px;
+    border-radius: 2px 5px;
+}
+
+.services_list ul li i {
+    color: #58a9ec;
+}
+
+.ui-slider-handle {
+    display: none !important;
+}
+
+.ui-widget-header {
+    background: #000e32 !important;
+}
+
+#check_in,
+#check_out {
+    background: transparent !important;
+    text-align: center;
+    color: #000e32 !important;
+    font-weight: 300;
+    font-size: 13px;
+    width: calc(100% - 2.5rem);
+}
+
+#in-range,
+#out-range {
+    width: calc(100% - 1.5rem);
+}
+
+.house_rules {
+    background: #3c7fc728;
+    padding: 1.5rem 10px;
+}
+
+.rule-grid {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    gap: 1rem;
+}
+
+.rule-grid > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: max-content;
+    width: calc(100% - 1.5rem);
+}
+
+.rule-grid table {
+    margin-bottom: 1rem;
+}
+
+.rule-grid table td,
+.rule-grid table th {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 2px 4px;
+}
+.rule-grid table td {
+    width: 50%;
+}
+.rule-grid table td:first-child {
+    border-right: none !important;
+}
+.rule-grid table td:last-child {
+    border-left: none !important;
+}
+
+.pay_cards {
+    display: flex;
+}
+
+.pay_cards img {
+    width: 3rem;
+    margin-right: 10px;
+}
 @media screen and (max-width: 600px) {
     .room_table_container {
         padding-left: 0px;
@@ -558,6 +738,25 @@ table th {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        background-color: rgba(255, 255, 0, 0.486);
+        padding: 10px;
+        width: fit-content;
+        position: fixed !important;
+        right: 10px !important;
+        border-radius: 5px;
+        height: fit-content !important;
+    }
+
+    div.sticky {
+        background-color: rgba(255, 255, 0, 0.849);
+        height: fit-content !important;
+        color: black;
+        top: auto;
+        bottom: 5%;
+    }
+
+    .listing-nav-fixed {
+        left: auto !important;
     }
 
     .proceed_large > div {
@@ -569,6 +768,12 @@ table th {
     .proceed_large > div p:first-child {
         font-weight: 800;
     }
+
+    .services_list {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
     /* table caption {
         font-size: 1.3em;
     }
@@ -641,6 +846,26 @@ table th {
 @media (max-width: 768px) {
     .rooms_table_div {
         grid-template-columns: auto 20%;
+    }
+
+    .rule-grid {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+
+    .rule-grid table th,
+    td {
+        font-size: 14px !important;
+    }
+
+    .rule-grid > div:first-child {
+        font-weight: bold;
+        color: black;
+        text-align: center;
+    }
+
+    .rule-grid > div:last-child {
+        margin-bottom: 1.5rem;
     }
 
     .room_outer {
@@ -764,7 +989,7 @@ h6 {
 }
 
 .price_summary > div .price {
-    background: rgba(178, 222, 243, 0.459);
+    background: #3c7fc728;
     padding: 10px;
     font-weight: bold;
     color: black;
@@ -862,7 +1087,7 @@ h6 {
 }
 
 .your__info > div {
-    background: rgba(178, 222, 243, 0.459);
+    background: #3c7fc728;
     padding: 1.5rem 10px;
     font-size: 14px;
     display: grid;
@@ -964,13 +1189,13 @@ h6 {
 }
 
 .your__details > div {
-    background: rgba(178, 222, 243, 0.459);
+    background: #3c7fc728;
     padding: 1.5rem 10px;
 }
 
 .pay__date > div,
 .special_requests > div {
-    background: rgba(178, 222, 243, 0.459);
+    background: #3c7fc728;
     padding: 1.5rem 10px;
 }
 .pay__select {
@@ -1028,6 +1253,12 @@ h6 {
 .btn_fill:hover {
     color: #fff;
     background: #4a98d8;
+}
+
+.hotel-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
 }
 /* responsive */
 @media (max-width: 768px) {
