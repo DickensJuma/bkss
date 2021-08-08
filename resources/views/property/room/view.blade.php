@@ -92,49 +92,9 @@
                             Rooms For: $
                             <span class='total_cost'>0</span>.00
                         </p>
-                        <p class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-info">
-                            Proceed to reserve
-                        </p>
+                        <input type="submit" class="btn btn-primary btn-sm" value="Save and continue" />
                     </div>
                 </div>
-                <div class="modal fade" id="modal-info">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Personal Infomation</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" class="form-label">email</label>
-                                    <input type="email" class="form-control" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tel" class="form-label">Telephone No</label>
-                                    <input type="text" class="form-control" name="tel" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message" class="form-label">What message would you like the hotel to
-                                        know before you arrive?</label>
-                                    <textarea class="form-control" name="message" id="" cols="30" rows="5"></textarea>
-                                </div>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                                <input type="submit" class="btn btn-outline-success" value="Save and reserve" />
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- /.modal -->
             </form>
             <h3>Our facilities</h3>
             <ul>

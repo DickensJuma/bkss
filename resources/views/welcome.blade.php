@@ -11,19 +11,19 @@
                         <div class="">
                             <div class="form-group">
                                 <span class="form-label">Destination</span>
-                                <input type="text" name="destination" placeholder="Where To ?">
+                                <input type="text" name="destination" placeholder="Where To ?" required>
                             </div>
                         </div>
                         <div class="">
                             <div class="form-group">
                                 <span class="form-label">Check In</span>
-                                <input name="in" type="text" id="datepicker" placeholder="Check In">
+                                <input name="in" type="text" id="datepicker" placeholder="Check In" required>
                             </div>
                         </div>
                         <div class="">
                             <div class="form-group">
                                 <span class="form-label">Check out</span>
-                                <input name="out" type="text" id="datepicker1" placeholder="Check Out">
+                                <input name="out" type="text" id="datepicker1" placeholder="Check Out" required>
                             </div>
                         </div>
                         <div class="">
