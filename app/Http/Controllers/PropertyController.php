@@ -173,7 +173,7 @@ class PropertyController extends Controller
         $images = Photo::where(['p_id' => $property_id])->get();
         //images count
         //get rooms
-        $rooms = Room::where(['property' => $hotel->id])->get();
+        $rooms = Room::where(['property' => $hotel->id])->where(['status'=>1])->get();
         //dd($rooms, $totalstay);
         if ($rooms->isNotEmpty()) {
             foreach ($rooms as $room) {
