@@ -117,4 +117,56 @@ jQuery(document).ready(function() {
     });
 })
 </script>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script>
+$(function() {
+    $("#in-range").slider({
+        range: true,
+        min: new Date(new Date().setHours(00)).getTime(),
+        max: new Date(new Date().setHours(23)).getTime(),
+        step: 86400,
+        values: [new Date().getTime(), new Date(new Date().setHours(new Date().getHours() + 1))
+            .getTime()
+        ],
+        slide: function(event, ui) {
+            $("#check_in").val(
+                `${(new Date(ui.values[0]).getHours())}:${(new Date(ui.values[0]).getMinutes())}` +
+                " - " + `${(new Date(ui
+                    .values[1])).getHours()}: ${(new Date(ui
+                    .values[1])).getMinutes()}`);
+        }
+    });
+    $("#check_in").val(
+        `${(new Date($("#in-range").slider("values", 0)).getHours())}:${(new Date($("#in-range").slider("values", 0)).getMinutes())}` +
+        " - " +
+        `${new Date((new Date($("#in-range").slider("values", 1)))).getHours()}: ${(new Date($("#in-range").slider("values", 1))).getMinutes()}`
+    );
+    $("#check_in").prop('disabled', true);
+});
+$(function() {
+    $("#out-range").slider({
+        range: true,
+        min: new Date(new Date().setHours(00)).getTime(),
+        max: new Date(new Date().setHours(23)).getTime(),
+        step: 86400,
+        values: [new Date().getTime(), new Date(new Date().setHours(new Date().getHours() + 1))
+            .getTime()
+        ],
+        slide: function(event, ui) {
+            $("#check_out").val(
+                `${(new Date(ui.values[0]).getHours())}:${(new Date(ui.values[0]).getMinutes())}` +
+                " - " + `${(new Date(ui
+                    .values[1])).getHours()}: ${(new Date(ui
+                    .values[1])).getMinutes()}`);
+        }
+    });
+    $("#check_out").val(
+        `${(new Date($("#out-range").slider("values", 0)).getHours())}:${(new Date($("#out-range").slider("values", 0)).getMinutes())}` +
+        " - " +
+        `${new Date((new Date($("#out-range").slider("values", 1)))).getHours()}: ${(new Date($("#out-range").slider("values", 1))).getMinutes()}`
+    );
+    $("#check_out").prop('disabled', true);
+});
+</script>
 @endsection
